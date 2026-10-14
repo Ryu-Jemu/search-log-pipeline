@@ -104,8 +104,8 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--table", default="events")
     ap.add_argument("--group", default="slp-ingest")
-    ap.add_argument("--batch-size", type=int, default=5000)
-    ap.add_argument("--batch-ms", type=int, default=1000)
+    ap.add_argument("--batch-size", type=int, default=50000)  # 실험 A 결과로 결정
+    ap.add_argument("--batch-ms", type=int, default=200)
     ap.add_argument("--commit", choices=["auto", "after"], default="after")
     ap.add_argument("--settings", default="{}", help='INSERT 설정 JSON, 예: {"async_insert": 1}')
     ap.add_argument("--dedup-token", action="store_true")
