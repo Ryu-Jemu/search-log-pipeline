@@ -243,7 +243,7 @@ class Generator:
 
 def main():
     import argparse, sys, pathlib
-    ap = argparse.ArgumentParser(description="ORCAS 검색 로그 재생기 (JSONL을 stdout으로)")
+    ap = argparse.ArgumentParser(description="ORCAS 검색 로그 재생기. stdout에 '키<TAB>JSON' 한 줄씩")
     ap.add_argument("--corpus", default="data/prepared/queries.parquet")
     ap.add_argument("--labels", default="data/labels.json")
     ap.add_argument("--hours", type=float, default=24)
@@ -253,8 +253,8 @@ def main():
     cfg = Config(seed=a.seed, sim_seconds=a.hours * 3600, sessions_per_day=a.sessions_per_day)
     g = Generator(Corpus.load(a.corpus), cfg)
     out = sys.stdout.buffer
-    for _, v in g.events():
-        out.write(v + b"\n")
+    for k, v in g.events():
+        out.write(k.encode() + b"\t" + v + b"\n")  # JSON 안의 탭은 \t로 이스케이프되어 구분자와 겹치지 않는다
     pathlib.Path(a.labels).write_text(json.dumps({"config": dataclasses.asdict(cfg), "stats": g.stats,
                                                    "campaigns": g.labels}, ensure_ascii=False, indent=1))
     print(json.dumps(g.stats), file=sys.stderr)
