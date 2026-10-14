@@ -1,0 +1,430 @@
+{
+ "variant": "a4_kafka_engine_mv",
+ "consumers": "engine",
+ "args": [],
+ "produce_seconds": 60.2,
+ "end_seconds": 67.3,
+ "expected_rows": 299855,
+ "rows": 299855,
+ "unique_event_ids": 299855,
+ "rows_at_produce_end": 260075,
+ "lag_at_produce_end": 39766,
+ "drained": true,
+ "max_active_parts": 5,
+ "insert_errors": {},
+ "throughput_rows_per_s_during_produce": 4327,
+ "latency": {
+  "p50_ms": 3422.0,
+  "p95_ms": 7050.999999999996,
+  "p99_ms": 7542.0,
+  "max_ms": 7982
+ },
+ "samples": [
+  {
+   "t": 0.0,
+   "rows": 0,
+   "active_parts": 0,
+   "lag": 0
+  },
+  {
+   "t": 1.1,
+   "rows": 0,
+   "active_parts": 0,
+   "lag": 4870
+  },
+  {
+   "t": 2.2,
+   "rows": 0,
+   "active_parts": 0,
+   "lag": 10181
+  },
+  {
+   "t": 3.2,
+   "rows": 0,
+   "active_parts": 0,
+   "lag": 15500
+  },
+  {
+   "t": 4.3,
+   "rows": 0,
+   "active_parts": 0,
+   "lag": 20879
+  },
+  {
+   "t": 5.4,
+   "rows": 24315,
+   "active_parts": 1,
+   "lag": 1835
+  },
+  {
+   "t": 6.4,
+   "rows": 24315,
+   "active_parts": 1,
+   "lag": 7245
+  },
+  {
+   "t": 7.5,
+   "rows": 24315,
+   "active_parts": 1,
+   "lag": 12556
+  },
+  {
+   "t": 8.6,
+   "rows": 24315,
+   "active_parts": 1,
+   "lag": 17872
+  },
+  {
+   "t": 9.6,
+   "rows": 24315,
+   "active_parts": 1,
+   "lag": 23335
+  },
+  {
+   "t": 10.7,
+   "rows": 24315,
+   "active_parts": 1,
+   "lag": 28701
+  },
+  {
+   "t": 11.8,
+   "rows": 24315,
+   "active_parts": 1,
+   "lag": 34076
+  },
+  {
+   "t": 12.9,
+   "rows": 24315,
+   "active_parts": 1,
+   "lag": 39483
+  },
+  {
+   "t": 14.0,
+   "rows": 63153,
+   "active_parts": 2,
+   "lag": 5947
+  },
+  {
+   "t": 15.0,
+   "rows": 63153,
+   "active_parts": 2,
+   "lag": 11334
+  },
+  {
+   "t": 16.1,
+   "rows": 63153,
+   "active_parts": 2,
+   "lag": 16664
+  },
+  {
+   "t": 17.2,
+   "rows": 63153,
+   "active_parts": 2,
+   "lag": 21964
+  },
+  {
+   "t": 18.2,
+   "rows": 63153,
+   "active_parts": 2,
+   "lag": 27419
+  },
+  {
+   "t": 19.3,
+   "rows": 63153,
+   "active_parts": 2,
+   "lag": 32904
+  },
+  {
+   "t": 20.4,
+   "rows": 63153,
+   "active_parts": 2,
+   "lag": 38202
+  },
+  {
+   "t": 21.5,
+   "rows": 102480,
+   "active_parts": 3,
+   "lag": 4170
+  },
+  {
+   "t": 22.6,
+   "rows": 102480,
+   "active_parts": 3,
+   "lag": 9590
+  },
+  {
+   "t": 23.6,
+   "rows": 102480,
+   "active_parts": 3,
+   "lag": 14909
+  },
+  {
+   "t": 24.7,
+   "rows": 102480,
+   "active_parts": 3,
+   "lag": 20288
+  },
+  {
+   "t": 25.8,
+   "rows": 102480,
+   "active_parts": 3,
+   "lag": 25695
+  },
+  {
+   "t": 26.8,
+   "rows": 102480,
+   "active_parts": 3,
+   "lag": 31004
+  },
+  {
+   "t": 27.9,
+   "rows": 102480,
+   "active_parts": 3,
+   "lag": 36451
+  },
+  {
+   "t": 29.0,
+   "rows": 141825,
+   "active_parts": 4,
+   "lag": 2308
+  },
+  {
+   "t": 30.1,
+   "rows": 141825,
+   "active_parts": 4,
+   "lag": 7700
+  },
+  {
+   "t": 31.1,
+   "rows": 141825,
+   "active_parts": 4,
+   "lag": 13115
+  },
+  {
+   "t": 32.2,
+   "rows": 141825,
+   "active_parts": 4,
+   "lag": 18582
+  },
+  {
+   "t": 33.3,
+   "rows": 141825,
+   "active_parts": 4,
+   "lag": 23851
+  },
+  {
+   "t": 34.3,
+   "rows": 141825,
+   "active_parts": 4,
+   "lag": 29201
+  },
+  {
+   "t": 35.4,
+   "rows": 141825,
+   "active_parts": 4,
+   "lag": 34500
+  },
+  {
+   "t": 36.5,
+   "rows": 141825,
+   "active_parts": 4,
+   "lag": 39913
+  },
+  {
+   "t": 37.6,
+   "rows": 181156,
+   "active_parts": 5,
+   "lag": 5967
+  },
+  {
+   "t": 38.6,
+   "rows": 181156,
+   "active_parts": 5,
+   "lag": 11270
+  },
+  {
+   "t": 39.7,
+   "rows": 181156,
+   "active_parts": 5,
+   "lag": 16738
+  },
+  {
+   "t": 40.8,
+   "rows": 181156,
+   "active_parts": 5,
+   "lag": 22052
+  },
+  {
+   "t": 41.9,
+   "rows": 181156,
+   "active_parts": 5,
+   "lag": 27434
+  },
+  {
+   "t": 42.9,
+   "rows": 181156,
+   "active_parts": 5,
+   "lag": 32702
+  },
+  {
+   "t": 44.0,
+   "rows": 181156,
+   "active_parts": 5,
+   "lag": 38109
+  },
+  {
+   "t": 45.1,
+   "rows": 220664,
+   "active_parts": 1,
+   "lag": 4001
+  },
+  {
+   "t": 46.1,
+   "rows": 220664,
+   "active_parts": 1,
+   "lag": 9441
+  },
+  {
+   "t": 47.2,
+   "rows": 220664,
+   "active_parts": 1,
+   "lag": 14737
+  },
+  {
+   "t": 48.3,
+   "rows": 220664,
+   "active_parts": 1,
+   "lag": 20130
+  },
+  {
+   "t": 49.4,
+   "rows": 220664,
+   "active_parts": 1,
+   "lag": 25527
+  },
+  {
+   "t": 50.5,
+   "rows": 220664,
+   "active_parts": 1,
+   "lag": 30869
+  },
+  {
+   "t": 51.5,
+   "rows": 220664,
+   "active_parts": 1,
+   "lag": 36325
+  },
+  {
+   "t": 52.6,
+   "rows": 260075,
+   "active_parts": 2,
+   "lag": 2100
+  },
+  {
+   "t": 53.7,
+   "rows": 260075,
+   "active_parts": 2,
+   "lag": 7554
+  },
+  {
+   "t": 54.7,
+   "rows": 260075,
+   "active_parts": 2,
+   "lag": 12890
+  },
+  {
+   "t": 55.8,
+   "rows": 260075,
+   "active_parts": 2,
+   "lag": 18200
+  },
+  {
+   "t": 56.9,
+   "rows": 260075,
+   "active_parts": 2,
+   "lag": 23618
+  },
+  {
+   "t": 58.0,
+   "rows": 260075,
+   "active_parts": 2,
+   "lag": 28964
+  },
+  {
+   "t": 59.0,
+   "rows": 260075,
+   "active_parts": 2,
+   "lag": 34362
+  },
+  {
+   "t": 60.1,
+   "rows": 260075,
+   "active_parts": 2,
+   "lag": 39766
+  },
+  {
+   "t": 61.2,
+   "rows": 299805,
+   "active_parts": 3,
+   "lag": 50
+  },
+  {
+   "t": 62.3,
+   "rows": 299805,
+   "active_parts": 3,
+   "lag": 50
+  },
+  {
+   "t": 63.3,
+   "rows": 299805,
+   "active_parts": 3,
+   "lag": 50
+  },
+  {
+   "t": 64.4,
+   "rows": 299805,
+   "active_parts": 3,
+   "lag": 50
+  },
+  {
+   "t": 65.5,
+   "rows": 299805,
+   "active_parts": 3,
+   "lag": 50
+  },
+  {
+   "t": 66.6,
+   "rows": 299855,
+   "active_parts": 4,
+   "lag": 0
+  }
+ ],
+ "engine_dlq": [
+  [
+   "bad_json",
+   51
+  ],
+  [
+   "bad_user_id",
+   48
+  ],
+  [
+   "empty_query",
+   2
+  ],
+  [
+   "bad_value",
+   44
+  ]
+ ],
+ "truth": {
+  "lines": 300000,
+  "valid": 299855,
+  "rejected": 145
+ },
+ "env": {
+  "cpus": 2,
+  "rate": 5000,
+  "n": 300000
+ }
+}

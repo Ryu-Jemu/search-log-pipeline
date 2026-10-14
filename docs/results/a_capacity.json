@@ -1,0 +1,17 @@
+{
+ "truth_valid": 709950,
+ "cpus": 2,
+ "results": {
+  "batch_5000_1s": {
+   "rows": 709950,
+   "seconds": 15.7,
+   "rows_per_s": 45119
+  },
+  "batch_50000_1s": {
+   "rows": 709950,
+   "seconds": 13.2,
+   "rows_per_s": 53648
+  }
+ },
+ "note": "소비자 시작~전체 적재 완료. 소비자 기동·그룹 합류 시간 포함"
+}
