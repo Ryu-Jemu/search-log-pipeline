@@ -26,7 +26,7 @@ INSERT_COLUMNS = COLUMNS + ["kafka_ts", "kafka_partition", "kafka_offset"]
 
 def run(table: str, group: str, batch_size: int, batch_ms: int, commit: str,
         settings: dict, dedup_token: bool, idle_exit: float, stats_path: str | None,
-        resume_from_table: bool = False, instance_id: str | None = None,
+        resume_from_table: bool = True, instance_id: str | None = None,
         session_timeout_ms: int = 45000, failpoint_prob: float = 0.0,
         failpoint_where: str = "both") -> dict:
     client = ch()

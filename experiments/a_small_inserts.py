@@ -132,6 +132,7 @@ VARIANTS = {
     "a2b_batch_100": (1, ["--batch-size", "100", "--batch-ms", "1000"]),
     "a2c_batch_flush_200ms": (1, ["--batch-size", "100000", "--batch-ms", "200"]),
     "a4b_kafka_engine_flush_500ms": ("engine", ["kafka_flush_interval_ms = 500"]),
+    "a2e_default_50000_200ms": (1, ["--batch-size", "50000", "--batch-ms", "200"]),  # 채택한 기본값 그대로
     "a2d_batch_flush_5s": (1, ["--batch-size", "100000", "--batch-ms", "5000"]),
 }
 

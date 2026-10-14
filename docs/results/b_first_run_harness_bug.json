@@ -1,0 +1,12 @@
+{
+ "note": "하네스 결함(재시작 수집기가 세션 타임아웃 동안 파티션을 못 받고 유휴 종료) 상태의 첫 B 실행. 원자료 JSON은 이후 실행에 덮어써졌고, 아래 값은 당시 콘솔 출력에서 옮겼다.",
+ "lost_by_variant": {
+  "b0_autocommit": 576632,
+  "b1_commit_after_insert": 595782,
+  "b2_replacing_mergetree": 620147,
+  "b3a_dedup_token_default": 584536,
+  "b3b_dedup_token_window": 577461,
+  "b4_resume_from_table": 606949
+ },
+ "truth_valid": 709950
+}

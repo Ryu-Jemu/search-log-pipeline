@@ -8,7 +8,8 @@ data = os.path.join(ROOT, "data", "day1.tsv")
 tr = truth(data)
 out = {}
 for name, args in {"batch_5000_1s": ["--batch-size", "5000", "--batch-ms", "1000"],
-                   "batch_50000_1s": ["--batch-size", "50000", "--batch-ms", "1000"]}.items():
+                   "batch_50000_1s": ["--batch-size", "50000", "--batch-ms", "1000"],
+                   "default_50000_200ms": ["--batch-size", "50000", "--batch-ms", "200"]}.items():
     c = ch(); reset_topics(); create_events_table(c, "events")
     spawn("slp.produce", data).wait()
     t0 = time.time()

@@ -4,13 +4,18 @@
  "results": {
   "batch_5000_1s": {
    "rows": 709950,
-   "seconds": 15.7,
-   "rows_per_s": 45119
+   "seconds": 16.2,
+   "rows_per_s": 43762
   },
   "batch_50000_1s": {
    "rows": 709950,
-   "seconds": 13.2,
-   "rows_per_s": 53648
+   "seconds": 13.9,
+   "rows_per_s": 50913
+  },
+  "default_50000_200ms": {
+   "rows": 709950,
+   "seconds": 15.1,
+   "rows_per_s": 47137
   }
  },
  "note": "소비자 시작~전체 적재 완료. 소비자 기동·그룹 합류 시간 포함"

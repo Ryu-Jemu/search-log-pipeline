@@ -1,0 +1,21 @@
+{
+ "clickhouse_version": "24.8.14.39",
+ "merge_tree_settings": {
+  "old_parts_lifetime": "480",
+  "non_replicated_deduplication_window": "0",
+  "parts_to_delay_insert": "1000",
+  "parts_to_throw_insert": "3000"
+ },
+ "settings": {
+  "max_insert_block_size": "1048449",
+  "kafka_max_wait_ms": "5000",
+  "stream_flush_interval_ms": "7500",
+  "async_insert_use_adaptive_busy_timeout": "1",
+  "async_insert_busy_timeout_max_ms": "200",
+  "async_insert_busy_timeout_ms": "200"
+ },
+ "cpus": 2,
+ "mem_total_bytes": 8419655680,
+ "kafka_image": "apache/kafka:3.8.0",
+ "note": "실험 환경 기본 설정 스냅샷(2026-10-15). 문서에 인용한 기본값의 근거"
+}
