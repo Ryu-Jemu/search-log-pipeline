@@ -1,0 +1,40 @@
+{
+ "variant": "b1_commit_after_insert",
+ "engine": "MergeTree",
+ "table_settings": "",
+ "args": [
+  "--commit",
+  "after"
+ ],
+ "kills": 15,
+ "kill_after_s": [
+  2.63,
+  2.03,
+  3.78,
+  1.75,
+  3.38,
+  2.78,
+  1.7,
+  3.28,
+  1.63,
+  3.02,
+  1.74,
+  1.82,
+  2.99,
+  4.39,
+  1.93
+ ],
+ "final_run_s": 5.4,
+ "truth_valid": 709950,
+ "rows": 709950,
+ "unique": 709950,
+ "lost": 0,
+ "unknown_ids": 0,
+ "duplicates": 0,
+ "dlq_messages": 419,
+ "truth_rejected": 390,
+ "env": {
+  "cpus": 2,
+  "seed": 7
+ }
+}
