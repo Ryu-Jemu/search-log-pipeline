@@ -1,0 +1,40 @@
+{
+ "variant": "b2_replacing_mergetree",
+ "engine": "ReplacingMergeTree(inserted_at)",
+ "table_settings": "",
+ "args": [
+  "--commit",
+  "after"
+ ],
+ "mode": "failpoint",
+ "kills": 7,
+ "kill_points": [
+  "after_insert_before_commit",
+  "after_insert_before_commit",
+  "after_insert_before_commit",
+  "after_insert_before_commit",
+  "before_insert",
+  "after_insert_before_commit",
+  "after_insert_before_commit"
+ ],
+ "final_run_s": 5.4,
+ "truth_valid": 709950,
+ "rows": 739859,
+ "unique": 709950,
+ "lost": 0,
+ "unknown_ids": 0,
+ "duplicates": 29909,
+ "dlq_messages": 422,
+ "truth_rejected": 390,
+ "rows_final": 709950,
+ "hourly_query_ms": {
+  "plain": 10.3,
+  "final": 73.0
+ },
+ "rows_after_optimize": 709950,
+ "env": {
+  "cpus": 2,
+  "seed": 7,
+  "fp_prob": 0.1
+ }
+}

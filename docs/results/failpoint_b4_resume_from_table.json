@@ -1,0 +1,43 @@
+{
+ "variant": "b4_resume_from_table",
+ "engine": "MergeTree",
+ "table_settings": "",
+ "args": [
+  "--commit",
+  "after",
+  "--resume-from-table"
+ ],
+ "mode": "failpoint",
+ "kills": 15,
+ "kill_points": [
+  "after_insert_before_commit",
+  "after_insert_before_commit",
+  "before_insert",
+  "before_insert",
+  "before_insert",
+  "after_insert_before_commit",
+  "before_insert",
+  "before_insert",
+  "before_insert",
+  "before_insert",
+  "after_insert_before_commit",
+  "after_insert_before_commit",
+  "before_insert",
+  "before_insert",
+  "before_insert"
+ ],
+ "final_run_s": 12.8,
+ "truth_valid": 709950,
+ "rows": 709950,
+ "unique": 709950,
+ "lost": 0,
+ "unknown_ids": 0,
+ "duplicates": 0,
+ "dlq_messages": 435,
+ "truth_rejected": 390,
+ "env": {
+  "cpus": 2,
+  "seed": 7,
+  "fp_prob": 0.3
+ }
+}

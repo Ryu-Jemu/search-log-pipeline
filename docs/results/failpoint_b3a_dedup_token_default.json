@@ -1,0 +1,34 @@
+{
+ "variant": "b3a_dedup_token_default",
+ "engine": "MergeTree",
+ "table_settings": "",
+ "args": [
+  "--commit",
+  "after",
+  "--dedup-token"
+ ],
+ "mode": "failpoint",
+ "kills": 6,
+ "kill_points": [
+  "before_insert",
+  "before_insert",
+  "after_insert_before_commit",
+  "after_insert_before_commit",
+  "before_insert",
+  "before_insert"
+ ],
+ "final_run_s": 5.3,
+ "truth_valid": 709950,
+ "rows": 729468,
+ "unique": 709950,
+ "lost": 0,
+ "unknown_ids": 0,
+ "duplicates": 19518,
+ "dlq_messages": 408,
+ "truth_rejected": 390,
+ "env": {
+  "cpus": 2,
+  "seed": 7,
+  "fp_prob": 0.1
+ }
+}

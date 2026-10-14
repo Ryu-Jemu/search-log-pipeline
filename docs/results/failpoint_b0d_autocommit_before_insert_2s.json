@@ -1,0 +1,41 @@
+{
+ "variant": "b0d_autocommit_before_insert_2s",
+ "engine": "MergeTree",
+ "table_settings": "",
+ "args": [
+  "--commit",
+  "auto",
+  "--batch-ms",
+  "2000",
+  "--failpoint-where",
+  "before"
+ ],
+ "mode": "failpoint",
+ "kills": 10,
+ "kill_points": [
+  "before_insert",
+  "before_insert",
+  "before_insert",
+  "before_insert",
+  "before_insert",
+  "before_insert",
+  "before_insert",
+  "before_insert",
+  "before_insert",
+  "before_insert"
+ ],
+ "final_run_s": 5.4,
+ "truth_valid": 709950,
+ "rows": 633364,
+ "unique": 633364,
+ "lost": 76586,
+ "unknown_ids": 0,
+ "duplicates": 0,
+ "dlq_messages": 595,
+ "truth_rejected": 390,
+ "env": {
+  "cpus": 2,
+  "seed": 7,
+  "fp_prob": 0.3
+ }
+}
