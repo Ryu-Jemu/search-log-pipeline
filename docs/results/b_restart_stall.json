@@ -1,0 +1,27 @@
+{
+ "note": "재시작 프로세스 기동부터 첫 메시지 수신까지. 매 시도 직전 같은 그룹 소비자를 SIGKILL",
+ "results": {
+  "default_session_45s": {
+   "restart_to_first_msg_s": [
+    44.77,
+    44.73,
+    44.66
+   ]
+  },
+  "session_6s": {
+   "restart_to_first_msg_s": [
+    5.65,
+    5.68,
+    5.73
+   ]
+  },
+  "static_membership": {
+   "restart_to_first_msg_s": [
+    0.09,
+    0.08,
+    0.07
+   ]
+  }
+ },
+ "cpus": 2
+}
