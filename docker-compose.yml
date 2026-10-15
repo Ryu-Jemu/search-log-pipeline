@@ -33,3 +33,45 @@ services:
       test: ["CMD-SHELL", "wget -qO- http://localhost:8123/ping"]
       interval: 5s
       retries: 20
+
+  # ---- 3단계: 시간별 지표 DAG (docker compose --profile airflow up -d --wait) ----
+  postgres:  # Airflow 메타DB
+    image: mirror.gcr.io/postgres:16
+    profiles: ["airflow"]
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: ${AIRFLOW_DB_PASSWORD:-airflow_local_only}
+      POSTGRES_DB: airflow
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U airflow"]
+      interval: 5s
+      retries: 20
+
+  airflow:  # standalone: api-server·scheduler·dag-processor·triggerer를 한 컨테이너에서(로컬 실험용)
+    build: ./airflow
+    image: slp-airflow:3.3.2
+    profiles: ["airflow"]
+    command: standalone
+    ports: ["8080:8080"]
+    depends_on:
+      postgres: {condition: service_healthy}
+      clickhouse: {condition: service_healthy}
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:${AIRFLOW_DB_PASSWORD:-airflow_local_only}@postgres/airflow
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "True"
+      AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS: "True"  # 로컬 전용: 로그인 없이 UI 접근
+      AIRFLOW__DAG_PROCESSOR__MIN_FILE_PROCESS_INTERVAL: "5"
+      AIRFLOW__DAG_PROCESSOR__REFRESH_INTERVAL: "10"
+      PYTHONPATH: /opt/airflow/src
+      CH_HOST: clickhouse
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:-slp_local_only}
+    volumes:
+      - ./dags:/opt/airflow/dags:ro
+      - ./src:/opt/airflow/src:ro
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8080/api/v2/monitor/health >/dev/null"]
+      interval: 10s
+      retries: 30
+      start_period: 30s
