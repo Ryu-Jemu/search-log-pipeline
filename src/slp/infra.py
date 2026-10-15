@@ -9,6 +9,7 @@ from confluent_kafka.admin import AdminClient, NewTopic
 
 BOOTSTRAP = os.getenv("KAFKA_BOOTSTRAP", "localhost:9092")
 TOPIC, DLQ = "search-events", "search-events-dlq"
+N_PARTITIONS = 6  # search-events 파티션 수. 워터마크 판정(slp.metrics)도 이 값을 쓴다
 
 EVENTS_COLUMNS_DDL = """
     event_id UUID,
@@ -27,10 +28,10 @@ EVENTS_COLUMNS_DDL = """
 """
 
 
-def ch():
+def ch(database: str = "slp"):
     return clickhouse_connect.get_client(
         host=os.getenv("CH_HOST", "localhost"), port=8123, username="slp",
-        password=os.getenv("CLICKHOUSE_PASSWORD", "slp_local_only"), database="slp")
+        password=os.getenv("CLICKHOUSE_PASSWORD", "slp_local_only"), database=database)
 
 
 def create_events_table(client, name: str, engine: str = "MergeTree", settings: str = "") -> None:
@@ -42,7 +43,7 @@ def create_events_table(client, name: str, engine: str = "MergeTree", settings: 
         {settings}""")
 
 
-def reset_topics(partitions: int = 6) -> None:
+def reset_topics(partitions: int = N_PARTITIONS) -> None:
     """실험마다 토픽을 새로 만든다(오프셋·소비 그룹 상태를 남기지 않기 위해)."""
     a = AdminClient({"bootstrap.servers": BOOTSTRAP})
     existing = set(a.list_topics(timeout=10).topics)
