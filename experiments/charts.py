@@ -12,8 +12,11 @@ R = os.path.join(ROOT, "docs", "results")
 OUT = os.path.join(ROOT, "docs", "img")
 os.makedirs(OUT, exist_ok=True)
 
-for f in fm.findSystemFonts():
-    if "NotoSansCJK-Regular" in f:
+# 한글 글꼴: 클라우드(Linux)는 Noto Sans CJK, macOS는 Apple SD Gothic Neo. 앞에 있는 것을 우선한다.
+_fonts = fm.findSystemFonts()
+for want in ("NotoSansCJK-Regular", "AppleSDGothicNeo"):
+    f = next((f for f in _fonts if want in f), None)
+    if f:
         fm.fontManager.addfont(f)
         plt.rcParams["font.family"] = fm.FontProperties(fname=f).get_name()
         break
@@ -97,7 +100,11 @@ def chart_c():
 
 
 if __name__ == "__main__":
-    chart_a()
-    chart_b()
-    if os.path.exists(os.path.join(R, "c_late_events.json")):
-        chart_c()
+    # 인자로 그릴 그림을 고른다(예: charts.py c2). 인자가 없으면 A·B·C만 그린다.
+    # 이미 커밋한 그림을 다른 환경·글꼴로 다시 그리지 않도록 새 그림은 이름을 지정해서만 그린다.
+    import sys
+    names = sys.argv[1:] or ["a", "b", "c"]
+    for n in names:
+        if n == "c" and not os.path.exists(os.path.join(R, "c_late_events.json")):
+            continue
+        globals()[f"chart_{n}"]()

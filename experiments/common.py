@@ -88,9 +88,14 @@ def latency(table: str) -> dict:
     return {"p50_ms": r[0][0], "p95_ms": r[0][1], "p99_ms": r[0][2], "max_ms": r[1]}
 
 
-def save(name: str, obj) -> str:
+def save(name: str, obj, overwrite: bool = False) -> str:
+    """결과 JSON을 저장한다. 같은 이름이 있으면 덮어쓰지 않고 시각을 붙인 새 파일에 쓴다.
+    (다른 측정 환경에서 만든 원자료를 실수로 지우지 않기 위해. 덮어쓰려면 overwrite=True 또는 SLP_OVERWRITE=1)"""
     os.makedirs(os.path.join(ROOT, "docs", "results"), exist_ok=True)
     path = os.path.join(ROOT, "docs", "results", f"{name}.json")
+    if os.path.exists(path) and not (overwrite or os.getenv("SLP_OVERWRITE") == "1"):
+        path = path[:-5] + time.strftime(".conflict-%Y%m%dT%H%M%S.json")
+        print(f"경고: {name}.json 이 이미 있어 {os.path.basename(path)} 에 저장", file=sys.stderr, flush=True)
     with open(path, "w") as f:
         json.dump(obj, f, ensure_ascii=False, indent=1, default=str)
     return path
