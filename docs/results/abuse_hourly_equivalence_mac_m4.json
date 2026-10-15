@@ -1,0 +1,28 @@
+{
+ "table": "events_s42",
+ "hours": 25,
+ "equal": {
+  "R1": true,
+  "R2": true,
+  "R3": true,
+  "R4": true
+ },
+ "counts": {
+  "R1": {
+   "day": 6,
+   "hourly": 6
+  },
+  "R2": {
+   "day": 94,
+   "hourly": 94
+  },
+  "R3": {
+   "day": 3,
+   "hourly": 3
+  },
+  "R4": {
+   "day": 7,
+   "hourly": 7
+  }
+ }
+}

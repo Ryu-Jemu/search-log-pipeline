@@ -181,14 +181,35 @@ def evaluate(seeds: list[int], thresholds_path: str) -> dict:
             "pooled": pooled, "per_seed": per_seed}
 
 
+def hourly_equivalence(table: str = "events_s42") -> dict:
+    """운영용 시간 단위 탐지(abuse.detect_hour)를 25시간 돌린 합이 하루 단위 결과와 같은지 확인한다(채점 아님)."""
+    th = json.load(open(os.path.join(ROOT, "docs", "results", "abuse_thresholds_day1_mac_m4.json")))
+    assert abuse.CHOSEN == th["chosen"], "abuse.CHOSEN이 day1 결정값과 다르다"
+    c = ch()
+    st = stats(c, table)
+    day = {"R1": abuse.apply_r1(st["R1"], **abuse.CHOSEN["R1"]), "R2": abuse.apply_r2(st["R2"], **abuse.CHOSEN["R2"]),
+           "R3": abuse.apply_r3(st["R3"], **abuse.CHOSEN["R3"]),
+           "R4": {(q, str(b)) for q, b, _ in abuse.apply_r4(st["R4"], **abuse.CHOSEN["R4"])}}
+    hourly = {"R1": set(), "R2": set(), "R3": set(), "R4": set()}
+    for h in range(25):
+        for r in abuse.detect_hour(c, table, START + timedelta(hours=h)):
+            hourly[r["rule"]].add((r["entity"], str(r["window"])) if r["rule"] == "R4" else r["entity"])
+    return {"table": table, "hours": 25, "equal": {k: day[k] == hourly[k] for k in day},
+            "counts": {k: {"day": len(day[k]), "hourly": len(hourly[k])} for k in day}}
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("step", choices=["load", "tune", "evaluate"])
+    ap.add_argument("step", choices=["load", "tune", "evaluate", "hourly"])
     ap.add_argument("--seeds", type=int, nargs="*", default=[42, 43, 44, 45, 46, 47])
     ap.add_argument("--tag", default="mac_m4")
     a = ap.parse_args()
     if a.step == "load":
         print(save(f"abuse_load_{a.tag}", load(a.seeds)))
+    elif a.step == "hourly":
+        r = hourly_equivalence()
+        print(r)
+        print(save(f"abuse_hourly_equivalence_{a.tag}", r))
     elif a.step == "tune":
         print(save(f"abuse_thresholds_day1_{a.tag}", tune()))
     else:

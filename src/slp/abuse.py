@@ -11,7 +11,7 @@
 from __future__ import annotations
 
 import math
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 from slp.validate import normalize_query
 
@@ -159,3 +159,46 @@ def clopper_pearson(k: int, n: int, alpha: float = 0.05) -> tuple[float, float]:
     upper = 1.0 if k == n else solve(lambda p: cdf(k, p) <= alpha / 2)
     return (round(lower, 4), round(upper, 4))
 
+
+# ---------------------------------------------------------------- 운영(시간 단위 탐지)
+# day1(seed 42)에서만 정한 임계값. 근거: docs/results/abuse_thresholds_day1_mac_m4.json의 chosen
+CHOSEN = {"R1": {"t": 70, "max_distinct": 0.2}, "R2": {"min_n": 3, "share": 1.0}, "R3": {"c": 50},
+          "R4": {"n": 50, "users": 20, "z": 30}}
+LAM_MIN = 0.1
+DETECTIONS = "abuse_detections"
+
+
+def create_detections_table(client) -> None:
+    # 같은 시간을 다시 돌려도 중복이 남지 않도록 (시간, 규칙, 대상, 창)을 키로 둔다.
+    client.command(f"""CREATE TABLE IF NOT EXISTS {DETECTIONS} (
+        hour DateTime('UTC'), rule LowCardinality(String), entity String, window DateTime('UTC'),
+        value Float64, users UInt32, detected_at DateTime64(3, 'UTC'))
+        ENGINE = ReplacingMergeTree(detected_at) ORDER BY (hour, rule, entity, window)""")
+
+
+def detect_hour(client, table: str, hour: datetime, th: dict = CHOSEN) -> list[dict]:
+    """시간 [hour, hour+1h) 안의 창만 평가한다. 창(5분·1시간·10분)이 정시에 맞춰 있어,
+    하루를 시간 단위로 나눠 돌린 결과의 합은 하루 전체를 한 번에 돌린 결과와 같다(abuse_score.py hourly로 확인)."""
+    end = hour + timedelta(hours=1)
+    out = []
+    for u, w, n, ratio in r1_stats(client, table, hour, end, th["R1"]["t"]):
+        if ratio <= th["R1"]["max_distinct"]:
+            out.append({"rule": "R1", "entity": u, "window": w, "value": float(n), "users": 1})
+    for u, w, n, share in r2_stats(client, table, hour, end, th["R2"]["min_n"]):
+        if share >= th["R2"]["share"]:
+            out.append({"rule": "R2", "entity": u, "window": w, "value": float(share), "users": 1})
+    for u, w, m in r3_stats(client, table, hour, end, th["R3"]["c"]):
+        out.append({"rule": "R3", "entity": u, "window": w, "value": float(m), "users": 1})
+    for q, b, n, users, lam, z, _ in r4_stats(client, table, hour, end, th["R4"]["n"], th["R4"]["users"], LAM_MIN):
+        if z >= th["R4"]["z"]:
+            out.append({"rule": "R4", "entity": q, "window": b, "value": float(z), "users": int(users)})
+    return out
+
+
+def write_detections(client, hour: datetime, rows: list[dict]) -> None:
+    now = client.query("SELECT now64(3)").result_rows[0][0]
+    utc = lambda t: t.replace(tzinfo=timezone.utc) if t.tzinfo is None else t  # noqa: E731 - metrics._utc와 같은 이유
+    if rows:
+        client.insert(DETECTIONS, [[utc(hour), r["rule"], r["entity"], utc(r["window"]), r["value"], r["users"], utc(now)]
+                                   for r in rows],
+                      column_names=["hour", "rule", "entity", "window", "value", "users", "detected_at"])
