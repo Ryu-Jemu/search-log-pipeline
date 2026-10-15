@@ -110,9 +110,9 @@ def watermark(client, since: datetime | None = None, table: str = "events",
     return _utc(wm) if n >= partitions else None
 
 
-def compute_hour(client, hour: datetime, version: int, stage: str, is_final: int,
-                 table: str = "events", partitions: int = N_PARTITIONS) -> dict:
-    """시간 [hour, hour+1h)를 집계해 버전 행을 쓴다. 경계(오프셋)는 같은 SELECT에서 잡는다."""
+def aggregate(client, hour: datetime, table: str = "events", partitions: int = N_PARTITIONS) -> dict:
+    """시간 [hour, hour+1h)의 지표를 계산만 한다(기록하지 않음). 경계(오프셋)는 같은 SELECT에서 잡는다.
+    재생이 끝난 뒤 호출하면 그대로 정답(최종 적재본 기준)이 된다."""
     hour = _utc(hour)
     rng = _hour_range(hour)
     s, k, u, (parts, offs), max_ins, now = client.query(f"""
@@ -134,13 +134,20 @@ def compute_hour(client, hour: datetime, version: int, stage: str, is_final: int
         SELECT query_norm, count() c FROM {table} WHERE event_type = 'search' AND {rng} AND {vis}
         GROUP BY query_norm ORDER BY c DESC, query_norm LIMIT {TOP_N}""").result_rows
     top += [("", 0)] * (TOP_N - len(top))  # 항상 N행을 써서 이전 버전 행이 남지 않게 한다
-    row = {"hour": hour, "version": version, "is_final": is_final, "stage": stage, "computed_at": _utc(now),
-           "watermark": watermark(client, since=hour, table=table, partitions=partitions), "searches": s, "clicks": k,
-           "unique_users": u, "zero_click_searches": zero, "offset_boundary": boundary, "max_inserted_at": _utc(max_ins)}
+    return {"hour": hour, "computed_at": _utc(now),
+            "watermark": watermark(client, since=hour, table=table, partitions=partitions), "searches": s,
+            "clicks": k, "unique_users": u, "zero_click_searches": zero, "offset_boundary": boundary,
+            "max_inserted_at": _utc(max_ins), "top": top}
+
+
+def compute_hour(client, hour: datetime, version: int, stage: str, is_final: int,
+                 table: str = "events", partitions: int = N_PARTITIONS) -> dict:
+    """aggregate 결과를 버전 행으로 기록한다(이력·서빙·상위 쿼리 표)."""
+    row = {**aggregate(client, hour, table, partitions), "version": version, "is_final": is_final, "stage": stage}
     values = [[row[c] for c in COLUMNS]]
     client.insert(VERSIONS, values, column_names=COLUMNS)
     client.insert(METRICS, values, column_names=COLUMNS)
-    client.insert(TOP, [[hour, i + 1, version, q, c] for i, (q, c) in enumerate(top)],
+    client.insert(TOP, [[row["hour"], i + 1, version, q, c] for i, (q, c) in enumerate(row["top"])],
                   column_names=["hour", "rank", "version", "query_norm", "searches"])
     return row
 
