@@ -1,0 +1,553 @@
+{
+ "uid": "slp-pipeline",
+ "title": "search-log-pipeline",
+ "timezone": "utc",
+ "schemaVersion": 41,
+ "refresh": "10s",
+ "time": {
+  "from": "now-30m",
+  "to": "now"
+ },
+ "tags": [
+  "slp"
+ ],
+ "panels": [
+  {
+   "id": 100,
+   "type": "row",
+   "title": "수집 파이프라인 (Prometheus, 실제 시각)",
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 1
+   },
+   "collapsed": false,
+   "panels": []
+  },
+  {
+   "id": 1,
+   "type": "timeseries",
+   "title": "유입·적재 처리량 (건/초)",
+   "description": "",
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prom"
+   },
+   "gridPos": {
+    "x": 0,
+    "y": 1,
+    "w": 8,
+    "h": 7
+   },
+   "fieldConfig": {
+    "defaults": {
+     "unit": "short",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 10,
+      "stacking": {
+       "mode": "none"
+      }
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "targets": [
+    {
+     "datasource": {
+      "type": "prometheus",
+      "uid": "prom"
+     },
+     "expr": "sum(rate(slp_consumed_total[30s]))",
+     "legendFormat": "Kafka에서 읽음",
+     "refId": "A"
+    },
+    {
+     "datasource": {
+      "type": "prometheus",
+      "uid": "prom"
+     },
+     "expr": "sum(rate(slp_inserted_rows_total[30s]))",
+     "legendFormat": "ClickHouse 적재",
+     "refId": "B"
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "type": "timeseries",
+   "title": "소비 그룹 lag (kafka-exporter)",
+   "description": "커밋된 오프셋 기준. 붉은 영역은 경보 임계값",
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prom"
+   },
+   "gridPos": {
+    "x": 8,
+    "y": 1,
+    "w": 8,
+    "h": 7
+   },
+   "fieldConfig": {
+    "defaults": {
+     "unit": "short",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 10,
+      "stacking": {
+       "mode": "none"
+      },
+      "thresholdsStyle": {
+       "mode": "line+area"
+      }
+     },
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "green",
+        "value": null
+       },
+       {
+        "color": "red",
+        "value": 5000
+       }
+      ]
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "targets": [
+    {
+     "datasource": {
+      "type": "prometheus",
+      "uid": "prom"
+     },
+     "expr": "sum by (consumergroup) (kafka_consumergroup_lag{topic=\"search-events\"})",
+     "legendFormat": "{{consumergroup}}",
+     "refId": "A"
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "type": "timeseries",
+   "title": "경보 상태 (ALERTS)",
+   "description": "Prometheus 경보 규칙(observability/prometheus/alerts.yml). 값 1 = 해당 상태",
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prom"
+   },
+   "gridPos": {
+    "x": 16,
+    "y": 1,
+    "w": 8,
+    "h": 7
+   },
+   "fieldConfig": {
+    "defaults": {
+     "unit": "short",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 10,
+      "stacking": {
+       "mode": "none"
+      }
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "targets": [
+    {
+     "datasource": {
+      "type": "prometheus",
+      "uid": "prom"
+     },
+     "expr": "max by (alertname, alertstate) (ALERTS)",
+     "legendFormat": "{{alertname}} {{alertstate}}",
+     "refId": "A"
+    },
+    {
+     "datasource": {
+      "type": "prometheus",
+      "uid": "prom"
+     },
+     "expr": "up{job=\"collector\"}",
+     "legendFormat": "수집기 up",
+     "refId": "B"
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "type": "timeseries",
+   "title": "DLQ 비율 (최근 1분)",
+   "description": "",
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prom"
+   },
+   "gridPos": {
+    "x": 0,
+    "y": 8,
+    "w": 8,
+    "h": 7
+   },
+   "fieldConfig": {
+    "defaults": {
+     "unit": "percentunit",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 10,
+      "stacking": {
+       "mode": "none"
+      },
+      "thresholdsStyle": {
+       "mode": "line+area"
+      }
+     },
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "green",
+        "value": null
+       },
+       {
+        "color": "red",
+        "value": 0.01
+       }
+      ]
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "targets": [
+    {
+     "datasource": {
+      "type": "prometheus",
+      "uid": "prom"
+     },
+     "expr": "sum(increase(slp_dlq_total[1m])) / sum(increase(slp_consumed_total[1m]))",
+     "legendFormat": "DLQ / 읽음",
+     "refId": "A"
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "type": "timeseries",
+   "title": "DLQ 사유별 (최근 1분 건수)",
+   "description": "",
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prom"
+   },
+   "gridPos": {
+    "x": 8,
+    "y": 8,
+    "w": 8,
+    "h": 7
+   },
+   "fieldConfig": {
+    "defaults": {
+     "unit": "short",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 10,
+      "stacking": {
+       "mode": "normal"
+      }
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "targets": [
+    {
+     "datasource": {
+      "type": "prometheus",
+      "uid": "prom"
+     },
+     "expr": "sum by (reason) (increase(slp_dlq_total[1m]))",
+     "legendFormat": "{{reason}}",
+     "refId": "A"
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "type": "timeseries",
+   "title": "배치 INSERT 소요 시간",
+   "description": "",
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prom"
+   },
+   "gridPos": {
+    "x": 16,
+    "y": 8,
+    "w": 8,
+    "h": 7
+   },
+   "fieldConfig": {
+    "defaults": {
+     "unit": "s",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 10,
+      "stacking": {
+       "mode": "none"
+      }
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "targets": [
+    {
+     "datasource": {
+      "type": "prometheus",
+      "uid": "prom"
+     },
+     "expr": "histogram_quantile(0.5, sum by (le) (rate(slp_insert_seconds_bucket[1m])))",
+     "legendFormat": "p50",
+     "refId": "A"
+    },
+    {
+     "datasource": {
+      "type": "prometheus",
+      "uid": "prom"
+     },
+     "expr": "histogram_quantile(0.95, sum by (le) (rate(slp_insert_seconds_bucket[1m])))",
+     "legendFormat": "p95",
+     "refId": "B"
+    }
+   ]
+  },
+  {
+   "id": 101,
+   "type": "row",
+   "title": "적재 결과 (ClickHouse)",
+   "gridPos": {
+    "x": 0,
+    "y": 15,
+    "w": 24,
+    "h": 1
+   },
+   "collapsed": false,
+   "panels": []
+  },
+  {
+   "id": 7,
+   "type": "timeseries",
+   "title": "적재 지연 p50 / p95 (inserted_at − kafka_ts)",
+   "description": "Kafka 메시지 시각(생산자, 호스트 시계) → ClickHouse 적재 시각(컨테이너 시계). 두 시계 차이 약 1ms(env_mac_m4.json)",
+   "datasource": {
+    "type": "grafana-clickhouse-datasource",
+    "uid": "ch"
+   },
+   "gridPos": {
+    "x": 0,
+    "y": 16,
+    "w": 12,
+    "h": 8
+   },
+   "fieldConfig": {
+    "defaults": {
+     "unit": "ms"
+    },
+    "overrides": []
+   },
+   "options": {},
+   "targets": [
+    {
+     "datasource": {
+      "type": "grafana-clickhouse-datasource",
+      "uid": "ch"
+     },
+     "editorType": "sql",
+     "queryType": "timeseries",
+     "format": 0,
+     "rawSql": "SELECT toStartOfInterval(inserted_at, INTERVAL 10 SECOND) AS time,\n       quantile(0.5)(dateDiff('millisecond', kafka_ts, inserted_at)) AS p50_ms,\n       quantile(0.95)(dateDiff('millisecond', kafka_ts, inserted_at)) AS p95_ms\nFROM slp.events WHERE $__timeFilter(inserted_at)\nGROUP BY time ORDER BY time",
+     "refId": "A"
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "type": "barchart",
+   "title": "어뷰징 탐지 (abuse_detection DAG)",
+   "description": "가상 시간(시)별 규칙 탐지 건수. R1~R3은 계정×창, R4는 쿼리×10분 구간",
+   "datasource": {
+    "type": "grafana-clickhouse-datasource",
+    "uid": "ch"
+   },
+   "gridPos": {
+    "x": 12,
+    "y": 16,
+    "w": 12,
+    "h": 8
+   },
+   "fieldConfig": {
+    "defaults": {
+     "unit": "short"
+    },
+    "overrides": []
+   },
+   "options": {},
+   "targets": [
+    {
+     "datasource": {
+      "type": "grafana-clickhouse-datasource",
+      "uid": "ch"
+     },
+     "editorType": "sql",
+     "queryType": "table",
+     "format": 1,
+     "rawSql": "SELECT formatDateTime(hour, '%H') AS H, countIf(rule = 'R1') AS R1, countIf(rule = 'R2') AS R2,\n       countIf(rule = 'R3') AS R3, countIf(rule = 'R4') AS R4\nFROM slp.abuse_detections FINAL GROUP BY hour ORDER BY hour",
+     "refId": "A"
+    }
+   ]
+  },
+  {
+   "id": 102,
+   "type": "row",
+   "title": "시간별 지표 (hourly_metrics DAG, 가상 시간)",
+   "gridPos": {
+    "x": 0,
+    "y": 24,
+    "w": 24,
+    "h": 1
+   },
+   "collapsed": false,
+   "panels": []
+  },
+  {
+   "id": 9,
+   "type": "table",
+   "title": "시간별 지표 · 최신 버전 (잠정/확정)",
+   "description": "v1 잠정(워터마크 +1분) → v2 확정(+15분) → v3 재확정. CTR은 재생기 클릭 확률 60% 가정에서 나온 값",
+   "datasource": {
+    "type": "grafana-clickhouse-datasource",
+    "uid": "ch"
+   },
+   "gridPos": {
+    "x": 0,
+    "y": 25,
+    "w": 14,
+    "h": 10
+   },
+   "fieldConfig": {
+    "defaults": {
+     "unit": "short"
+    },
+    "overrides": []
+   },
+   "options": {},
+   "targets": [
+    {
+     "datasource": {
+      "type": "grafana-clickhouse-datasource",
+      "uid": "ch"
+     },
+     "editorType": "sql",
+     "queryType": "table",
+     "format": 1,
+     "rawSql": "SELECT formatDateTime(hour, '%m-%d %H시') AS H, version AS v, stage, is_final,\n       searches, clicks, unique_users, zero_click_searches AS zero_click, round(ctr, 3) AS ctr,\n       dateDiff('second', hour + INTERVAL 1 HOUR, watermark) / 60 AS wm_min_after_hour\nFROM slp.hourly_metrics_latest ORDER BY hour",
+     "refId": "A"
+    }
+   ]
+  },
+  {
+   "id": 10,
+   "type": "table",
+   "title": "확정 후 늦은 도착 검사 (+60분)",
+   "description": "late_events > 0이면 WARNING 로그와 재확정. 4단계 시험에서는 의도적 주입",
+   "datasource": {
+    "type": "grafana-clickhouse-datasource",
+    "uid": "ch"
+   },
+   "gridPos": {
+    "x": 14,
+    "y": 25,
+    "w": 10,
+    "h": 10
+   },
+   "fieldConfig": {
+    "defaults": {
+     "unit": "short"
+    },
+    "overrides": []
+   },
+   "options": {},
+   "targets": [
+    {
+     "datasource": {
+      "type": "grafana-clickhouse-datasource",
+      "uid": "ch"
+     },
+     "editorType": "sql",
+     "queryType": "table",
+     "format": 1,
+     "rawSql": "SELECT formatDateTime(hour, '%m-%d %H시') AS H, final_version, late_events,\n       late_by_inserted_at, refinalized_version\nFROM slp.hourly_late_checks ORDER BY hour, checked_at",
+     "refId": "A"
+    }
+   ]
+  }
+ ],
+ "editable": false
+}

@@ -75,3 +75,47 @@ services:
       interval: 10s
       retries: 30
       start_period: 30s
+
+  # ---- 4단계: 관측 (docker compose --profile obs up -d --wait) ----
+  kafka-exporter:  # 소비 그룹 lag를 수집기 밖에서 잰다(수집기가 죽어도 lag가 보이게)
+    image: mirror.gcr.io/danielqsj/kafka-exporter:v1.10.0
+    profiles: ["obs"]
+    command: ["--kafka.server=kafka:19092"]
+    depends_on:
+      kafka: {condition: service_healthy}
+
+  prometheus:
+    image: mirror.gcr.io/prom/prometheus:v3.15.0
+    profiles: ["obs"]
+    ports: ["9090:9090"]
+    command: ["--config.file=/etc/prometheus/prometheus.yml", "--storage.tsdb.retention.time=2d",
+              "--web.enable-lifecycle"]
+    volumes:
+      - ./observability/prometheus:/etc/prometheus:ro
+    extra_hosts: ["host.docker.internal:host-gateway"]  # 호스트에서 도는 수집기(:8000)를 수집
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:9090/-/ready >/dev/null"]
+      interval: 5s
+      retries: 20
+
+  grafana:
+    image: mirror.gcr.io/grafana/grafana:13.2.4
+    profiles: ["obs"]
+    ports: ["3000:3000"]
+    depends_on:
+      prometheus: {condition: service_healthy}
+      clickhouse: {condition: service_healthy}
+    environment:
+      GF_PLUGINS_PREINSTALL_SYNC: grafana-clickhouse-datasource@4.22.1  # 프로비저닝 전에 설치(버전 고정)
+      GF_AUTH_ANONYMOUS_ENABLED: "true"   # 로컬 전용: 로그인 없이 보기(스크린샷용)
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Viewer
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:-slp_local_only}
+      GF_USERS_DEFAULT_THEME: light
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:-slp_local_only}
+    volumes:
+      - ./observability/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./observability/grafana/dashboards:/var/lib/grafana/dashboards:ro
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3000/api/health >/dev/null"]
+      interval: 5s
+      retries: 30

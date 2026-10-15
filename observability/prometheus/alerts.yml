@@ -1,0 +1,23 @@
+# 경보 규칙. 임계값 근거는 docs/04-observability.md(평상시 측정값: docs/results/observability_calibration_mac_m4.json).
+# Alertmanager는 두지 않았다: 경보는 Prometheus에서 pending → firing으로 발화만 하고 외부로 전송하지 않는다.
+groups:
+  - name: slp
+    rules:
+      - alert: SlpConsumerLagHigh
+        expr: sum by (consumergroup) (kafka_consumergroup_lag{topic="search-events", consumergroup="slp-ingest"}) > 5000
+        for: 15s
+        labels: {severity: warning}
+        annotations:
+          summary: "소비 그룹 {{ $labels.consumergroup }}의 lag가 {{ $value }}건"
+      - alert: SlpDlqRatioHigh
+        expr: sum(increase(slp_dlq_total[1m])) / sum(increase(slp_consumed_total[1m])) > 0.01
+        for: 15s
+        labels: {severity: warning}
+        annotations:
+          summary: "최근 1분 DLQ 비율 {{ $value | humanizePercentage }}"
+      - alert: SlpCollectorDown
+        expr: up{job="collector"} == 0
+        for: 10s
+        labels: {severity: critical}
+        annotations:
+          summary: "수집기 지표 수집 실패(프로세스 중단 가능성)"
