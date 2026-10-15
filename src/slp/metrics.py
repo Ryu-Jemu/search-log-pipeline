@@ -45,7 +45,8 @@ def create_tables(client, drop: bool = False) -> None:
         for t in (f"{METRICS}_latest", METRICS, VERSIONS, TOP, LATE):
             client.command(f"DROP TABLE IF EXISTS {t} SYNC")
     client.command(DDL[0].format(name=METRICS, engine="ReplacingMergeTree(version) ORDER BY hour"))
-    client.command(DDL[0].format(name=VERSIONS, engine="MergeTree ORDER BY (hour, version)"))
+    # 태스크 재시도로 같은 (hour, version)이 다시 들어와도 병합 시 1행만 남도록 ReplacingMergeTree를 쓴다.
+    client.command(DDL[0].format(name=VERSIONS, engine="ReplacingMergeTree(computed_at) ORDER BY (hour, version)"))
     client.command(f"""CREATE TABLE IF NOT EXISTS {TOP} (hour DateTime('UTC'), rank UInt8, version UInt32,
                         query_norm String, searches UInt64)
                        ENGINE = ReplacingMergeTree(version) ORDER BY (hour, rank)""")

@@ -45,7 +45,9 @@ def compute(version: int, stage: str, is_final: int) -> dict:
     return {k: str(v) for k, v in r.items()}
 
 
-@task(retries=1, retry_delay=timedelta(seconds=2))
+# 재시도하지 않는다: 재확정(v3) 뒤 기록 직전에 실패하면 재시도가 v3 기준으로 다시 세어 늦은 도착 0건을 남긴다.
+# 실패하면 태스크를 수동으로 다시 실행하고, 첫 시도의 경고 로그를 함께 확인한다.
+@task(retries=0)
 def late_after_final_check() -> dict:
     r = metrics.late_after_final(ch(), _hour())
     if r["late_events"]:

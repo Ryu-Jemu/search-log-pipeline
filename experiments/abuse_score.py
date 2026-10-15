@@ -129,13 +129,15 @@ def fp_samples(c, table: str, users: list[str]) -> list[dict]:
 
 def evaluate(seeds: list[int], thresholds_path: str) -> dict:
     th = json.load(open(thresholds_path))
-    assert th["tables_read"] == ["events_s42"], "임계값은 day1에서만 정해야 한다"
+    if th["tables_read"] != ["events_s42"]:  # assert가 아니라 예외: python -O에서도 검사한다
+        raise SystemExit("임계값은 day1(events_s42)에서만 정해야 한다")
     chosen = th["chosen"]
     c = ch()
     per_seed, pooled = {}, {}
     sweeps = {"R1": "t", "R2": "min_n", "R3": "c", "R4": "n"}
     for s in seeds:
-        assert s != 42, "보류 데이터에 day1(seed 42)을 넣지 않는다"
+        if s == 42:
+            raise SystemExit("보류 데이터에 day1(seed 42)을 넣지 않는다")
         table = f"events_s{s}"
         labels = json.load(open(paths(s)[1]))
         st = stats(c, table)

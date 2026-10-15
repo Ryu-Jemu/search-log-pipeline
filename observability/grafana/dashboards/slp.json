@@ -142,7 +142,7 @@
       "type": "prometheus",
       "uid": "prom"
      },
-     "expr": "sum by (consumergroup) (kafka_consumergroup_lag{topic=\"search-events\"})",
+     "expr": "sum by (consumergroup) (kafka_consumergroup_lag{topic=\"search-events\", consumergroup=\"slp-ingest\"})",
      "legendFormat": "{{consumergroup}}",
      "refId": "A"
     }

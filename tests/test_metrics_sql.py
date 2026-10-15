@@ -88,6 +88,10 @@ def test_watermark_versions_and_late_after_final(client):
     assert latest == [(3, 1, 5, 2, 0.4)]
     assert c.query("SELECT groupArray(version) FROM (SELECT version FROM hourly_metrics_versions ORDER BY version)"
                    ).result_rows[0][0] == [1, 2, 3]
+    # 태스크 재시도로 같은 버전을 다시 계산해도 이력 표에는 버전당 1행만 남는다(ReplacingMergeTree).
+    metrics.compute_hour(c, H, 3, "refinal", 1, partitions=P)
+    assert c.query("SELECT groupArray(version) FROM (SELECT version FROM hourly_metrics_versions FINAL "
+                   "ORDER BY version)").result_rows[0][0] == [1, 2, 3]
     top = c.query("SELECT rank, query_norm, searches FROM hourly_top_queries FINAL ORDER BY rank").result_rows
     assert len(top) == metrics.TOP_N and top[:3] == [(1, "query 1", 2), (2, "query 2", 2), (3, "query 3", 1)]
     assert c.query("SELECT count() FROM hourly_late_checks").result_rows[0][0] == 2
