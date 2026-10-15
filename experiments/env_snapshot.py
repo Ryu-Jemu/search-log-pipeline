@@ -40,11 +40,13 @@ def host() -> dict:
 def docker() -> dict:
     info = json.loads(sh("docker", "info", "--format", "{{json .}}") or "{}")
     images = {}
-    for line in sh("docker", "compose", "ps", "--format", "{{.Service}} {{.Image}}").splitlines():
-        svc, image = line.split(" ", 1)
+    for line in sh("docker", "compose", "--profile", "airflow", "--profile", "obs", "ps", "--format",
+                   "{{.Service}} {{.Name}} {{.Image}}").splitlines():
+        svc, name, image = line.split(" ", 2)
         arch = sh("docker", "image", "inspect", "-f", "{{.Architecture}}", image)
-        digest = sh("docker", "image", "inspect", "-f", "{{index .RepoDigests 0}}", image)
-        images[svc] = {"image": image, "arch": arch, "digest": digest}
+        digest = sh("docker", "image", "inspect", "-f", "{{if .RepoDigests}}{{index .RepoDigests 0}}{{end}}", image)
+        started = sh("docker", "inspect", "-f", "{{.State.StartedAt}} restarts={{.RestartCount}}", name)
+        images[svc] = {"image": image, "arch": arch, "digest": digest, "container_started": started}
     return {"server_version": info.get("ServerVersion"), "os": info.get("OperatingSystem"),
             "kernel": info.get("KernelVersion"), "ncpu": info.get("NCPU"), "mem_total_bytes": info.get("MemTotal"),
             "compose": sh("docker", "compose", "version", "--short"), "running_images": images}

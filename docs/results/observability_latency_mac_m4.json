@@ -1,30 +1,41 @@
 {
- "note": "observability_mac_m4 실행의 events 표에서 Kafka 도착 시각(kafka_ts) 구간별 적재 지연(inserted_at − kafka_ts)",
+ "note": "observability_mac_m4 실행의 events 표에서 Kafka 도착 시각(kafka_ts) 구간별 적재 지연. quantileExact. 처음 저장한 값(근사 quantile)을 이 스크립트로 다시 계산해 덮어썼다.",
  "before_first_fault": {
   "events": 81015,
-  "p50_ms": 128.0,
-  "p95_ms": 223.0,
-  "p99_ms": 238.0,
+  "p50_ms": 128,
+  "p95_ms": 222,
+  "p99_ms": 236,
   "max_ms": 632
  },
  "arrived_during_collector_outage": {
   "events": 33592,
-  "p50_ms": 29054.0,
-  "p95_ms": 57072.0,
-  "p99_ms": 59799.0,
+  "p50_ms": 29327,
+  "p95_ms": 57305,
+  "p99_ms": 59897,
   "max_ms": 60608
  },
  "after_restart": {
   "events": 85584,
-  "p50_ms": 124.0,
-  "p95_ms": 217.0,
-  "p99_ms": 230.0,
+  "p50_ms": 124,
+  "p95_ms": 217,
+  "p99_ms": 229,
   "max_ms": 624
  },
  "failpoint_collector": {
   "rows_inserted_before_kill": 223,
   "inserts": 1
  },
+ "dlq_increase_1m_at_burst_end_by_reason": {
+  "missing_user_id": 4.36,
+  "bad_json": 1808.76,
+  "bad_value": 2.18
+ },
+ "dlq_messages_by_collector_process": {
+  "d_consumer_0": 1880,
+  "d_consumer_failpoint": null,
+  "d_consumer_1": 51
+ },
+ "dlq_topic_total": 1932,
  "collector_logs_head_tail": {
   "d_consumer_0": [
    "ASSIGNED 0.07s",

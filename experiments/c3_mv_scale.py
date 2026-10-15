@@ -6,11 +6,12 @@
 - 조회(범위 1·3·7일):
     hour   : 한 시간 지표(검색·클릭·고유 사용자)
     series : 범위 안 시간별 지표 전체
-  각각 raw(events 집계) / mv(hourly_mv uniqExactMerge) / versioned(hourly_metrics FINAL, 이미 계산된 값) 세 방식.
-- 측정: 서버 측 system.query_log(query_duration_ms, read_rows, read_bytes). 워밍업 1회 뒤 REPS회, 세 방식을
+  각각 raw(events 집계) / mv(hourly_mv uniqExactMerge) / mv_g1(같은 MV, index_granularity=1) /
+  versioned(hourly_metrics FINAL, 이미 계산된 값) 네 방식. mv_g1은 1회차(mv_scale_run1_*.json)를 보고 추가했다.
+- 측정: 서버 측 system.query_log(시작·종료 마이크로초 시각 차, read_rows, read_bytes). 워밍업 1회 뒤 REPS회, 네 방식을
   번갈아 실행해 중앙값·p90. 쿼리 캐시 끔. 상태 두 가지: 적재·백그라운드 병합 직후 / OPTIMIZE FINAL 뒤.
   페이지 캐시는 비우지 않는다(웜 캐시 기준).
-- 세 방식의 결과가 모든 시간에서 같은지 먼저 확인한다(다르면 비교 자체가 무의미).
+- 네 방식의 결과가 모든 시간에서 같은지 먼저 확인한다(다르면 비교 자체가 무의미).
 """
 import argparse
 import os
@@ -127,7 +128,7 @@ def measure(c, state: str, reps: int, run_tag: str) -> list[dict]:
 
 
 def results_equal(c) -> dict:
-    """세 방식이 7일 168시간 모두 같은 값을 내는지."""
+    """네 방식이 7일 168시간 모두 같은 값을 내는지."""
     qs = queries(7)
     def rows(q):
         return [(str(r[0]),) + tuple(int(x) for x in r[1:]) for r in c.query(q).result_rows]

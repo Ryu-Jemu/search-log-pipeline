@@ -1,0 +1,559 @@
+{
+ "note": "채점 뒤 사후 진단(임계값 변경 없음). abuse.CHOSEN = {\"R1\": {\"t\": 70, \"max_distinct\": 0.2}, \"R2\": {\"min_n\": 3, \"share\": 1.0}, \"R3\": {\"c\": 50}, \"R4\": {\"n\": 50, \"users\": 20, \"z\": 30}}",
+ "day1_top_normal_users": [
+  {
+   "user_id": "u0000000",
+   "searches": 9713,
+   "distinct_queries_in_searches": 9705,
+   "distinct_queries_all_events": 9709,
+   "max_searches_5min": 93
+  },
+  {
+   "user_id": "u0000001",
+   "searches": 5649,
+   "distinct_queries_in_searches": 5647,
+   "distinct_queries_all_events": 5648,
+   "max_searches_5min": 54
+  },
+  {
+   "user_id": "u0000002",
+   "searches": 3953,
+   "distinct_queries_in_searches": 3951,
+   "distinct_queries_all_events": 3953,
+   "max_searches_5min": 48
+  }
+ ],
+ "day1_bot_5min": {
+  "query_flood": [
+   122,
+   125,
+   128
+  ],
+  "click_spam": [
+   77,
+   78,
+   80
+  ],
+  "windows_ge_70": {
+   "n": 34,
+   "distinct_ratio_min": 0.0078125,
+   "distinct_ratio_max": 0.014084507042253521
+  }
+ },
+ "holdout_r2_missed_distributed_accounts": {
+  "total=3,max_per_1h_window=2": 27,
+  "total=4,max_per_1h_window=2": 5
+ },
+ "distributed_campaigns": [
+  {
+   "seed": 42,
+   "campaign_id": 7,
+   "accounts": 34,
+   "events": 193,
+   "minutes": 35,
+   "max_searches_per_10min": 63,
+   "max_users_per_10min": 29,
+   "buckets": [
+    {
+     "bucket": "05:00",
+     "n": 25,
+     "users": 19,
+     "lambda": 0.1,
+     "z": 78.7
+    },
+    {
+     "bucket": "05:10",
+     "n": 51,
+     "users": 26,
+     "lambda": 0.174,
+     "z": 122.0
+    },
+    {
+     "bucket": "05:20",
+     "n": 52,
+     "users": 29,
+     "lambda": 0.528,
+     "z": 70.9
+    },
+    {
+     "bucket": "05:30",
+     "n": 63,
+     "users": 28,
+     "lambda": 0.889,
+     "z": 65.9
+    }
+   ],
+   "caught_by_chosen_R4": true
+  },
+  {
+   "seed": 42,
+   "campaign_id": 8,
+   "accounts": 57,
+   "events": 321,
+   "minutes": 38,
+   "max_searches_per_10min": 87,
+   "max_users_per_10min": 47,
+   "buckets": [
+    {
+     "bucket": "15:50",
+     "n": 22,
+     "users": 21,
+     "lambda": 0.1,
+     "z": 69.3
+    },
+    {
+     "bucket": "16:00",
+     "n": 87,
+     "users": 43,
+     "lambda": 0.153,
+     "z": 222.2
+    },
+    {
+     "bucket": "16:10",
+     "n": 75,
+     "users": 41,
+     "lambda": 0.757,
+     "z": 85.3
+    },
+    {
+     "bucket": "16:20",
+     "n": 84,
+     "users": 47,
+     "lambda": 1.278,
+     "z": 73.2
+    },
+    {
+     "bucket": "16:30",
+     "n": 53,
+     "users": 35,
+     "lambda": 1.861,
+     "z": 37.5
+    }
+   ],
+   "caught_by_chosen_R4": true
+  },
+  {
+   "seed": 43,
+   "campaign_id": 7,
+   "accounts": 35,
+   "events": 178,
+   "minutes": 32,
+   "max_searches_per_10min": 54,
+   "max_users_per_10min": 29,
+   "buckets": [
+    {
+     "bucket": "05:20",
+     "n": 29,
+     "users": 22,
+     "lambda": 0.1,
+     "z": 91.4
+    },
+    {
+     "bucket": "05:30",
+     "n": 54,
+     "users": 28,
+     "lambda": 0.201,
+     "z": 119.9
+    },
+    {
+     "bucket": "05:40",
+     "n": 49,
+     "users": 29,
+     "lambda": 0.576,
+     "z": 63.8
+    },
+    {
+     "bucket": "05:50",
+     "n": 46,
+     "users": 28,
+     "lambda": 0.917,
+     "z": 47.1
+    }
+   ],
+   "caught_by_chosen_R4": true
+  },
+  {
+   "seed": 43,
+   "campaign_id": 8,
+   "accounts": 39,
+   "events": 194,
+   "minutes": 31,
+   "max_searches_per_10min": 71,
+   "max_users_per_10min": 37,
+   "buckets": [
+    {
+     "bucket": "05:20",
+     "n": 17,
+     "users": 14,
+     "lambda": 0.1,
+     "z": 53.4
+    },
+    {
+     "bucket": "05:30",
+     "n": 71,
+     "users": 32,
+     "lambda": 0.118,
+     "z": 206.3
+    },
+    {
+     "bucket": "05:40",
+     "n": 68,
+     "users": 37,
+     "lambda": 0.611,
+     "z": 86.2
+    },
+    {
+     "bucket": "05:50",
+     "n": 38,
+     "users": 19,
+     "lambda": 1.083,
+     "z": 35.5
+    }
+   ],
+   "caught_by_chosen_R4": true
+  },
+  {
+   "seed": 44,
+   "campaign_id": 7,
+   "accounts": 43,
+   "events": 235,
+   "minutes": 23,
+   "max_searches_per_10min": 96,
+   "max_users_per_10min": 40,
+   "buckets": [
+    {
+     "bucket": "07:30",
+     "n": 84,
+     "users": 37,
+     "lambda": 0.1,
+     "z": 265.3
+    },
+    {
+     "bucket": "07:40",
+     "n": 96,
+     "users": 40,
+     "lambda": 0.583,
+     "z": 124.9
+    },
+    {
+     "bucket": "07:50",
+     "n": 54,
+     "users": 34,
+     "lambda": 1.25,
+     "z": 47.2
+    }
+   ],
+   "caught_by_chosen_R4": true
+  },
+  {
+   "seed": 44,
+   "campaign_id": 8,
+   "accounts": 51,
+   "events": 281,
+   "minutes": 34,
+   "max_searches_per_10min": 94,
+   "max_users_per_10min": 46,
+   "buckets": [
+    {
+     "bucket": "17:30",
+     "n": 10,
+     "users": 8,
+     "lambda": 0.1,
+     "z": 31.3
+    },
+    {
+     "bucket": "17:40",
+     "n": 94,
+     "users": 46,
+     "lambda": 0.1,
+     "z": 296.9
+    },
+    {
+     "bucket": "17:50",
+     "n": 72,
+     "users": 39,
+     "lambda": 0.722,
+     "z": 83.9
+    },
+    {
+     "bucket": "18:00",
+     "n": 81,
+     "users": 41,
+     "lambda": 1.222,
+     "z": 72.2
+    },
+    {
+     "bucket": "18:10",
+     "n": 24,
+     "users": 20,
+     "lambda": 1.785,
+     "z": 16.6
+    }
+   ],
+   "caught_by_chosen_R4": true
+  },
+  {
+   "seed": 45,
+   "campaign_id": 7,
+   "accounts": 49,
+   "events": 264,
+   "minutes": 34,
+   "max_searches_per_10min": 85,
+   "max_users_per_10min": 41,
+   "buckets": [
+    {
+     "bucket": "20:20",
+     "n": 56,
+     "users": 39,
+     "lambda": 0.1,
+     "z": 176.8
+    },
+    {
+     "bucket": "20:30",
+     "n": 85,
+     "users": 41,
+     "lambda": 0.389,
+     "z": 135.7
+    },
+    {
+     "bucket": "20:40",
+     "n": 78,
+     "users": 40,
+     "lambda": 0.979,
+     "z": 77.8
+    },
+    {
+     "bucket": "20:50",
+     "n": 45,
+     "users": 32,
+     "lambda": 1.521,
+     "z": 35.3
+    }
+   ],
+   "caught_by_chosen_R4": true
+  },
+  {
+   "seed": 45,
+   "campaign_id": 8,
+   "accounts": 31,
+   "events": 159,
+   "minutes": 39,
+   "max_searches_per_10min": 41,
+   "max_users_per_10min": 25,
+   "buckets": [
+    {
+     "bucket": "06:40",
+     "n": 34,
+     "users": 24,
+     "lambda": 0.1,
+     "z": 107.2
+    },
+    {
+     "bucket": "06:50",
+     "n": 41,
+     "users": 25,
+     "lambda": 0.236,
+     "z": 83.9
+    },
+    {
+     "bucket": "07:00",
+     "n": 39,
+     "users": 24,
+     "lambda": 0.521,
+     "z": 53.3
+    },
+    {
+     "bucket": "07:10",
+     "n": 40,
+     "users": 22,
+     "lambda": 0.792,
+     "z": 44.1
+    },
+    {
+     "bucket": "07:20",
+     "n": 5,
+     "users": 5,
+     "lambda": 1.069,
+     "z": 3.8
+    }
+   ],
+   "caught_by_chosen_R4": false
+  },
+  {
+   "seed": 46,
+   "campaign_id": 7,
+   "accounts": 59,
+   "events": 346,
+   "minutes": 30,
+   "max_searches_per_10min": 134,
+   "max_users_per_10min": 55,
+   "buckets": [
+    {
+     "bucket": "13:00",
+     "n": 59,
+     "users": 40,
+     "lambda": 0.1,
+     "z": 186.3
+    },
+    {
+     "bucket": "13:10",
+     "n": 113,
+     "users": 55,
+     "lambda": 0.41,
+     "z": 175.9
+    },
+    {
+     "bucket": "13:20",
+     "n": 134,
+     "users": 52,
+     "lambda": 1.194,
+     "z": 121.5
+    },
+    {
+     "bucket": "13:30",
+     "n": 40,
+     "users": 31,
+     "lambda": 2.125,
+     "z": 26.0
+    }
+   ],
+   "caught_by_chosen_R4": true
+  },
+  {
+   "seed": 46,
+   "campaign_id": 8,
+   "accounts": 33,
+   "events": 164,
+   "minutes": 37,
+   "max_searches_per_10min": 49,
+   "max_users_per_10min": 28,
+   "buckets": [
+    {
+     "bucket": "14:30",
+     "n": 24,
+     "users": 19,
+     "lambda": 0.1,
+     "z": 75.6
+    },
+    {
+     "bucket": "14:40",
+     "n": 42,
+     "users": 24,
+     "lambda": 0.167,
+     "z": 102.5
+    },
+    {
+     "bucket": "14:50",
+     "n": 42,
+     "users": 25,
+     "lambda": 0.458,
+     "z": 61.4
+    },
+    {
+     "bucket": "15:00",
+     "n": 49,
+     "users": 28,
+     "lambda": 0.75,
+     "z": 55.7
+    },
+    {
+     "bucket": "15:10",
+     "n": 7,
+     "users": 7,
+     "lambda": 1.09,
+     "z": 5.7
+    }
+   ],
+   "caught_by_chosen_R4": false
+  },
+  {
+   "seed": 47,
+   "campaign_id": 7,
+   "accounts": 57,
+   "events": 310,
+   "minutes": 36,
+   "max_searches_per_10min": 103,
+   "max_users_per_10min": 49,
+   "buckets": [
+    {
+     "bucket": "02:40",
+     "n": 103,
+     "users": 49,
+     "lambda": 0.1,
+     "z": 325.4
+    },
+    {
+     "bucket": "02:50",
+     "n": 71,
+     "users": 40,
+     "lambda": 0.743,
+     "z": 81.5
+    },
+    {
+     "bucket": "03:00",
+     "n": 87,
+     "users": 45,
+     "lambda": 1.236,
+     "z": 77.1
+    },
+    {
+     "bucket": "03:10",
+     "n": 44,
+     "users": 33,
+     "lambda": 1.84,
+     "z": 31.1
+    }
+   ],
+   "caught_by_chosen_R4": true
+  },
+  {
+   "seed": 47,
+   "campaign_id": 8,
+   "accounts": 38,
+   "events": 214,
+   "minutes": 23,
+   "max_searches_per_10min": 93,
+   "max_users_per_10min": 37,
+   "buckets": [
+    {
+     "bucket": "17:30",
+     "n": 93,
+     "users": 37,
+     "lambda": 0.1,
+     "z": 293.8
+    },
+    {
+     "bucket": "17:40",
+     "n": 88,
+     "users": 35,
+     "lambda": 0.646,
+     "z": 108.7
+    },
+    {
+     "bucket": "17:50",
+     "n": 33,
+     "users": 26,
+     "lambda": 1.257,
+     "z": 28.3
+    }
+   ],
+   "caught_by_chosen_R4": true
+  }
+ ],
+ "day1_r4_candidates": {
+  "n": 9,
+  "in_campaign_queries": 9,
+  "lambda_above_floor": 7,
+  "lambda_range": [
+   0.1,
+   1.861
+  ],
+  "z_min": 37.5,
+  "note": "R4 후보 조건(n≥5, 고유 사용자≥3)을 넘은 day1 구간 전체"
+ },
+ "day1_query_frequency": {
+  "distinct_searched_queries": 423041,
+  "searched_at_most_once": 407611,
+  "share": 0.9635
+ }
+}

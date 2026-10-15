@@ -1,0 +1,42 @@
+{
+ "taken_at_utc": "2026-10-15T04:27:52Z",
+ "clickhouse_connect_naive_datetime": {
+  "host_tz": "KST +0900",
+  "inserted": "2026-01-05T00:58:12",
+  "stored_as_utc": {
+   "naive": "2026-01-04 15:58:12.000",
+   "aware_utc": "2026-01-05 00:58:12.000"
+  },
+  "note": "같은 벽시계 값 2026-01-05 00:58:12를 시간대 없이 / UTC로 명시해 INSERT한 뒤 서버 문자열로 읽음"
+ },
+ "airflow": {
+  "create_cron_data_intervals": "False",
+  "scheduled_runs": [
+   {
+    "dag_id": "abuse_detection",
+    "runs": 12,
+    "interval_s_min": 3600.0,
+    "interval_s_max": 3600.0,
+    "first_start": "2026-01-05 00:00:00+00",
+    "last_start": "2026-01-05 11:00:00+00"
+   },
+   {
+    "dag_id": "hourly_metrics",
+    "runs": 12,
+    "interval_s_min": 3600.0,
+    "interval_s_max": 3600.0,
+    "first_start": "2026-01-05 00:00:00+00",
+    "last_start": "2026-01-05 11:00:00+00"
+   }
+  ]
+ },
+ "abuse_dag_test": {
+  "logical_date": "2026-01-05T08:00:00+00:00",
+  "lines": [
+   "2026-10-15T04:27:58.125704Z [info     ] hour=2026-01-05 07:00:00+00:00 탐지 없음 [slp.abuse_detection] loc=abuse_detection.py:47",
+   "2026-10-15T04:27:58.150921Z [info     ] DagRun Finished: dag_id=abuse_detection, logical_date=2026-01-05 08:00:00+00:00, run_id=manual__2026-10-15T04:27:55.448534+00:00, run_start_date=2026-01-05 08:00:00+00:00, run_end_date=2026-10-15 04:27:58.150597+00:00, run_duration=24438478.150597, state=succe"
+  ],
+  "note": "수동 run은 data interval이 logical date에서 끝나는 1시간([07:00, 08:00))으로 정해진다. 대상은 그 시점의 slp.events(마지막 관측 실행의 day1 00~13:10 적재본)"
+ },
+ "note": "airflow 항목은 마지막 관측 실행(d_observe.py) 뒤의 메타DB 상태"
+}
