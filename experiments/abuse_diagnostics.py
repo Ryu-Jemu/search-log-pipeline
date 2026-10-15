@@ -30,7 +30,9 @@ def top_users(c) -> list[dict]:
                       GROUP BY user_id ORDER BY user_id""").result_rows
     r1 = abuse.r1_stats(c, "events_s42", START, END, 1)
     return [{"user_id": u, "searches": s, "distinct_queries_in_searches": dq, "distinct_queries_all_events": da,
-             "max_searches_5min": max(r[2] for r in r1 if r[0] == u)} for u, s, dq, da in rows]
+             "max_searches_5min": max(r[2] for r in r1 if r[0] == u),
+             "min_distinct_ratio_5min_windows_ge_40": min((r[3] for r in r1 if r[0] == u and r[2] >= 40), default=None)}
+            for u, s, dq, da in rows]
 
 
 def bots_5min(c) -> dict:
@@ -109,4 +111,4 @@ if __name__ == "__main__":
     for x in res["distributed_campaigns"]:
         print(x["seed"], x["campaign_id"], x["accounts"], x["events"], x["minutes"], x["max_searches_per_10min"],
               x["max_users_per_10min"], x["caught_by_chosen_R4"], [(b["bucket"], b["n"], b["lambda"], b["z"]) for b in x["buckets"]])
-    print(save("abuse_diagnostics_mac_m4", res))
+    print(save("abuse_diagnostics_mac_m4", res, overwrite=True))  # 항목을 늘려 다시 실행

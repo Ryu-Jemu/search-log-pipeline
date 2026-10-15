@@ -6,21 +6,24 @@
    "searches": 9713,
    "distinct_queries_in_searches": 9705,
    "distinct_queries_all_events": 9709,
-   "max_searches_5min": 93
+   "max_searches_5min": 93,
+   "min_distinct_ratio_5min_windows_ge_40": 1.0
   },
   {
    "user_id": "u0000001",
    "searches": 5649,
    "distinct_queries_in_searches": 5647,
    "distinct_queries_all_events": 5648,
-   "max_searches_5min": 54
+   "max_searches_5min": 54,
+   "min_distinct_ratio_5min_windows_ge_40": 1.0
   },
   {
    "user_id": "u0000002",
    "searches": 3953,
    "distinct_queries_in_searches": 3951,
    "distinct_queries_all_events": 3953,
-   "max_searches_5min": 48
+   "max_searches_5min": 48,
+   "min_distinct_ratio_5min_windows_ge_40": 1.0
   }
  ],
  "day1_bot_5min": {

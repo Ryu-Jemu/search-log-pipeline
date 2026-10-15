@@ -122,7 +122,7 @@ def aggregate(client, hour: datetime, table: str = "events", partitions: int = N
     boundary = dict(zip(parts, offs))
     vis = _visible(boundary)
     end_click = hour + timedelta(hours=1, minutes=CLICK_WINDOW_MIN)
-    # 같은 경계 안의 검색만 본다(두 번째 쿼리도 첫 쿼리와 같은 스냅숏을 보게).
+    # 같은 경계 안의 검색만 본다. 클릭 하위쿼리에는 경계를 걸지 않아 완전한 스냅숏은 아니다(docs/02 §8).
     zero = client.query(f"""
         SELECT count() FROM {table}
         WHERE event_type = 'search' AND {rng} AND {vis}

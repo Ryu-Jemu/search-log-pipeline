@@ -4,7 +4,7 @@
 >
 > - **측정 환경:** Apple M4(10코어) · RAM 24 GiB, Docker Desktop(CPU 10, 메모리 11.67 GiB), Kafka 3.8.0 · ClickHouse 24.8.14.39 · Airflow 3.3.2(standalone, LocalExecutor, Postgres 16 메타DB). 장애 재현 A·B·C의 클라우드(2 vCPU) 환경과 다르므로 수치를 직접 비교하지 않습니다.
 >   - 환경 원자료는 `docs/results/env_mac_m4_resized.json`입니다. 처음 찍은 `env_mac_m4.json`(7.75 GiB)은 Docker 메모리를 12 GiB로 올리기 전의 값입니다.
->   - ClickHouse·Kafka 컨테이너가 2026-10-15T01:18:40Z에 시작해 재시작 없이 유지됐으므로, 이 문서의 실행(c2 1회차 01:19:55Z~)은 모두 11.67 GiB에서 돌았습니다.
+>   - ClickHouse·Kafka 컨테이너가 2026-10-15T01:18:40Z에 시작해 재시작 없이 유지됐으므로, 이 문서의 실행은 모두 11.67 GiB에서 돌았습니다. 가장 이른 c2 1회차도 01:20Z 무렵 시작했습니다(1회차 검사 태스크 로그의 첫 줄이 01:22:03Z이고, H0의 +60분 검사는 재생 시작 약 2분 뒤에 돌기 때문. `metrics_dag_late_check_logs_mac_m4.json`).
 > - **의도적 주입:** 확정 뒤 늦은 도착은 재생기 설정(최대 600초 지연)으로는 생기지 않습니다. 그래서 실험 스크립트가 일부러 이벤트를 넣었습니다(§4).
 > - **원자료:** `docs/results/metrics_dag_mac_m4.json`(2회차, 본 결과), `metrics_dag_late_check_logs_mac_m4.json`(검사 태스크 로그 발췌), `metrics_dag_run1_partial_mac_m4.json`(1회차, §6), `mv_scale_mac_m4.json`·`mv_scale_run1_mac_m4.json`(§5).
 > - **코드:** `src/slp/metrics.py`(SQL), `dags/hourly_metrics.py`(DAG), `experiments/c2_metrics_dag.py`, `experiments/c3_mv_scale.py`, 시험 `tests/test_metrics_sql.py`.
@@ -215,7 +215,8 @@ SELECT uniqExact(kafka_partition) FROM events WHERE event_time >= {target}   -- 
 - **범위 시계열:** MV는 원본보다 빠르기도 하고 느리기도 했습니다. 두 회차 모두 같은 방향이었습니다.
   - MV가 빨랐던 경우: 적재 직후 1·7일과 OPTIMIZE 뒤 1일(2회차 기준 18~28% 빠름)
   - MV가 느렸던 경우: 3일 범위와 OPTIMIZE 뒤 7일(2회차 기준 8~37% 느림)
-  - 어느 쪽이든 원본과 같은 자릿수(7.8~45.7 ms)였습니다. MV는 읽은 행이 수십~수백 개(24~237행)뿐인데도 이 정도 시간이 걸렸습니다.
+  - 어느 쪽이든 원본과 같은 자릿수였습니다. 범위 시계열의 원본·MV·MV g1 전체가 7.8~45.7 ms였고, 기본 MV만 보면 8.0~43.7 ms였습니다.
+  - MV는 읽은 행이 수십~수백 개뿐인데도 이 정도 시간이 걸렸습니다(MV·MV g1 24~237행, 기본 MV만 132~224행).
   - MV 표는 169행에 디스크 15.7 MB로, 행당 약 93 KB입니다. 원본 `events`는 496만 행에 435.6 MB입니다.
   - 따라서 비용 대부분이 시간마다 저장된 정확한 고유 사용자 집합(`uniqExactState`)을 풀어 합치는 데 든다고 **추정**합니다. 근사 함수(`uniq`, `uniqCombined`)로 바꾼 변형은 측정하지 않았습니다.
 - **한 시간 조회, 기본 MV:** 조회 대상이 뒤쪽 날짜일수록 느려졌습니다(OPTIMIZE 뒤 3.5 → 10.7 → 23.6 ms).
@@ -224,8 +225,10 @@ SELECT uniqExact(kafka_partition) FROM events WHERE event_time >= {target}   -- 
   - 그래뉼이 시간 행 여러 개를 함께 읽게 만든다는 1회차의 추정과 맞는 결과입니다.
   - 기본 MV가 표 전체(169행)를 읽은 것은 OPTIMIZE 뒤의 값입니다. 적재 직후 7일에서는 224행 중 92행을 읽었습니다.
   - 다만 기본 MV에서 같은 169행을 읽는데도 위치에 따라 시간이 다른 이유는 분리하지 않았습니다.
-- **버전 표:** 미리 계산해 둔 `hourly_metrics FINAL`이 모든 경우 가장 빨랐습니다(0.39~1.86 ms). 범위 시계열에서 원본·MV보다 약 8~54배 빨랐습니다. 시간당 한 행에 작은 숫자 열만 있기 때문입니다.
-- **1회차와 비교:** 1회차(`mv_scale_run1_mac_m4.json`, MV g1 없음)의 OPTIMIZE 뒤 중앙값도 같은 방향이었습니다. 값은 1·3·7일 순입니다.
+- **버전 표:** 미리 계산해 둔 `hourly_metrics FINAL`이 모든 경우 가장 빨랐습니다(0.39~1.86 ms). 범위 시계열에서 원본·MV·MV g1보다 약 8~54배 빨랐습니다. 시간당 한 행에 작은 숫자 열만 있기 때문입니다.
+- **1회차와 비교:** 1회차(`mv_scale_run1_mac_m4.json`, MV g1 없음)의 OPTIMIZE 뒤 중앙값입니다. 값은 1·3·7일 순입니다.
+  - 시계열 6칸은 두 회차의 MV·원본 순서가 같았습니다.
+  - 한 시간 조회의 1일 칸은 회차마다 순서가 뒤집혔습니다(1회차 MV 5.06 > 원본 4.59, 2회차 MV 3.48 < 원본 3.90).
 
   | 조회 | 원본 | MV | 버전 표 |
   |---|---|---|---|
@@ -239,7 +242,7 @@ SELECT uniqExact(kafka_partition) FROM events WHERE event_time >= {target}   -- 
     - 그래서 태스크 시간 대부분은 집계 밖의 비용(태스크 기동, 클라이언트 연결 등)이라고 **추정**합니다. 태스크 안의 시간을 나눠 재지는 않았습니다.
   - 확정 후 늦은 도착을 셀 오프셋 경계를 같은 스캔에서 잡을 수 있습니다.
 - **대시보드와 조회는 버전 표(`hourly_metrics_latest`)를 읽습니다.**
-- 이 규모와 이 정의(정확한 고유 사용자)에서는 **MV를 채택하지 않습니다.** MV는 원본 대비 이득이 상태·범위에 따라 엇갈렸고, 어느 경우든 버전 표보다 한 자릿수 이상 느렸기 때문입니다.
+- 이 규모와 이 정의(정확한 고유 사용자)에서는 **MV를 채택하지 않습니다.** MV는 원본 대비 이득이 상태·범위에 따라 엇갈렸습니다. 또 2회차의 모든 조회에서 원본·MV·MV g1이 버전 표보다 2.6~53.6배 느렸기 때문입니다.
   - 데이터가 훨씬 커지거나 고유 사용자를 근사값으로 바꾸면 결론이 달라질 수 있습니다. 측정하지는 않았습니다.
 
 ## 6. 재현성과 1회차

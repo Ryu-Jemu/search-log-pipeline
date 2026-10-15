@@ -1,7 +1,7 @@
 # 장애 재현 A · 메시지 단위 적재 → 처리량 붕괴와 lag 누적
 
 > **의도적 장애 주입 실험**입니다. 실제 운영 사고가 아니라, 흔한 구현 실수를 재현용 기준선으로 만들어 측정했습니다.
-> - **측정 환경**: 작업 공간 2 vCPU · 7.8 GB, Docker 단일 노드 Kafka 3.8.0 · ClickHouse 24.8.14 (기본 설정 스냅샷: `docs/results/env_and_defaults.json`)
+> - **측정 환경**: 작업 공간 2 vCPU · 7.8 GiB, Docker 단일 노드 Kafka 3.8.0 · ClickHouse 24.8.14 (기본 설정 스냅샷: `docs/results/env_and_defaults.json`)
 > - **공통 입력**: `day1.tsv` 앞 300,000줄(유효 299,855 · 거부 145)을 초당 5,000건으로 60초 동안 생산
 > - **원자료**: `docs/results/a*.json`
 > - **스크립트**: `experiments/a_small_inserts.py`, `a_capacity.py`

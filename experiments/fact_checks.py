@@ -45,7 +45,7 @@ def airflow_intervals() -> dict:
 def abuse_dag_test(logical: str = "2026-01-05T08:00:00+00:00") -> dict:
     out = subprocess.run(COMPOSE + ["exec", "-T", "airflow", "airflow", "dags", "test", "abuse_detection", logical],
                          capture_output=True, text=True, timeout=600).stdout
-    keep = [line.strip()[:300] for line in out.splitlines()
+    keep = [line.strip()[:600] for line in out.splitlines()
             if "ABUSE_DETECTED" in line or "탐지 없음" in line or "DagRun Finished" in line]
     return {"logical_date": logical, "lines": keep,
             "note": "수동 run은 data interval이 logical date에서 끝나는 1시간([07:00, 08:00))으로 정해진다. "
