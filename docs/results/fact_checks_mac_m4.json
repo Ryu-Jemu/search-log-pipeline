@@ -1,5 +1,5 @@
 {
- "taken_at_utc": "2026-10-15T04:42:01Z",
+ "taken_at_utc": "2026-10-15T04:48:59Z",
  "clickhouse_connect_naive_datetime": {
   "host_tz": "KST +0900",
   "inserted": "2026-01-05T00:58:12",
@@ -11,6 +11,16 @@
  },
  "airflow": {
   "create_cron_data_intervals": "False",
+  "manual_runs": [
+   {
+    "dag_id": "abuse_detection",
+    "run_id": "manual__2026-10-15T04:42:05.608672+00:00",
+    "interval": [
+     "2026-01-05 07:00:00+00",
+     "2026-01-05 08:00:00+00"
+    ]
+   }
+  ],
   "scheduled_runs": [
    {
     "dag_id": "abuse_detection",
@@ -33,10 +43,10 @@
  "abuse_dag_test": {
   "logical_date": "2026-01-05T08:00:00+00:00",
   "lines": [
-   "2026-10-15T04:42:08.451784Z [info     ] hour=2026-01-05 07:00:00+00:00 탐지 없음 [slp.abuse_detection] loc=abuse_detection.py:47",
-   "2026-10-15T04:42:08.474255Z [info     ] DagRun Finished: dag_id=abuse_detection, logical_date=2026-01-05 08:00:00+00:00, run_id=manual__2026-10-15T04:42:05.608672+00:00, run_start_date=2026-01-05 08:00:00+00:00, run_end_date=2026-10-15 04:42:08.473977+00:00, run_duration=24439328.473977, state=success, run_type=manual, data_interval_start=2026-01-05 07:00:00+00:00, data_interval_end=2026-01-05 08:00:00+00:00, [airflow.models.dagrun.DagRun] loc=dagrun.py:1315"
+   "2026-10-15T04:49:05.786111Z [info     ] hour=2026-01-05 07:00:00+00:00 탐지 없음 [slp.abuse_detection] loc=abuse_detection.py:47",
+   "2026-10-15T04:49:05.804269Z [info     ] DagRun Finished: dag_id=abuse_detection, logical_date=2026-01-05 08:00:00+00:00, run_id=manual__2026-10-15T04:49:03.312336+00:00, run_start_date=2026-01-05 08:00:00+00:00, run_end_date=2026-10-15 04:49:05.804019+00:00, run_duration=24439745.804019, state=success, run_type=manual, data_interval_start=2026-01-05 07:00:00+00:00, data_interval_end=2026-01-05 08:00:00+00:00, [airflow.models.dagrun.DagRun] loc=dagrun.py:1315"
   ],
   "note": "수동 run은 data interval이 logical date에서 끝나는 1시간([07:00, 08:00))으로 정해진다. 대상은 그 시점의 slp.events(마지막 관측 실행의 day1 00~13:10 적재본)"
  },
- "note": "airflow 항목은 마지막 관측 실행(d_observe.py) 뒤의 메타DB 상태"
+ "note": "airflow 항목은 이 스크립트를 실행한 시점의 메타DB 상태다. 관측 실행(d_observe.py) 직후에는 두 DAG 모두 예약 run이 12개였다(observability_mac_m4.json의 dag_runs). 그 뒤 이 스크립트가 실행한 `airflow dags test abuse_detection 2026-01-05T08:00`이 같은 logical date의 예약 run([08:00, 09:00))을 지우고 수동 run([07:00, 08:00))으로 바꿔, 두 번째 실행부터 abuse_detection의 예약 run은 11개로 보인다."
 }

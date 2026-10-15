@@ -36,7 +36,10 @@ def airflow_intervals() -> dict:
                           max(extract(epoch from data_interval_end - data_interval_start)),
                           min(data_interval_start), max(data_interval_start)
                    from dag_run where run_type = 'scheduled' group by dag_id order by dag_id""")
+    manual = psql("""select dag_id, run_id, data_interval_start, data_interval_end from dag_run
+                     where run_type = 'manual' order by dag_id, run_id""")
     return {"create_cron_data_intervals": cfg.splitlines()[-1] if cfg else None,
+            "manual_runs": [{"dag_id": r[0], "run_id": r[1], "interval": [r[2], r[3]]} for r in manual],
             "scheduled_runs": [{"dag_id": r[0], "runs": int(r[1]), "interval_s_min": float(r[2]),
                                 "interval_s_max": float(r[3]), "first_start": r[4], "last_start": r[5]}
                                for r in runs]}
@@ -56,6 +59,9 @@ if __name__ == "__main__":
     res = {"taken_at_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
            "clickhouse_connect_naive_datetime": tz_roundtrip(), "airflow": airflow_intervals(),
            "abuse_dag_test": abuse_dag_test(),
-           "note": "airflow 항목은 마지막 관측 실행(d_observe.py) 뒤의 메타DB 상태"}
+           "note": ("airflow 항목은 이 스크립트를 실행한 시점의 메타DB 상태다. 관측 실행(d_observe.py) 직후에는 두 DAG 모두 "
+                    "예약 run이 12개였다(observability_mac_m4.json의 dag_runs). 그 뒤 이 스크립트가 실행한 "
+                    "`airflow dags test abuse_detection 2026-01-05T08:00`이 같은 logical date의 예약 run([08:00, 09:00))을 "
+                    "지우고 수동 run([07:00, 08:00))으로 바꿔, 두 번째 실행부터 abuse_detection의 예약 run은 11개로 보인다.")}
     print(json.dumps(res, ensure_ascii=False, indent=1))
     print(save("fact_checks_mac_m4", res, overwrite=True))  # 같은 확인을 항목을 늘려 다시 실행

@@ -163,7 +163,8 @@ day1에서는 만점 구간이 넓었고, 보수적인 쪽을 고르는 규칙 �
 - 시간 단위 함수 `detect_hour`를 day1의 25시간에 돌린 합이 하루 단위 결과와 네 규칙 모두 같았습니다(R1 6, R2 94, R3 3, R4 7).
 - 임계값 상수(`abuse.CHOSEN`)가 day1 결정 JSON과 같은지도 같은 스크립트에서 확인합니다.
 - 컨테이너에서 import 오류가 없었고, `airflow dags test`로 07시 구간을 실행해 성공했습니다(탐지 없음).
-  - 처음 시험의 기록은 남기지 않았습니다. 04:27Z에 관측 실행 적재본(같은 day1 데이터)으로 다시 실행한 기록이 `fact_checks_mac_m4.json`에 있습니다("탐지 없음", run state=success).
+  - 처음 시험의 기록은 남기지 않았습니다. 04:49Z에 관측 실행 적재본(같은 day1 데이터)으로 다시 실행한 기록이 `fact_checks_mac_m4.json`에 있습니다("탐지 없음", run state=success).
+  - **부작용(검증 중 발견):** `airflow dags test`는 같은 logical date의 기존 run을 지웁니다. logical date 08:00으로 시험하자 예약 run [08:00, 09:00)이 지워지고 수동 run [07:00, 08:00)으로 바뀌었습니다. 그래서 메타DB의 abuse_detection 예약 run은 관측 실행 직후 12개였다가 11개가 됐습니다(`fact_checks_mac_m4.json`의 note·manual_runs). 운영 DAG에서 `dags test`로 확인하면 실행 기록이 바뀐다는 점에 주의해야 합니다.
   - day1 07시에는 라벨상 캠페인이 없고, 같은 표에 오프라인 `detect_hour`를 돌린 결과도 빈 목록이었습니다(작업 중 확인, 기록 파일 없음).
 - 배속 재생 중의 실제 실행은 4단계 관측 실험에서 확인합니다.
 

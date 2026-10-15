@@ -42,7 +42,7 @@ DAG `hourly_metrics`의 태스크 순서는 다음과 같습니다. 시간 H는 
 - Airflow 3의 기본 cron 시간표는 data interval 길이가 0입니다. 컨테이너에서 `scheduler.create_cron_data_intervals = False`를 확인했습니다.
 - 그래서 `CronDataIntervalTimetable("0 * * * *", timezone="UTC")`를 명시했습니다.
   - 실행된 run 12개(00:00~11:00 시작)의 data interval이 모두 정확히 3,600초였습니다.
-  - 근거: `fact_checks_mac_m4.json`. 마지막 관측 실행 뒤의 메타DB이며, 두 DAG 모두 같았습니다.
+  - 근거: `fact_checks_mac_m4.json`의 `hourly_metrics` 예약 run 12개(관측 실행 뒤의 메타DB). abuse_detection DAG에 대한 사정은 03 문서 §5에 있습니다.
 - 가상 날짜(2026-01-05)가 과거이므로 `catchup=True`로 두면 run이 바로 만들어집니다.
   - `start_date`는 00:00, `end_date`는 11:00입니다. 실제로 run 12개가 만들어졌습니다.
   - 진행은 벽시계가 아니라 워터마크가 결정합니다. `max_active_runs=3`입니다.
@@ -227,7 +227,7 @@ SELECT uniqExact(kafka_partition) FROM events WHERE event_time >= {target}   -- 
   - 다만 기본 MV에서 같은 169행을 읽는데도 위치에 따라 시간이 다른 이유는 분리하지 않았습니다.
 - **버전 표:** 미리 계산해 둔 `hourly_metrics FINAL`이 모든 경우 가장 빨랐습니다(0.39~1.86 ms). 범위 시계열에서 원본·MV·MV g1보다 약 8~54배 빨랐습니다. 시간당 한 행에 작은 숫자 열만 있기 때문입니다.
 - **1회차와 비교:** 1회차(`mv_scale_run1_mac_m4.json`, MV g1 없음)의 OPTIMIZE 뒤 중앙값입니다. 값은 1·3·7일 순입니다.
-  - 시계열 6칸은 두 회차의 MV·원본 순서가 같았습니다.
+  - 시계열은 두 상태 × 3범위 6칸 모두 두 회차의 MV·원본 순서가 같았습니다(표에는 OPTIMIZE 뒤 3칸만 실음, 나머지는 원자료).
   - 한 시간 조회의 1일 칸은 회차마다 순서가 뒤집혔습니다(1회차 MV 5.06 > 원본 4.59, 2회차 MV 3.48 < 원본 3.90).
 
   | 조회 | 원본 | MV | 버전 표 |
