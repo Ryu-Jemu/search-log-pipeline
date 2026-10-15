@@ -150,9 +150,9 @@
   },
   {
    "id": 3,
-   "type": "timeseries",
+   "type": "state-timeline",
    "title": "경보 상태 (ALERTS)",
-   "description": "Prometheus 경보 규칙(observability/prometheus/alerts.yml). 값 1 = 해당 상태",
+   "description": "Prometheus 경보 규칙(observability/prometheus/alerts.yml)의 pending·firing 구간과 수집기 수집 상태",
    "datasource": {
     "type": "prometheus",
     "uid": "prom"
@@ -165,24 +165,83 @@
    },
    "fieldConfig": {
     "defaults": {
-     "unit": "short",
-     "custom": {
-      "lineWidth": 2,
-      "fillOpacity": 10,
-      "stacking": {
-       "mode": "none"
+     "color": {
+      "mode": "fixed",
+      "fixedColor": "red"
+     },
+     "mappings": [
+      {
+       "type": "value",
+       "options": {
+        "1": {
+         "text": "firing",
+         "color": "red"
+        }
+       }
       }
-     }
+     ]
     },
-    "overrides": []
+    "overrides": [
+     {
+      "matcher": {
+       "id": "byRegexp",
+       "options": ".*pending"
+      },
+      "properties": [
+       {
+        "id": "mappings",
+        "value": [
+         {
+          "type": "value",
+          "options": {
+           "1": {
+            "text": "pending",
+            "color": "orange"
+           }
+          }
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "수집기 up"
+      },
+      "properties": [
+       {
+        "id": "mappings",
+        "value": [
+         {
+          "type": "value",
+          "options": {
+           "1": {
+            "text": "up",
+            "color": "green"
+           },
+           "0": {
+            "text": "down",
+            "color": "red"
+           }
+          }
+         }
+        ]
+       }
+      ]
+     }
+    ]
    },
    "options": {
+    "mergeValues": true,
+    "showValue": "never",
+    "rowHeight": 0.8,
+    "alignValue": "left",
     "legend": {
-     "displayMode": "list",
-     "placement": "bottom"
+     "showLegend": false
     },
     "tooltip": {
-     "mode": "multi"
+     "mode": "single"
     }
    },
    "targets": [
@@ -191,18 +250,18 @@
       "type": "prometheus",
       "uid": "prom"
      },
+     "refId": "A",
      "expr": "max by (alertname, alertstate) (ALERTS)",
-     "legendFormat": "{{alertname}} {{alertstate}}",
-     "refId": "A"
+     "legendFormat": "{{alertname}} {{alertstate}}"
     },
     {
      "datasource": {
       "type": "prometheus",
       "uid": "prom"
      },
+     "refId": "B",
      "expr": "up{job=\"collector\"}",
-     "legendFormat": "수집기 up",
-     "refId": "B"
+     "legendFormat": "수집기 up"
     }
    ]
   },
@@ -293,7 +352,7 @@
       "lineWidth": 2,
       "fillOpacity": 10,
       "stacking": {
-       "mode": "normal"
+       "mode": "none"
       }
      }
     },
@@ -480,7 +539,7 @@
    "id": 9,
    "type": "table",
    "title": "시간별 지표 · 최신 버전 (잠정/확정)",
-   "description": "v1 잠정(워터마크 +1분) → v2 확정(+15분) → v3 재확정. CTR은 재생기 클릭 확률 60% 가정에서 나온 값",
+   "description": "v1 잠정(워터마크 +1분) → v2 확정(+15분) → v3 재확정. wm_min = 계산 시점 워터마크가 시간 끝보다 지난 가상 분. CTR(뷰의 ctr 열)은 재생기 클릭 확률 60% 가정에서 나온 값",
    "datasource": {
     "type": "grafana-clickhouse-datasource",
     "uid": "ch"
@@ -489,13 +548,50 @@
     "x": 0,
     "y": 25,
     "w": 14,
-    "h": 10
+    "h": 15
    },
    "fieldConfig": {
     "defaults": {
      "unit": "short"
     },
-    "overrides": []
+    "overrides": [
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "H"
+      },
+      "properties": [
+       {
+        "id": "custom.width",
+        "value": 100
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "v"
+      },
+      "properties": [
+       {
+        "id": "custom.width",
+        "value": 40
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "stage"
+      },
+      "properties": [
+       {
+        "id": "custom.width",
+        "value": 80
+       }
+      ]
+     }
+    ]
    },
    "options": {},
    "targets": [
@@ -507,7 +603,7 @@
      "editorType": "sql",
      "queryType": "table",
      "format": 1,
-     "rawSql": "SELECT formatDateTime(hour, '%m-%d %H시') AS H, version AS v, stage, is_final,\n       searches, clicks, unique_users, zero_click_searches AS zero_click, round(ctr, 3) AS ctr,\n       dateDiff('second', hour + INTERVAL 1 HOUR, watermark) / 60 AS wm_min_after_hour\nFROM slp.hourly_metrics_latest ORDER BY hour",
+     "rawSql": "SELECT formatDateTime(hour, '%m-%d %H시') AS H, version AS v, stage,\n       searches, clicks, unique_users AS users,\n       round(dateDiff('millisecond', hour + INTERVAL 1 HOUR, watermark) / 60000, 1) AS wm_min\nFROM slp.hourly_metrics_latest ORDER BY hour",
      "refId": "A"
     }
    ]
@@ -525,13 +621,38 @@
     "x": 14,
     "y": 25,
     "w": 10,
-    "h": 10
+    "h": 15
    },
    "fieldConfig": {
     "defaults": {
      "unit": "short"
     },
-    "overrides": []
+    "overrides": [
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "H"
+      },
+      "properties": [
+       {
+        "id": "custom.width",
+        "value": 100
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "final_v"
+      },
+      "properties": [
+       {
+        "id": "custom.width",
+        "value": 70
+       }
+      ]
+     }
+    ]
    },
    "options": {},
    "targets": [
@@ -543,7 +664,7 @@
      "editorType": "sql",
      "queryType": "table",
      "format": 1,
-     "rawSql": "SELECT formatDateTime(hour, '%m-%d %H시') AS H, final_version, late_events,\n       late_by_inserted_at, refinalized_version\nFROM slp.hourly_late_checks ORDER BY hour, checked_at",
+     "rawSql": "SELECT formatDateTime(hour, '%m-%d %H시') AS H, final_version AS final_v, late_events,\n       late_by_inserted_at AS by_inserted_at, refinalized_version AS refinal_v\nFROM slp.hourly_late_checks ORDER BY hour, checked_at",
      "refId": "A"
     }
    ]

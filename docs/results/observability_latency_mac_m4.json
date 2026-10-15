@@ -1,0 +1,45 @@
+{
+ "note": "observability_mac_m4 실행의 events 표에서 Kafka 도착 시각(kafka_ts) 구간별 적재 지연(inserted_at − kafka_ts)",
+ "before_first_fault": {
+  "events": 81015,
+  "p50_ms": 128.0,
+  "p95_ms": 223.0,
+  "p99_ms": 238.0,
+  "max_ms": 632
+ },
+ "arrived_during_collector_outage": {
+  "events": 33592,
+  "p50_ms": 29054.0,
+  "p95_ms": 57072.0,
+  "p99_ms": 59799.0,
+  "max_ms": 60608
+ },
+ "after_restart": {
+  "events": 85584,
+  "p50_ms": 124.0,
+  "p95_ms": 217.0,
+  "p99_ms": 230.0,
+  "max_ms": 624
+ },
+ "failpoint_collector": {
+  "rows_inserted_before_kill": 223,
+  "inserts": 1
+ },
+ "collector_logs_head_tail": {
+  "d_consumer_0": [
+   "ASSIGNED 0.07s",
+   "FIRST_MSG 5.95s",
+   "{\"consumed\": 157478, \"inserted\": 155598, \"dlq\": 1880, \"inserts\": 2893, \"insert_ms\": 16265, \"insert_errors\": {}, \"dlq_reasons\": {\"bad_json\": 1827, \"bad_value\": 26, \"missing_user_id\": 25, \"empty_query\": 2}}"
+  ],
+  "d_consumer_failpoint": [
+   "ASSIGNED 0.06s",
+   "FIRST_MSG 0.06s",
+   "FAILPOINT after_insert_before_commit"
+  ],
+  "d_consumer_1": [
+   "ASSIGNED 0.06s",
+   "FIRST_MSG 0.08s",
+   "{\"consumed\": 119011, \"inserted\": 118960, \"dlq\": 51, \"inserts\": 632, \"insert_ms\": 3745, \"insert_errors\": {}, \"dlq_reasons\": {\"missing_user_id\": 19, \"bad_json\": 18, \"bad_value\": 14}}"
+  ]
+ }
+}

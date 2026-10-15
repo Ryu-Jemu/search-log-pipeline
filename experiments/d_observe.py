@@ -125,7 +125,7 @@ def screenshot(path: str, start: float, end: float) -> str:
     url = (f"http://localhost:3000/d/slp-pipeline/search-log-pipeline?orgId=1&kiosk&timezone=utc"
            f"&from={int(start * 1000)}&to={int(end * 1000)}")
     r = subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars", f"--screenshot={path}",
-                        "--window-size=1600,2050", "--virtual-time-budget=25000", url],
+                        "--window-size=1600,1640", "--virtual-time-budget=25000", url],
                        capture_output=True, text=True, timeout=120)
     return url if os.path.exists(path) else f"실패: {r.stderr[-300:]}"
 
