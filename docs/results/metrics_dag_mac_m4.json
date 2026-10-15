@@ -1,0 +1,1814 @@
+{
+ "speed": 60,
+ "hours": 12,
+ "until": "2026-01-05T13:10:00+00:00",
+ "wall0": 1792028118.386562,
+ "unpause_wall": 1792028116.826056,
+ "unpause_out": [
+  "hourly_metrics | True"
+ ],
+ "dag_runs": [
+  {
+   "hour": 0,
+   "state": "success"
+  },
+  {
+   "hour": 1,
+   "state": "success"
+  },
+  {
+   "hour": 2,
+   "state": "success"
+  },
+  {
+   "hour": 3,
+   "state": "success"
+  },
+  {
+   "hour": 4,
+   "state": "success"
+  },
+  {
+   "hour": 5,
+   "state": "success"
+  },
+  {
+   "hour": 6,
+   "state": "success"
+  },
+  {
+   "hour": 7,
+   "state": "success"
+  },
+  {
+   "hour": 8,
+   "state": "success"
+  },
+  {
+   "hour": 9,
+   "state": "success"
+  },
+  {
+   "hour": 10,
+   "state": "success"
+  },
+  {
+   "hour": 11,
+   "state": "success"
+  }
+ ],
+ "per_hour": [
+  {
+   "hour": 0,
+   "truth": {
+    "searches": 11510,
+    "clicks": 6641,
+    "users": 3687,
+    "zero_click": 4863
+   },
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "is_final": 0,
+     "searches": 11510,
+     "clicks": 6641,
+     "users": 3687,
+     "zero_click": 4863,
+     "missing_events": 0,
+     "missing_events_excl_injected": 0,
+     "missing_users": 0,
+     "complete_pct": 100.0,
+     "computed_virtual_min_after_gate": 1.47,
+     "watermark_virtual_min_after_hour_end": 2.4
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "is_final": 1,
+     "searches": 11510,
+     "clicks": 6641,
+     "users": 3687,
+     "zero_click": 4863,
+     "missing_events": 0,
+     "missing_events_excl_injected": 0,
+     "missing_users": 0,
+     "complete_pct": 100.0,
+     "computed_virtual_min_after_gate": 1.57,
+     "watermark_virtual_min_after_hour_end": 16.51
+    }
+   ],
+   "late_checks": [
+    [
+     2,
+     0,
+     0,
+     0
+    ]
+   ],
+   "latest_version": 2,
+   "latest_matches_truth": true
+  },
+  {
+   "hour": 1,
+   "truth": {
+    "searches": 9021,
+    "clicks": 5262,
+    "users": 3104,
+    "zero_click": 3752
+   },
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "is_final": 0,
+     "searches": 9019,
+     "clicks": 5261,
+     "users": 3104,
+     "zero_click": 3752,
+     "missing_events": 3,
+     "missing_events_excl_injected": 3,
+     "missing_users": 0,
+     "complete_pct": 99.979,
+     "computed_virtual_min_after_gate": 0.64,
+     "watermark_virtual_min_after_hour_end": 1.41
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "is_final": 1,
+     "searches": 9021,
+     "clicks": 5262,
+     "users": 3104,
+     "zero_click": 3752,
+     "missing_events": 0,
+     "missing_events_excl_injected": 0,
+     "missing_users": 0,
+     "complete_pct": 100.0,
+     "computed_virtual_min_after_gate": 1.73,
+     "watermark_virtual_min_after_hour_end": 16.25
+    }
+   ],
+   "late_checks": [
+    [
+     2,
+     0,
+     0,
+     0
+    ]
+   ],
+   "latest_version": 2,
+   "latest_matches_truth": true
+  },
+  {
+   "hour": 2,
+   "truth": {
+    "searches": 7168,
+    "clicks": 4318,
+    "users": 2531,
+    "zero_click": 2863
+   },
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "is_final": 0,
+     "searches": 7163,
+     "clicks": 4318,
+     "users": 2526,
+     "zero_click": 2858,
+     "missing_events": 5,
+     "missing_events_excl_injected": 0,
+     "missing_users": 5,
+     "complete_pct": 99.9565,
+     "computed_virtual_min_after_gate": 1.87,
+     "watermark_virtual_min_after_hour_end": 2.63
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "is_final": 1,
+     "searches": 7163,
+     "clicks": 4318,
+     "users": 2526,
+     "zero_click": 2858,
+     "missing_events": 5,
+     "missing_events_excl_injected": 0,
+     "missing_users": 5,
+     "complete_pct": 99.9565,
+     "computed_virtual_min_after_gate": 1.9,
+     "watermark_virtual_min_after_hour_end": 16.51
+    },
+    {
+     "version": 3,
+     "stage": "refinal",
+     "is_final": 1,
+     "searches": 7168,
+     "clicks": 4318,
+     "users": 2531,
+     "zero_click": 2863,
+     "missing_events": 0,
+     "missing_events_excl_injected": 0,
+     "missing_users": 0,
+     "complete_pct": 100.0,
+     "computed_virtual_min_after_gate": 1.97,
+     "watermark_virtual_min_after_hour_end": 61.66
+    }
+   ],
+   "late_checks": [
+    [
+     2,
+     5,
+     5,
+     3
+    ]
+   ],
+   "latest_version": 3,
+   "latest_matches_truth": true
+  },
+  {
+   "hour": 3,
+   "truth": {
+    "searches": 6076,
+    "clicks": 3609,
+    "users": 2264,
+    "zero_click": 2471
+   },
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "is_final": 0,
+     "searches": 6075,
+     "clicks": 3608,
+     "users": 2264,
+     "zero_click": 2471,
+     "missing_events": 2,
+     "missing_events_excl_injected": 2,
+     "missing_users": 0,
+     "complete_pct": 99.9793,
+     "computed_virtual_min_after_gate": 0.95,
+     "watermark_virtual_min_after_hour_end": 1.66
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "is_final": 1,
+     "searches": 6076,
+     "clicks": 3609,
+     "users": 2264,
+     "zero_click": 2471,
+     "missing_events": 0,
+     "missing_events_excl_injected": 0,
+     "missing_users": 0,
+     "complete_pct": 100.0,
+     "computed_virtual_min_after_gate": 2.08,
+     "watermark_virtual_min_after_hour_end": 16.99
+    }
+   ],
+   "late_checks": [
+    [
+     2,
+     0,
+     0,
+     0
+    ]
+   ],
+   "latest_version": 2,
+   "latest_matches_truth": true
+  },
+  {
+   "hour": 4,
+   "truth": {
+    "searches": 6075,
+    "clicks": 3691,
+    "users": 2239,
+    "zero_click": 2385
+   },
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "is_final": 0,
+     "searches": 6074,
+     "clicks": 3691,
+     "users": 2239,
+     "zero_click": 2385,
+     "missing_events": 1,
+     "missing_events_excl_injected": 1,
+     "missing_users": 0,
+     "complete_pct": 99.9898,
+     "computed_virtual_min_after_gate": 1.52,
+     "watermark_virtual_min_after_hour_end": 2.41
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "is_final": 1,
+     "searches": 6075,
+     "clicks": 3691,
+     "users": 2239,
+     "zero_click": 2385,
+     "missing_events": 0,
+     "missing_events_excl_injected": 0,
+     "missing_users": 0,
+     "complete_pct": 100.0,
+     "computed_virtual_min_after_gate": 1.28,
+     "watermark_virtual_min_after_hour_end": 16.08
+    }
+   ],
+   "late_checks": [
+    [
+     2,
+     0,
+     0,
+     0
+    ]
+   ],
+   "latest_version": 2,
+   "latest_matches_truth": true
+  },
+  {
+   "hour": 5,
+   "truth": {
+    "searches": 7107,
+    "clicks": 4107,
+    "users": 2567,
+    "zero_click": 2997
+   },
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "is_final": 0,
+     "searches": 7101,
+     "clicks": 4107,
+     "users": 2562,
+     "zero_click": 2992,
+     "missing_events": 6,
+     "missing_events_excl_injected": 1,
+     "missing_users": 5,
+     "complete_pct": 99.9465,
+     "computed_virtual_min_after_gate": 1.31,
+     "watermark_virtual_min_after_hour_end": 2.03
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "is_final": 1,
+     "searches": 7102,
+     "clicks": 4107,
+     "users": 2562,
+     "zero_click": 2992,
+     "missing_events": 5,
+     "missing_events_excl_injected": 0,
+     "missing_users": 5,
+     "complete_pct": 99.9554,
+     "computed_virtual_min_after_gate": 1.37,
+     "watermark_virtual_min_after_hour_end": 16.11
+    },
+    {
+     "version": 3,
+     "stage": "refinal",
+     "is_final": 1,
+     "searches": 7107,
+     "clicks": 4107,
+     "users": 2567,
+     "zero_click": 2997,
+     "missing_events": 0,
+     "missing_events_excl_injected": 0,
+     "missing_users": 0,
+     "complete_pct": 100.0,
+     "computed_virtual_min_after_gate": 1.41,
+     "watermark_virtual_min_after_hour_end": 61.3
+    }
+   ],
+   "late_checks": [
+    [
+     2,
+     5,
+     5,
+     3
+    ]
+   ],
+   "latest_version": 3,
+   "latest_matches_truth": true
+  },
+  {
+   "hour": 6,
+   "truth": {
+    "searches": 8660,
+    "clicks": 5231,
+    "users": 3046,
+    "zero_click": 3431
+   },
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "is_final": 0,
+     "searches": 8658,
+     "clicks": 5231,
+     "users": 3046,
+     "zero_click": 3431,
+     "missing_events": 2,
+     "missing_events_excl_injected": 2,
+     "missing_users": 0,
+     "complete_pct": 99.9856,
+     "computed_virtual_min_after_gate": 1.45,
+     "watermark_virtual_min_after_hour_end": 2.34
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "is_final": 1,
+     "searches": 8660,
+     "clicks": 5231,
+     "users": 3046,
+     "zero_click": 3431,
+     "missing_events": 0,
+     "missing_events_excl_injected": 0,
+     "missing_users": 0,
+     "complete_pct": 100.0,
+     "computed_virtual_min_after_gate": 1.53,
+     "watermark_virtual_min_after_hour_end": 16.38
+    }
+   ],
+   "late_checks": [
+    [
+     2,
+     0,
+     0,
+     0
+    ]
+   ],
+   "latest_version": 2,
+   "latest_matches_truth": true
+  },
+  {
+   "hour": 7,
+   "truth": {
+    "searches": 10633,
+    "clicks": 6462,
+    "users": 3689,
+    "zero_click": 4174
+   },
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "is_final": 0,
+     "searches": 10632,
+     "clicks": 6462,
+     "users": 3689,
+     "zero_click": 4174,
+     "missing_events": 1,
+     "missing_events_excl_injected": 1,
+     "missing_users": 0,
+     "complete_pct": 99.9942,
+     "computed_virtual_min_after_gate": 0.58,
+     "watermark_virtual_min_after_hour_end": 1.43
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "is_final": 1,
+     "searches": 10633,
+     "clicks": 6462,
+     "users": 3689,
+     "zero_click": 4174,
+     "missing_events": 0,
+     "missing_events_excl_injected": 0,
+     "missing_users": 0,
+     "complete_pct": 100.0,
+     "computed_virtual_min_after_gate": 1.7,
+     "watermark_virtual_min_after_hour_end": 16.48
+    }
+   ],
+   "late_checks": [
+    [
+     2,
+     0,
+     0,
+     0
+    ]
+   ],
+   "latest_version": 2,
+   "latest_matches_truth": true
+  },
+  {
+   "hour": 8,
+   "truth": {
+    "searches": 14190,
+    "clicks": 8668,
+    "users": 4603,
+    "zero_click": 5519
+   },
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "is_final": 0,
+     "searches": 14181,
+     "clicks": 8667,
+     "users": 4597,
+     "zero_click": 5514,
+     "missing_events": 10,
+     "missing_events_excl_injected": 5,
+     "missing_users": 6,
+     "complete_pct": 99.9563,
+     "computed_virtual_min_after_gate": 0.82,
+     "watermark_virtual_min_after_hour_end": 1.76
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "is_final": 1,
+     "searches": 14185,
+     "clicks": 8668,
+     "users": 4598,
+     "zero_click": 5514,
+     "missing_events": 5,
+     "missing_events_excl_injected": 0,
+     "missing_users": 5,
+     "complete_pct": 99.9781,
+     "computed_virtual_min_after_gate": 1.88,
+     "watermark_virtual_min_after_hour_end": 16.82
+    },
+    {
+     "version": 3,
+     "stage": "refinal",
+     "is_final": 1,
+     "searches": 14190,
+     "clicks": 8668,
+     "users": 4603,
+     "zero_click": 5519,
+     "missing_events": 0,
+     "missing_events_excl_injected": 0,
+     "missing_users": 0,
+     "complete_pct": 100.0,
+     "computed_virtual_min_after_gate": 1.01,
+     "watermark_virtual_min_after_hour_end": 60.83
+    }
+   ],
+   "late_checks": [
+    [
+     2,
+     5,
+     5,
+     3
+    ]
+   ],
+   "latest_version": 3,
+   "latest_matches_truth": true
+  },
+  {
+   "hour": 9,
+   "truth": {
+    "searches": 16930,
+    "clicks": 10247,
+    "users": 5588,
+    "zero_click": 6690
+   },
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "is_final": 0,
+     "searches": 16928,
+     "clicks": 10246,
+     "users": 5588,
+     "zero_click": 6689,
+     "missing_events": 3,
+     "missing_events_excl_injected": 3,
+     "missing_users": 0,
+     "complete_pct": 99.989,
+     "computed_virtual_min_after_gate": 1.08,
+     "watermark_virtual_min_after_hour_end": 1.84
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "is_final": 1,
+     "searches": 16930,
+     "clicks": 10247,
+     "users": 5588,
+     "zero_click": 6690,
+     "missing_events": 0,
+     "missing_events_excl_injected": 0,
+     "missing_users": 0,
+     "complete_pct": 100.0,
+     "computed_virtual_min_after_gate": 1.16,
+     "watermark_virtual_min_after_hour_end": 16.04
+    }
+   ],
+   "late_checks": [
+    [
+     2,
+     0,
+     0,
+     0
+    ]
+   ],
+   "latest_version": 2,
+   "latest_matches_truth": true
+  },
+  {
+   "hour": 10,
+   "truth": {
+    "searches": 21326,
+    "clicks": 11940,
+    "users": 6288,
+    "zero_click": 9379
+   },
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "is_final": 0,
+     "searches": 21322,
+     "clicks": 11939,
+     "users": 6288,
+     "zero_click": 9378,
+     "missing_events": 5,
+     "missing_events_excl_injected": 5,
+     "missing_users": 0,
+     "complete_pct": 99.985,
+     "computed_virtual_min_after_gate": 1.29,
+     "watermark_virtual_min_after_hour_end": 2.08
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "is_final": 1,
+     "searches": 21326,
+     "clicks": 11940,
+     "users": 6288,
+     "zero_click": 9379,
+     "missing_events": 0,
+     "missing_events_excl_injected": 0,
+     "missing_users": 0,
+     "complete_pct": 100.0,
+     "computed_virtual_min_after_gate": 1.27,
+     "watermark_virtual_min_after_hour_end": 16.18
+    }
+   ],
+   "late_checks": [
+    [
+     2,
+     0,
+     0,
+     0
+    ]
+   ],
+   "latest_version": 2,
+   "latest_matches_truth": true
+  },
+  {
+   "hour": 11,
+   "truth": {
+    "searches": 23278,
+    "clicks": 14101,
+    "users": 7303,
+    "zero_click": 9181
+   },
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "is_final": 0,
+     "searches": 23276,
+     "clicks": 14098,
+     "users": 7303,
+     "zero_click": 9185,
+     "missing_events": 5,
+     "missing_events_excl_injected": 5,
+     "missing_users": 0,
+     "complete_pct": 99.9866,
+     "computed_virtual_min_after_gate": 1.38,
+     "watermark_virtual_min_after_hour_end": 2.36
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "is_final": 1,
+     "searches": 23278,
+     "clicks": 14101,
+     "users": 7303,
+     "zero_click": 9181,
+     "missing_events": 0,
+     "missing_events_excl_injected": 0,
+     "missing_users": 0,
+     "complete_pct": 100.0,
+     "computed_virtual_min_after_gate": 1.35,
+     "watermark_virtual_min_after_hour_end": 16.23
+    }
+   ],
+   "late_checks": [
+    [
+     2,
+     0,
+     0,
+     0
+    ]
+   ],
+   "latest_version": 2,
+   "latest_matches_truth": true
+  }
+ ],
+ "summary": {
+  "v1_missing_excl_injected_total": 28,
+  "v1_hours_incomplete_excl_injected": 10,
+  "v2_missing_excl_injected_total": 0,
+  "v2_missing_total_incl_injected": 15,
+  "latest_matches_truth_hours": 12,
+  "late_after_final_by_hour": {
+   "0": [
+    0
+   ],
+   "1": [
+    0
+   ],
+   "2": [
+    5
+   ],
+   "3": [
+    0
+   ],
+   "4": [
+    0
+   ],
+   "5": [
+    5
+   ],
+   "6": [
+    0
+   ],
+   "7": [
+    0
+   ],
+   "8": [
+    5
+   ],
+   "9": [
+    0
+   ],
+   "10": [
+    0
+   ],
+   "11": [
+    0
+   ]
+  },
+  "injected_by_hour": {
+   "2": 5,
+   "5": 5,
+   "8": 5
+  },
+  "refinalized_hours": [
+   2,
+   5,
+   8
+  ],
+  "provisional_start_virtual_min_after_gate": [
+   1.36,
+   0.52,
+   1.75,
+   0.82,
+   1.4,
+   1.18,
+   1.34,
+   0.43,
+   0.65,
+   0.92,
+   1.17,
+   1.26
+  ],
+  "finalize_start_virtual_min_after_gate": [
+   1.48,
+   1.64,
+   1.81,
+   1.99,
+   1.2,
+   1.29,
+   1.44,
+   1.61,
+   1.79,
+   0.96,
+   1.15,
+   1.26
+  ],
+  "sensor_to_next_task_start_s": {
+   "median": 0.61,
+   "max": 0.96,
+   "n": 36
+  }
+ },
+ "watermark_poke_queries": {
+  "count": 2127,
+  "duration_ms_p50_p99": [
+   1.0,
+   4.0
+  ],
+  "duration_ms_max": 16,
+  "read_rows_p50_p99": [
+   0.0,
+   173.95999999999913
+  ]
+ },
+ "insert_batches": {
+  "distinct_inserted_at": 3817,
+  "inserted_at_spanning_multiple_parts": 0,
+  "consumer_last_line": "{\"consumed\": 274913, \"inserted\": 274781, \"dlq\": 132, \"inserts\": 3817, \"insert_ms\": 18144, \"insert_errors\": {}, \"dlq_reasons\": {\"bad_json\": 45, \"bad_value\": 40, \"missing_user_id\": 45, \"empty_query\": 2}}"
+ },
+ "injected": [
+  {
+   "hour": 2,
+   "wall": 1792028315.596641,
+   "n": 5,
+   "event_ids": [
+    "57ba60f6-467e-4ee8-aab0-1cfc4490e298",
+    "c5e65262-de80-412e-b0c7-2c1f1b7819eb",
+    "f76c0940-83ee-4b88-aa3d-268d5cd97884",
+    "0e6588a6-398f-4f85-a874-790c0226a2fe",
+    "94c0c507-b50f-433a-842a-2f6570b9125e"
+   ],
+   "virtual": "2026-01-05T03:17:12.604737+00:00",
+   "ingested": 5
+  },
+  {
+   "hour": 5,
+   "wall": 1792028495.0934951,
+   "n": 5,
+   "event_ids": [
+    "50ad2e89-b166-447d-981c-43f1ac950c1e",
+    "f55a6916-5449-45b1-bec5-6e955a26ec34",
+    "092432f5-301a-42b1-ac6a-7bfd33cb4574",
+    "5fdd49a0-d740-4ca4-a727-a8286b6a1adf",
+    "d339ee79-8b51-4597-ab99-3086a1ff3a76"
+   ],
+   "virtual": "2026-01-05T06:16:42.415981+00:00",
+   "ingested": 5
+  },
+  {
+   "hour": 8,
+   "wall": 1792028675.673588,
+   "n": 5,
+   "event_ids": [
+    "528bf95a-1df5-4dda-a992-a964b201ef03",
+    "536ba5df-015a-4e14-a81d-b45f18391c75",
+    "6f4feea9-997b-4eac-880b-ee2628efaa9a",
+    "dcd898bc-7ed9-4dda-86fe-3ac271719e2c",
+    "d92af014-57b6-4f36-9dd6-43813d1d0349"
+   ],
+   "virtual": "2026-01-05T09:17:17.221556+00:00",
+   "ingested": 5
+  }
+ ],
+ "tasks": [
+  {
+   "hour": 0,
+   "task": "wait_watermark_1m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028116.49375,
+   "end": 1792028180.190576
+  },
+  {
+   "hour": 0,
+   "task": "provisional",
+   "state": "success",
+   "try": 1,
+   "start": 1792028180.747897,
+   "end": 1792028181.143591,
+   "start_virtual_min_after_gate": 1.36
+  },
+  {
+   "hour": 0,
+   "task": "wait_watermark_15m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028181.810771,
+   "end": 1792028194.005269
+  },
+  {
+   "hour": 0,
+   "task": "finalize",
+   "state": "success",
+   "try": 1,
+   "start": 1792028194.865619,
+   "end": 1792028195.218588,
+   "start_virtual_min_after_gate": 1.48
+  },
+  {
+   "hour": 0,
+   "task": "wait_watermark_60m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028195.666594,
+   "end": 1792028239.100409
+  },
+  {
+   "hour": 0,
+   "task": "late_after_final_check",
+   "state": "success",
+   "try": 1,
+   "start": 1792028239.902666,
+   "end": 1792028240.258797,
+   "start_virtual_min_after_gate": 1.52
+  },
+  {
+   "hour": 1,
+   "task": "wait_watermark_1m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028116.544,
+   "end": 1792028239.658957
+  },
+  {
+   "hour": 1,
+   "task": "provisional",
+   "state": "success",
+   "try": 1,
+   "start": 1792028239.902809,
+   "end": 1792028240.35691,
+   "start_virtual_min_after_gate": 0.52
+  },
+  {
+   "hour": 1,
+   "task": "wait_watermark_15m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028240.978469,
+   "end": 1792028254.194742
+  },
+  {
+   "hour": 1,
+   "task": "finalize",
+   "state": "success",
+   "try": 1,
+   "start": 1792028255.028082,
+   "end": 1792028255.383553,
+   "start_virtual_min_after_gate": 1.64
+  },
+  {
+   "hour": 1,
+   "task": "wait_watermark_60m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028255.843692,
+   "end": 1792028299.270251
+  },
+  {
+   "hour": 1,
+   "task": "late_after_final_check",
+   "state": "success",
+   "try": 1,
+   "start": 1792028300.059707,
+   "end": 1792028300.498984,
+   "start_virtual_min_after_gate": 1.67
+  },
+  {
+   "hour": 2,
+   "task": "wait_watermark_1m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028116.614671,
+   "end": 1792028300.174027
+  },
+  {
+   "hour": 2,
+   "task": "provisional",
+   "state": "success",
+   "try": 1,
+   "start": 1792028301.13592,
+   "end": 1792028301.5104,
+   "start_virtual_min_after_gate": 1.75
+  },
+  {
+   "hour": 2,
+   "task": "wait_watermark_15m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028302.24773,
+   "end": 1792028314.44747
+  },
+  {
+   "hour": 2,
+   "task": "finalize",
+   "state": "success",
+   "try": 1,
+   "start": 1792028315.194932,
+   "end": 1792028315.562313,
+   "start_virtual_min_after_gate": 1.81
+  },
+  {
+   "hour": 2,
+   "task": "wait_watermark_60m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028315.99834,
+   "end": 1792028359.430373
+  },
+  {
+   "hour": 2,
+   "task": "late_after_final_check",
+   "state": "success",
+   "try": 1,
+   "start": 1792028360.2109,
+   "end": 1792028360.70433,
+   "start_virtual_min_after_gate": 1.82
+  },
+  {
+   "hour": 3,
+   "task": "wait_watermark_1m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028241.018806,
+   "end": 1792028360.04866
+  },
+  {
+   "hour": 3,
+   "task": "provisional",
+   "state": "success",
+   "try": 1,
+   "start": 1792028360.210999,
+   "end": 1792028360.685581,
+   "start_virtual_min_after_gate": 0.82
+  },
+  {
+   "hour": 3,
+   "task": "wait_watermark_15m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028361.29004,
+   "end": 1792028374.512631
+  },
+  {
+   "hour": 3,
+   "task": "finalize",
+   "state": "success",
+   "try": 1,
+   "start": 1792028375.37348,
+   "end": 1792028375.758873,
+   "start_virtual_min_after_gate": 1.99
+  },
+  {
+   "hour": 3,
+   "task": "wait_watermark_60m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028376.157105,
+   "end": 1792028418.773501
+  },
+  {
+   "hour": 3,
+   "task": "late_after_final_check",
+   "state": "success",
+   "try": 1,
+   "start": 1792028419.666551,
+   "end": 1792028420.418207,
+   "start_virtual_min_after_gate": 1.28
+  },
+  {
+   "hour": 4,
+   "task": "wait_watermark_1m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028301.182625,
+   "end": 1792028420.57708
+  },
+  {
+   "hour": 4,
+   "task": "provisional",
+   "state": "success",
+   "try": 1,
+   "start": 1792028420.78369,
+   "end": 1792028421.22151,
+   "start_virtual_min_after_gate": 1.4
+  },
+  {
+   "hour": 4,
+   "task": "wait_watermark_15m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028421.894643,
+   "end": 1792028434.132872
+  },
+  {
+   "hour": 4,
+   "task": "finalize",
+   "state": "success",
+   "try": 1,
+   "start": 1792028434.588715,
+   "end": 1792028434.937005,
+   "start_virtual_min_after_gate": 1.2
+  },
+  {
+   "hour": 4,
+   "task": "wait_watermark_60m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028435.64749,
+   "end": 1792028479.07468
+  },
+  {
+   "hour": 4,
+   "task": "late_after_final_check",
+   "state": "success",
+   "try": 1,
+   "start": 1792028479.496746,
+   "end": 1792028479.877617,
+   "start_virtual_min_after_gate": 1.11
+  },
+  {
+   "hour": 5,
+   "task": "wait_watermark_1m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028361.328199,
+   "end": 1792028480.515499
+  },
+  {
+   "hour": 5,
+   "task": "provisional",
+   "state": "success",
+   "try": 1,
+   "start": 1792028480.564252,
+   "end": 1792028481.055383,
+   "start_virtual_min_after_gate": 1.18
+  },
+  {
+   "hour": 5,
+   "task": "wait_watermark_15m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028481.699954,
+   "end": 1792028493.897957
+  },
+  {
+   "hour": 5,
+   "task": "finalize",
+   "state": "success",
+   "try": 1,
+   "start": 1792028494.673302,
+   "end": 1792028495.015449,
+   "start_virtual_min_after_gate": 1.29
+  },
+  {
+   "hour": 5,
+   "task": "wait_watermark_60m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028495.729528,
+   "end": 1792028539.156928
+  },
+  {
+   "hour": 5,
+   "task": "late_after_final_check",
+   "state": "success",
+   "try": 1,
+   "start": 1792028539.659327,
+   "end": 1792028540.065872,
+   "start_virtual_min_after_gate": 1.27
+  },
+  {
+   "hour": 6,
+   "task": "wait_watermark_1m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028420.831212,
+   "end": 1792028539.984588
+  },
+  {
+   "hour": 6,
+   "task": "provisional",
+   "state": "success",
+   "try": 1,
+   "start": 1792028540.727856,
+   "end": 1792028541.22051,
+   "start_virtual_min_after_gate": 1.34
+  },
+  {
+   "hour": 6,
+   "task": "wait_watermark_15m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028541.844249,
+   "end": 1792028554.054603
+  },
+  {
+   "hour": 6,
+   "task": "finalize",
+   "state": "success",
+   "try": 1,
+   "start": 1792028554.825853,
+   "end": 1792028555.189326,
+   "start_virtual_min_after_gate": 1.44
+  },
+  {
+   "hour": 6,
+   "task": "wait_watermark_60m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028555.878,
+   "end": 1792028599.296757
+  },
+  {
+   "hour": 6,
+   "task": "late_after_final_check",
+   "state": "success",
+   "try": 1,
+   "start": 1792028599.816431,
+   "end": 1792028600.303433,
+   "start_virtual_min_after_gate": 1.43
+  },
+  {
+   "hour": 7,
+   "task": "wait_watermark_1m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028480.619503,
+   "end": 1792028599.724613
+  },
+  {
+   "hour": 7,
+   "task": "provisional",
+   "state": "success",
+   "try": 1,
+   "start": 1792028599.816372,
+   "end": 1792028600.342933,
+   "start_virtual_min_after_gate": 0.43
+  },
+  {
+   "hour": 7,
+   "task": "wait_watermark_15m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028600.910475,
+   "end": 1792028614.14841
+  },
+  {
+   "hour": 7,
+   "task": "finalize",
+   "state": "success",
+   "try": 1,
+   "start": 1792028614.999987,
+   "end": 1792028615.345599,
+   "start_virtual_min_after_gate": 1.61
+  },
+  {
+   "hour": 7,
+   "task": "wait_watermark_60m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028616.067088,
+   "end": 1792028659.53589
+  },
+  {
+   "hour": 7,
+   "task": "late_after_final_check",
+   "state": "success",
+   "try": 1,
+   "start": 1792028660.031748,
+   "end": 1792028660.585167,
+   "start_virtual_min_after_gate": 1.65
+  },
+  {
+   "hour": 8,
+   "task": "wait_watermark_1m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028540.776081,
+   "end": 1792028659.878942
+  },
+  {
+   "hour": 8,
+   "task": "provisional",
+   "state": "success",
+   "try": 1,
+   "start": 1792028660.033632,
+   "end": 1792028660.616853,
+   "start_virtual_min_after_gate": 0.65
+  },
+  {
+   "hour": 8,
+   "task": "wait_watermark_15m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028661.124072,
+   "end": 1792028674.344562
+  },
+  {
+   "hour": 8,
+   "task": "finalize",
+   "state": "success",
+   "try": 1,
+   "start": 1792028675.176389,
+   "end": 1792028675.556865,
+   "start_virtual_min_after_gate": 1.79
+  },
+  {
+   "hour": 8,
+   "task": "wait_watermark_60m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028676.245209,
+   "end": 1792028718.731863
+  },
+  {
+   "hour": 8,
+   "task": "late_after_final_check",
+   "state": "success",
+   "try": 1,
+   "start": 1792028719.247822,
+   "end": 1792028719.72109,
+   "start_virtual_min_after_gate": 0.86
+  },
+  {
+   "hour": 9,
+   "task": "wait_watermark_1m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028600.969017,
+   "end": 1792028720.190896
+  },
+  {
+   "hour": 9,
+   "task": "provisional",
+   "state": "success",
+   "try": 1,
+   "start": 1792028720.310602,
+   "end": 1792028720.819634,
+   "start_virtual_min_after_gate": 0.92
+  },
+  {
+   "hour": 9,
+   "task": "wait_watermark_15m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028721.485336,
+   "end": 1792028733.688833
+  },
+  {
+   "hour": 9,
+   "task": "finalize",
+   "state": "success",
+   "try": 1,
+   "start": 1792028734.350244,
+   "end": 1792028734.828413,
+   "start_virtual_min_after_gate": 0.96
+  },
+  {
+   "hour": 9,
+   "task": "wait_watermark_60m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028735.506104,
+   "end": 1792028778.988431
+  },
+  {
+   "hour": 9,
+   "task": "late_after_final_check",
+   "state": "success",
+   "try": 1,
+   "start": 1792028779.395025,
+   "end": 1792028779.768774,
+   "start_virtual_min_after_gate": 1.01
+  },
+  {
+   "hour": 10,
+   "task": "wait_watermark_1m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028661.165078,
+   "end": 1792028780.302346
+  },
+  {
+   "hour": 10,
+   "task": "provisional",
+   "state": "success",
+   "try": 1,
+   "start": 1792028780.558058,
+   "end": 1792028780.951228,
+   "start_virtual_min_after_gate": 1.17
+  },
+  {
+   "hour": 10,
+   "task": "wait_watermark_15m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028781.616624,
+   "end": 1792028793.859749
+  },
+  {
+   "hour": 10,
+   "task": "finalize",
+   "state": "success",
+   "try": 1,
+   "start": 1792028794.536163,
+   "end": 1792028794.952182,
+   "start_virtual_min_after_gate": 1.15
+  },
+  {
+   "hour": 10,
+   "task": "wait_watermark_60m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028795.612309,
+   "end": 1792028839.297364
+  },
+  {
+   "hour": 10,
+   "task": "late_after_final_check",
+   "state": "success",
+   "try": 1,
+   "start": 1792028839.587646,
+   "end": 1792028840.04159,
+   "start_virtual_min_after_gate": 1.2
+  },
+  {
+   "hour": 11,
+   "task": "wait_watermark_1m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028720.385359,
+   "end": 1792028839.704478
+  },
+  {
+   "hour": 11,
+   "task": "provisional",
+   "state": "success",
+   "try": 1,
+   "start": 1792028840.64312,
+   "end": 1792028841.130802,
+   "start_virtual_min_after_gate": 1.26
+  },
+  {
+   "hour": 11,
+   "task": "wait_watermark_15m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028841.698048,
+   "end": 1792028853.905391
+  },
+  {
+   "hour": 11,
+   "task": "finalize",
+   "state": "success",
+   "try": 1,
+   "start": 1792028854.646718,
+   "end": 1792028855.011076,
+   "start_virtual_min_after_gate": 1.26
+  },
+  {
+   "hour": 11,
+   "task": "wait_watermark_60m",
+   "state": "success",
+   "try": 1,
+   "start": 1792028855.685477,
+   "end": 1792028899.240557
+  },
+  {
+   "hour": 11,
+   "task": "late_after_final_check",
+   "state": "success",
+   "try": 1,
+   "start": 1792028899.654795,
+   "end": 1792028900.015825,
+   "start_virtual_min_after_gate": 1.27
+  }
+ ],
+ "docker_stats": [
+  {
+   "t": 1792028118.9,
+   "search-log-pipeline-airflow-1": "2.176GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.52MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "1.704GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.155GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028135.9,
+   "search-log-pipeline-airflow-1": "2.177GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.05MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "1.8GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.265GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028153.0,
+   "search-log-pipeline-airflow-1": "2.177GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.27MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "1.809GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.337GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028170.0,
+   "search-log-pipeline-airflow-1": "2.178GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.45MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "1.829GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.225GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028187.1,
+   "search-log-pipeline-airflow-1": "2.178GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.32MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "1.881GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.153GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028204.1,
+   "search-log-pipeline-airflow-1": "2.178GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.62MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "1.868GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.155GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028220.2,
+   "search-log-pipeline-airflow-1": "2.178GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.38MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "1.928GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.155GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028236.2,
+   "search-log-pipeline-airflow-1": "2.179GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.7MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "1.832GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.154GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028253.3,
+   "search-log-pipeline-airflow-1": "2.179GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.18MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "1.859GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.171GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028270.3,
+   "search-log-pipeline-airflow-1": "2.18GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.54MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "1.86GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.17GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028287.4,
+   "search-log-pipeline-airflow-1": "2.181GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.32MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.152GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.169GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028304.5,
+   "search-log-pipeline-airflow-1": "2.18GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "61.11MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "1.918GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.17GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028321.5,
+   "search-log-pipeline-airflow-1": "2.18GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.55MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "1.938GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.17GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028338.6,
+   "search-log-pipeline-airflow-1": "2.181GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.38MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "1.97GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.17GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028355.6,
+   "search-log-pipeline-airflow-1": "2.181GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.42MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "1.943GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.17GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028372.7,
+   "search-log-pipeline-airflow-1": "2.181GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "59.92MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.027GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.17GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028389.7,
+   "search-log-pipeline-airflow-1": "2.18GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.54MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "1.955GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.176GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028406.7,
+   "search-log-pipeline-airflow-1": "2.18GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.43MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.056GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.17GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028422.8,
+   "search-log-pipeline-airflow-1": "2.181GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.32MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "1.992GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.171GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028439.8,
+   "search-log-pipeline-airflow-1": "2.181GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.19MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.06GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.171GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028456.9,
+   "search-log-pipeline-airflow-1": "2.181GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.51MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.012GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.17GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028473.9,
+   "search-log-pipeline-airflow-1": "2.181GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.12MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "1.992GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.171GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028491.0,
+   "search-log-pipeline-airflow-1": "2.181GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.5MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.043GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.17GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028508.0,
+   "search-log-pipeline-airflow-1": "2.182GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.32MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.079GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.171GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028525.1,
+   "search-log-pipeline-airflow-1": "2.181GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.42MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.049GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.242GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028542.1,
+   "search-log-pipeline-airflow-1": "2.181GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "59.93MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.096GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.206GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028559.2,
+   "search-log-pipeline-airflow-1": "2.182GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.4MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.101GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.171GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028576.2,
+   "search-log-pipeline-airflow-1": "2.182GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "71.14MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.05GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.171GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028592.3,
+   "search-log-pipeline-airflow-1": "2.213GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.59MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.003GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.171GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028609.3,
+   "search-log-pipeline-airflow-1": "2.182GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.23MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.044GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.171GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028626.4,
+   "search-log-pipeline-airflow-1": "2.182GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.34MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.031GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.171GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028643.4,
+   "search-log-pipeline-airflow-1": "2.182GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.24MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.112GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.173GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028660.5,
+   "search-log-pipeline-airflow-1": "2.182GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.1MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.011GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.174GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028676.5,
+   "search-log-pipeline-airflow-1": "2.182GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.8MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.124GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.173GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028693.6,
+   "search-log-pipeline-airflow-1": "2.182GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.77MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.131GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.173GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028710.6,
+   "search-log-pipeline-airflow-1": "2.183GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "67.95MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.122GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.178GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028727.7,
+   "search-log-pipeline-airflow-1": "2.182GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.38MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.038GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.244GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028744.7,
+   "search-log-pipeline-airflow-1": "2.183GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.62MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.122GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.228GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028761.8,
+   "search-log-pipeline-airflow-1": "2.183GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.45MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.116GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.174GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028778.9,
+   "search-log-pipeline-airflow-1": "2.182GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.4MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.064GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.174GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028795.9,
+   "search-log-pipeline-airflow-1": "2.191GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.16MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.07GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.174GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028812.0,
+   "search-log-pipeline-airflow-1": "2.149GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.91MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.132GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.174GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028829.0,
+   "search-log-pipeline-airflow-1": "2.149GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.24MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.098GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.176GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028846.1,
+   "search-log-pipeline-airflow-1": "2.116GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.48MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.163GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.246GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028863.1,
+   "search-log-pipeline-airflow-1": "2.116GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.54MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.111GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.247GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028880.2,
+   "search-log-pipeline-airflow-1": "2.116GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "61MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.036GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.216GiB / 11.67GiB"
+  },
+  {
+   "t": 1792028897.2,
+   "search-log-pipeline-airflow-1": "2.116GiB / 11.67GiB",
+   "search-log-pipeline-postgres-1": "60.73MiB / 11.67GiB",
+   "search-log-pipeline-clickhouse-1": "2.136GiB / 11.67GiB",
+   "search-log-pipeline-kafka-1": "1.175GiB / 11.67GiB"
+  }
+ ],
+ "cpus": 10
+}

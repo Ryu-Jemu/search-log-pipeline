@@ -1,0 +1,571 @@
+{
+ "note": "1회차. 재생·DAG는 끝까지 돌았으나 결과 수집 단계에서 스크립트 오류(query_log 열 이름 event_time64)로 중단됐다. 재생 시작 벽시계(wall0)·주입 시각·docker stats는 메모리에만 있어 사라졌으므로, 가상 시각 환산 지표는 없다. 아래 값은 중단 직후 ClickHouse·Airflow 메타DB 상태를 직접 조회한 것이다. 같은 설정의 2회차가 본 결과다.",
+ "per_hour": [
+  {
+   "hour": 0,
+   "truth": [
+    11510,
+    6641,
+    3687,
+    4863
+   ],
+   "injected": 0,
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "values": [
+      11509,
+      6641,
+      3687,
+      4862
+     ],
+     "missing_events": 1,
+     "watermark": "2026-01-05 01:02:06.036"
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "values": [
+      11510,
+      6641,
+      3687,
+      4863
+     ],
+     "missing_events": 0,
+     "watermark": "2026-01-05 01:16:10.602"
+    }
+   ]
+  },
+  {
+   "hour": 1,
+   "truth": [
+    9021,
+    5262,
+    3104,
+    3752
+   ],
+   "injected": 0,
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "values": [
+      9019,
+      5261,
+      3104,
+      3752
+     ],
+     "missing_events": 3,
+     "watermark": "2026-01-05 02:02:32.319"
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "values": [
+      9021,
+      5262,
+      3104,
+      3752
+     ],
+     "missing_events": 0,
+     "watermark": "2026-01-05 02:16:46.312"
+    }
+   ]
+  },
+  {
+   "hour": 2,
+   "truth": [
+    7168,
+    4318,
+    2531,
+    2863
+   ],
+   "injected": 5,
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "values": [
+      7163,
+      4318,
+      2526,
+      2858
+     ],
+     "missing_events": 5,
+     "watermark": "2026-01-05 03:01:46.513"
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "values": [
+      7163,
+      4318,
+      2526,
+      2858
+     ],
+     "missing_events": 5,
+     "watermark": "2026-01-05 03:17:00.730"
+    },
+    {
+     "version": 3,
+     "stage": "refinal",
+     "values": [
+      7168,
+      4318,
+      2531,
+      2863
+     ],
+     "missing_events": 0,
+     "watermark": "2026-01-05 04:01:14.269"
+    }
+   ]
+  },
+  {
+   "hour": 3,
+   "truth": [
+    6076,
+    3609,
+    2264,
+    2471
+   ],
+   "injected": 0,
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "values": [
+      6075,
+      3608,
+      2264,
+      2471
+     ],
+     "missing_events": 2,
+     "watermark": "2026-01-05 04:02:00.779"
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "values": [
+      6076,
+      3609,
+      2264,
+      2471
+     ],
+     "missing_events": 0,
+     "watermark": "2026-01-05 04:16:09.788"
+    }
+   ]
+  },
+  {
+   "hour": 4,
+   "truth": [
+    6075,
+    3691,
+    2239,
+    2385
+   ],
+   "injected": 0,
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "values": [
+      6074,
+      3690,
+      2239,
+      2386
+     ],
+     "missing_events": 2,
+     "watermark": "2026-01-05 05:02:03.954"
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "values": [
+      6075,
+      3691,
+      2239,
+      2385
+     ],
+     "missing_events": 0,
+     "watermark": "2026-01-05 05:16:23.834"
+    }
+   ]
+  },
+  {
+   "hour": 5,
+   "truth": [
+    7107,
+    4107,
+    2567,
+    2997
+   ],
+   "injected": 5,
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "values": [
+      7101,
+      4107,
+      2562,
+      2992
+     ],
+     "missing_events": 6,
+     "watermark": "2026-01-05 06:01:38.761"
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "values": [
+      7102,
+      4107,
+      2562,
+      2992
+     ],
+     "missing_events": 5,
+     "watermark": "2026-01-05 06:16:23.096"
+    },
+    {
+     "version": 3,
+     "stage": "refinal",
+     "values": [
+      7107,
+      4107,
+      2567,
+      2997
+     ],
+     "missing_events": 0,
+     "watermark": "2026-01-05 07:00:34.327"
+    }
+   ]
+  },
+  {
+   "hour": 6,
+   "truth": [
+    8660,
+    5231,
+    3046,
+    3431
+   ],
+   "injected": 0,
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "values": [
+      8657,
+      5231,
+      3046,
+      3431
+     ],
+     "missing_events": 3,
+     "watermark": "2026-01-05 07:01:37.412"
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "values": [
+      8660,
+      5231,
+      3046,
+      3431
+     ],
+     "missing_events": 0,
+     "watermark": "2026-01-05 07:16:35.961"
+    }
+   ]
+  },
+  {
+   "hour": 7,
+   "truth": [
+    10633,
+    6462,
+    3689,
+    4174
+   ],
+   "injected": 0,
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "values": [
+      10632,
+      6462,
+      3689,
+      4174
+     ],
+     "missing_events": 1,
+     "watermark": "2026-01-05 08:02:07.355"
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "values": [
+      10633,
+      6462,
+      3689,
+      4174
+     ],
+     "missing_events": 0,
+     "watermark": "2026-01-05 08:16:46.948"
+    }
+   ]
+  },
+  {
+   "hour": 8,
+   "truth": [
+    14190,
+    8668,
+    4603,
+    5519
+   ],
+   "injected": 5,
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "values": [
+      14182,
+      8668,
+      4598,
+      5514
+     ],
+     "missing_events": 8,
+     "watermark": "2026-01-05 09:02:12.265"
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "values": [
+      14185,
+      8668,
+      4598,
+      5514
+     ],
+     "missing_events": 5,
+     "watermark": "2026-01-05 09:17:03.963"
+    },
+    {
+     "version": 3,
+     "stage": "refinal",
+     "values": [
+      14190,
+      8668,
+      4603,
+      5519
+     ],
+     "missing_events": 0,
+     "watermark": "2026-01-05 10:01:19.673"
+    }
+   ]
+  },
+  {
+   "hour": 9,
+   "truth": [
+    16930,
+    10247,
+    5588,
+    6690
+   ],
+   "injected": 0,
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "values": [
+      16929,
+      10246,
+      5588,
+      6690
+     ],
+     "missing_events": 2,
+     "watermark": "2026-01-05 10:02:20.051"
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "values": [
+      16930,
+      10247,
+      5588,
+      6690
+     ],
+     "missing_events": 0,
+     "watermark": "2026-01-05 10:16:07.515"
+    }
+   ]
+  },
+  {
+   "hour": 10,
+   "truth": [
+    21326,
+    11940,
+    6288,
+    9379
+   ],
+   "injected": 0,
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "values": [
+      21322,
+      11939,
+      6288,
+      9378
+     ],
+     "missing_events": 5,
+     "watermark": "2026-01-05 11:01:36.073"
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "values": [
+      21326,
+      11940,
+      6288,
+      9379
+     ],
+     "missing_events": 0,
+     "watermark": "2026-01-05 11:16:23.488"
+    }
+   ]
+  },
+  {
+   "hour": 11,
+   "truth": [
+    23278,
+    14101,
+    7303,
+    9181
+   ],
+   "injected": 0,
+   "versions": [
+    {
+     "version": 1,
+     "stage": "provisional",
+     "values": [
+      23277,
+      14098,
+      7303,
+      9185
+     ],
+     "missing_events": 4,
+     "watermark": "2026-01-05 12:02:31.834"
+    },
+    {
+     "version": 2,
+     "stage": "final",
+     "values": [
+      23278,
+      14101,
+      7303,
+      9181
+     ],
+     "missing_events": 0,
+     "watermark": "2026-01-05 12:16:28.041"
+    }
+   ]
+  }
+ ],
+ "late_checks": [
+  [
+   0,
+   2,
+   0,
+   0,
+   0
+  ],
+  [
+   1,
+   2,
+   0,
+   0,
+   0
+  ],
+  [
+   2,
+   2,
+   5,
+   5,
+   3
+  ],
+  [
+   3,
+   2,
+   0,
+   0,
+   0
+  ],
+  [
+   4,
+   2,
+   0,
+   0,
+   0
+  ],
+  [
+   5,
+   2,
+   5,
+   5,
+   3
+  ],
+  [
+   6,
+   2,
+   0,
+   0,
+   0
+  ],
+  [
+   7,
+   2,
+   0,
+   0,
+   0
+  ],
+  [
+   8,
+   2,
+   5,
+   5,
+   3
+  ],
+  [
+   9,
+   2,
+   0,
+   0,
+   0
+  ],
+  [
+   10,
+   2,
+   0,
+   0,
+   0
+  ],
+  [
+   11,
+   2,
+   0,
+   0,
+   0
+  ]
+ ],
+ "task_states": [
+  "finalize|success|12|1",
+  "late_after_final_check|success|12|1",
+  "provisional|success|12|1",
+  "wait_watermark_15m|success|12|1",
+  "wait_watermark_1m|success|12|1",
+  "wait_watermark_60m|success|12|1"
+ ],
+ "insert_batches": {
+  "distinct_inserted_at": 3817,
+  "spanning_multiple_parts": 0
+ }
+}

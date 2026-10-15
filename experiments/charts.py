@@ -99,6 +99,40 @@ def chart_c():
     fig.savefig(os.path.join(OUT, "C-lateness.png"))
 
 
+
+def chart_c2():
+    d = load("metrics_dag_mac_m4")
+    hours = [r["hour"] for r in d["per_hour"]]
+
+    def miss(r, stage):
+        return next(v["missing_events_excl_injected"] for v in r["versions"] if v["stage"] == stage)
+    v1 = [miss(r, "provisional") for r in d["per_hour"]]
+    v2 = [miss(r, "final") for r in d["per_hour"]]
+    late = [max([x[1] for x in r["late_checks"]] or [0]) for r in d["per_hour"]]
+    fig, ax = plt.subplots(figsize=(8, 4.2), dpi=150)
+    w = 0.27
+    for i, (vals, col, label) in enumerate(((v1, S[0], "잠정 v1 누락 (워터마크 +1분)"),
+                                            (v2, S[2], "확정 v2 누락 (워터마크 +15분)"),
+                                            (late, S[1], "확정 뒤 늦은 도착 감지 → v3 재확정 (의도적 주입)"))):
+        xs = [h + (i - 1) * w for h in hours]
+        ax.bar(xs, vals, w, color=col, label=label)
+        for x, v in zip(xs, vals):
+            if v:
+                ax.text(x, v, f"{v}", ha="center", va="bottom", fontsize=7, color=INK2)
+    ax.set_xticks(hours, [f"{h:02d}시" for h in hours], fontsize=8)
+    ax.set_xlabel("가상 시간 H (day1, 60배속 재생)")
+    ax.set_ylabel("건수 (재생 종료 후 원본 집계 대비)")
+    ax.set_title("시간별 지표 DAG · 버전별 누락과 확정 후 늦은 도착", loc="left", fontsize=12, color=INK)
+    top = max(v1 + v2 + late)
+    ax.set_ylim(0, top * 1.8)
+    if not any(v2):
+        ax.text(0.99, 0.62, "확정 v2 누락: 12개 시간 모두 0건(주입분 제외)", transform=ax.transAxes, ha="right",
+                fontsize=8, color=INK2)
+    ax.legend(frameon=False, loc="upper right", fontsize=8)
+    ax.grid(axis="x", visible=False)
+    fig.tight_layout()
+    fig.savefig(os.path.join(OUT, "C2-metrics-dag.png"))
+
 if __name__ == "__main__":
     # 인자로 그릴 그림을 고른다(예: charts.py c2). 인자가 없으면 A·B·C만 그린다.
     # 이미 커밋한 그림을 다른 환경·글꼴로 다시 그리지 않도록 새 그림은 이름을 지정해서만 그린다.
