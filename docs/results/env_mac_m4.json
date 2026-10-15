@@ -1,0 +1,68 @@
+{
+ "taken_at_utc": "2026-10-15T00:58:17Z",
+ "host": {
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "macos": "27.0.1",
+  "cpu": "Apple M4",
+  "ncpu": 10,
+  "mem_bytes": 25769803776
+ },
+ "python": "3.13.15",
+ "packages": {
+  "duckdb": "1.5.6",
+  "numpy": "2.5.4",
+  "pyarrow": "26.0.0",
+  "pytest": "9.1.1",
+  "confluent-kafka": "2.16.0",
+  "clickhouse-connect": "1.10.0",
+  "matplotlib": "3.11.2",
+  "prometheus-client": null
+ },
+ "docker": {
+  "server_version": "29.8.0",
+  "os": "Docker Desktop",
+  "kernel": "7.0.12-linuxkit",
+  "ncpu": 10,
+  "mem_total_bytes": 8319504384,
+  "compose": "5.5.1",
+  "running_images": {
+   "clickhouse": {
+    "image": "mirror.gcr.io/clickhouse/clickhouse-server:24.8",
+    "arch": "arm64",
+    "digest": "mirror.gcr.io/clickhouse/clickhouse-server@sha256:1ffa82edee000a42c09313bd9f1293d94c570aee74babc1b3ca9983a35fa597b"
+   },
+   "kafka": {
+    "image": "mirror.gcr.io/apache/kafka:3.8.0",
+    "arch": "arm64",
+    "digest": "mirror.gcr.io/apache/kafka@sha256:c89f315cff967322c5d2021434b32271393cb193aa7ec1d43e97341924e57069"
+   }
+  }
+ },
+ "clickhouse": {
+  "version": "24.8.14.39",
+  "merge_tree_settings": {
+   "old_parts_lifetime": "480",
+   "non_replicated_deduplication_window": "0",
+   "parts_to_delay_insert": "1000",
+   "parts_to_throw_insert": "3000"
+  },
+  "settings": {
+   "max_insert_block_size": "1048449",
+   "kafka_max_wait_ms": "5000",
+   "stream_flush_interval_ms": "7500",
+   "async_insert_use_adaptive_busy_timeout": "1",
+   "async_insert_busy_timeout_max_ms": "200",
+   "async_insert_busy_timeout_ms": "200"
+  },
+  "clock_offset_ms": {
+   "median": -0.84,
+   "min": -1.35,
+   "max": -0.41,
+   "rtt_ms_median": 1.2,
+   "note": "ClickHouse now64() − 호스트 time.time() 왕복 중간값. now64 해상도 1ms"
+  }
+ },
+ "git_head": "091a40d",
+ "note": "1단계 재구성 직후. Docker Desktop 기본 할당량. compose 기본 서비스(kafka, clickhouse)만 실행"
+}

@@ -1,0 +1,17 @@
+{
+ "truth_lines": 710340,
+ "truth_valid": 709950,
+ "truth_rejected": 390,
+ "kafka_messages": 710340,
+ "rows": 709950,
+ "unique": 709950,
+ "lost": 0,
+ "unknown_ids": 0,
+ "duplicates": 0,
+ "dlq_messages": 390,
+ "events_on_2026_01_06": 183,
+ "produce_s": 1.4,
+ "consume_s_incl_5s_idle_exit": 10.8,
+ "consumer_log_tail": "{\"consumed\": 710340, \"inserted\": 709950, \"dlq\": 390, \"inserts\": 27, \"insert_ms\": 1660, \"insert_errors\": {}, \"dlq_reasons\": {\"missing_user_id\": 130, \"bad_json\": 143, \"bad_value\": 115, \"empty_query\": 2}}",
+ "pass": true
+}
