@@ -33,9 +33,10 @@ def truth(path: str, limit: int = 0) -> dict:
     return {"lines": n, "valid": len(valid), "rejected": rejected, "ids": valid}
 
 
-def spawn(module: str, *args: str, log: str | None = None) -> subprocess.Popen:
+def spawn(module: str, *args: str, log: str | None = None, env: dict | None = None) -> subprocess.Popen:
     out = open(log, "w") if log else subprocess.DEVNULL
-    return subprocess.Popen([PY, "-m", module, *args], env=ENV, cwd=ROOT, stdout=out, stderr=subprocess.STDOUT)
+    return subprocess.Popen([PY, "-m", module, *args], env={**ENV, **(env or {})}, cwd=ROOT, stdout=out,
+                            stderr=subprocess.STDOUT)
 
 
 def group_lag(group: str, partitions: int = 6) -> int:

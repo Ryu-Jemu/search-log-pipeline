@@ -28,10 +28,12 @@ EVENTS_COLUMNS_DDL = """
 """
 
 
-def ch(database: str = "slp"):
+def ch(database: str | None = None):
+    """database를 주지 않으면 CH_DATABASE 환경변수(기본 slp). 실험이 별도 DB에 적재할 때 수집기에 넘긴다."""
     return clickhouse_connect.get_client(
         host=os.getenv("CH_HOST", "localhost"), port=8123, username="slp",
-        password=os.getenv("CLICKHOUSE_PASSWORD", "slp_local_only"), database=database)
+        password=os.getenv("CLICKHOUSE_PASSWORD", "slp_local_only"),
+        database=database or os.getenv("CH_DATABASE", "slp"))
 
 
 def create_events_table(client, name: str, engine: str = "MergeTree", settings: str = "") -> None:

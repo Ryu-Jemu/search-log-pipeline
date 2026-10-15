@@ -133,6 +133,38 @@ def chart_c2():
     fig.tight_layout()
     fig.savefig(os.path.join(OUT, "C2-metrics-dag.png"))
 
+
+def chart_c3():
+    d = load("mv_scale_mac_m4")
+    ms = [m for m in d["measurements"] if m["state"] == "after_optimize"]
+    methods = [("raw", "원본 events 집계"), ("mv", "MV(AggregatingMergeTree)"),
+               ("mv_g1", "MV, index_granularity=1"), ("versioned", "hourly_metrics FINAL(미리 계산)")]
+    fig, axes = plt.subplots(1, 2, figsize=(9, 4.2), dpi=150, sharey=True)
+    w = 0.2
+    for ax, (shape, title) in zip(axes, (("hour", "한 시간 조회"), ("series", "범위 전체 시간별 시계열"))):
+        for i, ((m, label), col) in enumerate(zip(methods, S)):
+            xs, ys = [], []
+            for j, days in enumerate((1, 3, 7)):
+                r = next(x for x in ms if (x["shape"], x["method"], x["days"]) == (shape, m, days))
+                xs.append(j + (i - 1.5) * w)
+                ys.append(r["server_ms_median"])
+            ax.bar(xs, ys, w, color=col, label=label)
+            for x, y in zip(xs, ys):
+                ax.text(x, y * 1.08, f"{y:.1f}", ha="center", va="bottom", fontsize=6.5, color=INK2)
+        ax.set_yscale("log")
+        ax.set_xticks(range(3), ["1일", "3일", "7일"])
+        ax.set_title(title, loc="left", fontsize=10, color=INK)
+        ax.grid(axis="x", visible=False)
+    axes[0].set_ylabel("서버 실행 시간 중앙값 (ms, 로그 축)")
+    axes[0].set_xlabel("조회 범위 (한 시간 조회는 그 범위 마지막 날 16시)")
+    axes[1].set_xlabel("조회 범위")
+    fig.suptitle("MV 조회 비용 재측정 · 7일치 496만 건, OPTIMIZE FINAL 뒤, 웜 캐시", x=0.01, ha="left", fontsize=12,
+                 color=INK)
+    h, lb = axes[0].get_legend_handles_labels()
+    fig.legend(h, lb, frameon=False, fontsize=7.5, loc="lower center", ncol=4)
+    fig.tight_layout(rect=(0, 0.06, 1, 1))
+    fig.savefig(os.path.join(OUT, "C3-mv-scale.png"))
+
 if __name__ == "__main__":
     # 인자로 그릴 그림을 고른다(예: charts.py c2). 인자가 없으면 A·B·C만 그린다.
     # 이미 커밋한 그림을 다른 환경·글꼴로 다시 그리지 않도록 새 그림은 이름을 지정해서만 그린다.
