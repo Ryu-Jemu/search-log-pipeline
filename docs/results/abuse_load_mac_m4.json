@@ -1,0 +1,44 @@
+{
+ "42": {
+  "table": "events_s42",
+  "truth_valid": 709950,
+  "rows": 709950,
+  "unique": 709950,
+  "campaigns": 8
+ },
+ "43": {
+  "table": "events_s43",
+  "truth_valid": 704117,
+  "rows": 704117,
+  "unique": 704117,
+  "campaigns": 8
+ },
+ "44": {
+  "table": "events_s44",
+  "truth_valid": 710481,
+  "rows": 710481,
+  "unique": 710481,
+  "campaigns": 8
+ },
+ "45": {
+  "table": "events_s45",
+  "truth_valid": 708937,
+  "rows": 708937,
+  "unique": 708937,
+  "campaigns": 8
+ },
+ "46": {
+  "table": "events_s46",
+  "truth_valid": 710966,
+  "rows": 710966,
+  "unique": 710966,
+  "campaigns": 8
+ },
+ "47": {
+  "table": "events_s47",
+  "truth_valid": 710903,
+  "rows": 710903,
+  "unique": 710903,
+  "campaigns": 8
+ }
+}

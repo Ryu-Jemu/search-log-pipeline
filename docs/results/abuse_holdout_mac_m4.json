@@ -1,0 +1,6008 @@
+{
+ "thresholds_file": "abuse_thresholds_day1_mac_m4.json",
+ "chosen": {
+  "R1": {
+   "t": 70,
+   "max_distinct": 0.2
+  },
+  "R2": {
+   "min_n": 3,
+   "share": 1.0
+  },
+  "R3": {
+   "c": 50
+  },
+  "R4": {
+   "n": 50,
+   "users": 20,
+   "z": 30
+  }
+ },
+ "seeds": [
+  43,
+  44,
+  45,
+  46,
+  47
+ ],
+ "pooled": {
+  "R1": {
+   "flagged": 30,
+   "true_pos": 30,
+   "precision": 1.0,
+   "precision_ci95": [
+    0.8843,
+    1.0
+   ],
+   "recall_by_type": {
+    "query_flood": {
+     "hit": 15,
+     "n": 15,
+     "recall": 1.0,
+     "ci95": [
+      0.782,
+      1.0
+     ]
+    },
+    "click_spam": {
+     "hit": 15,
+     "n": 15,
+     "recall": 1.0,
+     "ci95": [
+      0.782,
+      1.0
+     ]
+    },
+    "distributed_flood": {
+     "hit": 0,
+     "n": 435,
+     "recall": 0.0,
+     "ci95": [
+      0.0,
+      0.0084
+     ]
+    }
+   }
+  },
+  "R2": {
+   "flagged": 433,
+   "true_pos": 433,
+   "precision": 1.0,
+   "precision_ci95": [
+    0.9915,
+    1.0
+   ],
+   "recall_by_type": {
+    "query_flood": {
+     "hit": 15,
+     "n": 15,
+     "recall": 1.0,
+     "ci95": [
+      0.782,
+      1.0
+     ]
+    },
+    "click_spam": {
+     "hit": 15,
+     "n": 15,
+     "recall": 1.0,
+     "ci95": [
+      0.782,
+      1.0
+     ]
+    },
+    "distributed_flood": {
+     "hit": 403,
+     "n": 435,
+     "recall": 0.9264,
+     "ci95": [
+      0.8977,
+      0.9491
+     ]
+    }
+   }
+  },
+  "R3": {
+   "flagged": 15,
+   "true_pos": 15,
+   "precision": 1.0,
+   "precision_ci95": [
+    0.782,
+    1.0
+   ],
+   "recall_by_type": {
+    "query_flood": {
+     "hit": 0,
+     "n": 15,
+     "recall": 0.0,
+     "ci95": [
+      0.0,
+      0.218
+     ]
+    },
+    "click_spam": {
+     "hit": 15,
+     "n": 15,
+     "recall": 1.0,
+     "ci95": [
+      0.782,
+      1.0
+     ]
+    },
+    "distributed_flood": {
+     "hit": 0,
+     "n": 435,
+     "recall": 0.0,
+     "ci95": [
+      0.0,
+      0.0084
+     ]
+    }
+   }
+  },
+  "R1|R2|R3": {
+   "flagged": 433,
+   "true_pos": 433,
+   "precision": 1.0,
+   "precision_ci95": [
+    0.9915,
+    1.0
+   ],
+   "recall_by_type": {
+    "query_flood": {
+     "hit": 15,
+     "n": 15,
+     "recall": 1.0,
+     "ci95": [
+      0.782,
+      1.0
+     ]
+    },
+    "click_spam": {
+     "hit": 15,
+     "n": 15,
+     "recall": 1.0,
+     "ci95": [
+      0.782,
+      1.0
+     ]
+    },
+    "distributed_flood": {
+     "hit": 403,
+     "n": 435,
+     "recall": 0.9264,
+     "ci95": [
+      0.8977,
+      0.9491
+     ]
+    }
+   }
+  },
+  "R1|R2|R3|R4accounts": {
+   "flagged": 450,
+   "true_pos": 450,
+   "precision": 1.0,
+   "precision_ci95": [
+    0.9918,
+    1.0
+   ],
+   "recall_by_type": {
+    "query_flood": {
+     "hit": 15,
+     "n": 15,
+     "recall": 1.0,
+     "ci95": [
+      0.782,
+      1.0
+     ]
+    },
+    "click_spam": {
+     "hit": 15,
+     "n": 15,
+     "recall": 1.0,
+     "ci95": [
+      0.782,
+      1.0
+     ]
+    },
+    "distributed_flood": {
+     "hit": 420,
+     "n": 435,
+     "recall": 0.9655,
+     "ci95": [
+      0.9438,
+      0.9806
+     ]
+    }
+   }
+  },
+  "R4": {
+   "campaign_recall": {
+    "hit": 8,
+    "n": 10,
+    "ci95": [
+     0.4439,
+     0.9748
+    ]
+   },
+   "detections": 20,
+   "false_detections": 0,
+   "detection_precision_ci95": [
+    0.8316,
+    1.0
+   ]
+  }
+ },
+ "per_seed": {
+  "43": {
+   "R1": {
+    "flagged": 6,
+    "true_pos": 6,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 0,
+      "n": 74
+     },
+     "query_flood": {
+      "hit": 3,
+      "n": 3
+     }
+    },
+    "target_types": [
+     "query_flood",
+     "click_spam"
+    ],
+    "target_recall": 1.0,
+    "target_f1": 1.0
+   },
+   "R2": {
+    "flagged": 80,
+    "true_pos": 80,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 74,
+      "n": 74
+     },
+     "query_flood": {
+      "hit": 3,
+      "n": 3
+     }
+    },
+    "target_types": [
+     "query_flood",
+     "click_spam",
+     "distributed_flood"
+    ],
+    "target_recall": 1.0,
+    "target_f1": 1.0
+   },
+   "R3": {
+    "flagged": 3,
+    "true_pos": 3,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 0,
+      "n": 74
+     },
+     "query_flood": {
+      "hit": 0,
+      "n": 3
+     }
+    },
+    "target_types": [
+     "click_spam"
+    ],
+    "target_recall": 1.0,
+    "target_f1": 1.0
+   },
+   "R4": {
+    "detections": 3,
+    "false_detections": 0,
+    "false_examples": [],
+    "campaign_recall": {
+     "hit": 2,
+     "n": 2
+    },
+    "detection_precision": 1.0,
+    "accounts": {
+     "flagged": 67,
+     "true_pos": 67,
+     "false_pos": 0,
+     "precision": 1.0,
+     "recall_by_type": {
+      "click_spam": {
+       "hit": 0,
+       "n": 3
+      },
+      "distributed_flood": {
+       "hit": 67,
+       "n": 74
+      },
+      "query_flood": {
+       "hit": 0,
+       "n": 3
+      }
+     },
+     "target_types": [
+      "distributed_flood"
+     ],
+     "target_recall": 0.9054054054054054,
+     "target_f1": 0.950354609929078
+    }
+   },
+   "R1|R2|R3": {
+    "flagged": 80,
+    "true_pos": 80,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 74,
+      "n": 74
+     },
+     "query_flood": {
+      "hit": 3,
+      "n": 3
+     }
+    }
+   },
+   "R1|R2|R3|R4accounts": {
+    "flagged": 80,
+    "true_pos": 80,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 74,
+      "n": 74
+     },
+     "query_flood": {
+      "hit": 3,
+      "n": 3
+     }
+    }
+   },
+   "false_positive_samples": {
+    "R1": [],
+    "R2": [],
+    "R3": []
+   },
+   "curves": {
+    "R1": [
+     {
+      "value": 20,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 30,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 40,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 50,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 60,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 70,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 80,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 0,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 0.5,
+       "target_f1": 0.6666666666666666
+      }
+     },
+     {
+      "value": 90,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 0,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 0.5,
+       "target_f1": 0.6666666666666666
+      }
+     },
+     {
+      "value": 100,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 0,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 0.5,
+       "target_f1": 0.6666666666666666
+      }
+     },
+     {
+      "value": 120,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 0,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 0.5,
+       "target_f1": 0.6666666666666666
+      }
+     }
+    ],
+    "R2": [
+     {
+      "value": 3,
+      "score": {
+       "flagged": 80,
+       "true_pos": 80,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 74,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 4,
+      "score": {
+       "flagged": 62,
+       "true_pos": 62,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 56,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.775,
+       "target_f1": 0.8732394366197184
+      }
+     },
+     {
+      "value": 5,
+      "score": {
+       "flagged": 48,
+       "true_pos": 48,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 42,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.6,
+       "target_f1": 0.7499999999999999
+      }
+     },
+     {
+      "value": 6,
+      "score": {
+       "flagged": 35,
+       "true_pos": 35,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 29,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.4375,
+       "target_f1": 0.6086956521739131
+      }
+     },
+     {
+      "value": 8,
+      "score": {
+       "flagged": 13,
+       "true_pos": 13,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 7,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.1625,
+       "target_f1": 0.27956989247311825
+      }
+     },
+     {
+      "value": 10,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.075,
+       "target_f1": 0.13953488372093023
+      }
+     },
+     {
+      "value": 15,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.075,
+       "target_f1": 0.13953488372093023
+      }
+     },
+     {
+      "value": 20,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.075,
+       "target_f1": 0.13953488372093023
+      }
+     },
+     {
+      "value": 30,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.075,
+       "target_f1": 0.13953488372093023
+      }
+     }
+    ],
+    "R3": [
+     {
+      "value": 2,
+      "score": {
+       "flagged": 15,
+       "true_pos": 3,
+       "false_pos": 12,
+       "precision": 0.2,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 0.33333333333333337
+      }
+     },
+     {
+      "value": 3,
+      "score": {
+       "flagged": 4,
+       "true_pos": 3,
+       "false_pos": 1,
+       "precision": 0.75,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 0.8571428571428571
+      }
+     },
+     {
+      "value": 4,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 5,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 10,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 20,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 50,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 74
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     }
+    ],
+    "R4": [
+     {
+      "value": 5,
+      "score": {
+       "detections": 6,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 74,
+        "true_pos": 74,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 74,
+          "n": 74
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 10,
+      "score": {
+       "detections": 6,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 74,
+        "true_pos": 74,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 74,
+          "n": 74
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 15,
+      "score": {
+       "detections": 6,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 74,
+        "true_pos": 74,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 74,
+          "n": 74
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 20,
+      "score": {
+       "detections": 6,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 74,
+        "true_pos": 74,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 74,
+          "n": 74
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 30,
+      "score": {
+       "detections": 5,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 74,
+        "true_pos": 74,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 74,
+          "n": 74
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 50,
+      "score": {
+       "detections": 3,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 67,
+        "true_pos": 67,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 67,
+          "n": 74
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 0.9054054054054054,
+        "target_f1": 0.950354609929078
+       }
+      }
+     }
+    ]
+   }
+  },
+  "44": {
+   "R1": {
+    "flagged": 6,
+    "true_pos": 6,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 0,
+      "n": 94
+     },
+     "query_flood": {
+      "hit": 3,
+      "n": 3
+     }
+    },
+    "target_types": [
+     "query_flood",
+     "click_spam"
+    ],
+    "target_recall": 1.0,
+    "target_f1": 1.0
+   },
+   "R2": {
+    "flagged": 93,
+    "true_pos": 93,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 87,
+      "n": 94
+     },
+     "query_flood": {
+      "hit": 3,
+      "n": 3
+     }
+    },
+    "target_types": [
+     "query_flood",
+     "click_spam",
+     "distributed_flood"
+    ],
+    "target_recall": 0.93,
+    "target_f1": 0.9637305699481865
+   },
+   "R3": {
+    "flagged": 3,
+    "true_pos": 3,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 0,
+      "n": 94
+     },
+     "query_flood": {
+      "hit": 0,
+      "n": 3
+     }
+    },
+    "target_types": [
+     "click_spam"
+    ],
+    "target_recall": 1.0,
+    "target_f1": 1.0
+   },
+   "R4": {
+    "detections": 6,
+    "false_detections": 0,
+    "false_examples": [],
+    "campaign_recall": {
+     "hit": 2,
+     "n": 2
+    },
+    "detection_precision": 1.0,
+    "accounts": {
+     "flagged": 94,
+     "true_pos": 94,
+     "false_pos": 0,
+     "precision": 1.0,
+     "recall_by_type": {
+      "click_spam": {
+       "hit": 0,
+       "n": 3
+      },
+      "distributed_flood": {
+       "hit": 94,
+       "n": 94
+      },
+      "query_flood": {
+       "hit": 0,
+       "n": 3
+      }
+     },
+     "target_types": [
+      "distributed_flood"
+     ],
+     "target_recall": 1.0,
+     "target_f1": 1.0
+    }
+   },
+   "R1|R2|R3": {
+    "flagged": 93,
+    "true_pos": 93,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 87,
+      "n": 94
+     },
+     "query_flood": {
+      "hit": 3,
+      "n": 3
+     }
+    }
+   },
+   "R1|R2|R3|R4accounts": {
+    "flagged": 100,
+    "true_pos": 100,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 94,
+      "n": 94
+     },
+     "query_flood": {
+      "hit": 3,
+      "n": 3
+     }
+    }
+   },
+   "false_positive_samples": {
+    "R1": [],
+    "R2": [],
+    "R3": []
+   },
+   "curves": {
+    "R1": [
+     {
+      "value": 20,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 30,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 40,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 50,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 60,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 70,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 80,
+      "score": {
+       "flagged": 5,
+       "true_pos": 5,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 2,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 0.8333333333333334,
+       "target_f1": 0.9090909090909091
+      }
+     },
+     {
+      "value": 90,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 0,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 0.5,
+       "target_f1": 0.6666666666666666
+      }
+     },
+     {
+      "value": 100,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 0,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 0.5,
+       "target_f1": 0.6666666666666666
+      }
+     },
+     {
+      "value": 120,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 0,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 0.5,
+       "target_f1": 0.6666666666666666
+      }
+     }
+    ],
+    "R2": [
+     {
+      "value": 3,
+      "score": {
+       "flagged": 93,
+       "true_pos": 93,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 87,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.93,
+       "target_f1": 0.9637305699481865
+      }
+     },
+     {
+      "value": 4,
+      "score": {
+       "flagged": 69,
+       "true_pos": 69,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 63,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.69,
+       "target_f1": 0.8165680473372781
+      }
+     },
+     {
+      "value": 5,
+      "score": {
+       "flagged": 48,
+       "true_pos": 48,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 42,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.48,
+       "target_f1": 0.6486486486486487
+      }
+     },
+     {
+      "value": 6,
+      "score": {
+       "flagged": 33,
+       "true_pos": 33,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 27,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.33,
+       "target_f1": 0.49624060150375937
+      }
+     },
+     {
+      "value": 8,
+      "score": {
+       "flagged": 16,
+       "true_pos": 16,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 10,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.16,
+       "target_f1": 0.2758620689655173
+      }
+     },
+     {
+      "value": 10,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.06,
+       "target_f1": 0.11320754716981131
+      }
+     },
+     {
+      "value": 15,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.06,
+       "target_f1": 0.11320754716981131
+      }
+     },
+     {
+      "value": 20,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.06,
+       "target_f1": 0.11320754716981131
+      }
+     },
+     {
+      "value": 30,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.06,
+       "target_f1": 0.11320754716981131
+      }
+     }
+    ],
+    "R3": [
+     {
+      "value": 2,
+      "score": {
+       "flagged": 9,
+       "true_pos": 3,
+       "false_pos": 6,
+       "precision": 0.3333333333333333,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 0.5
+      }
+     },
+     {
+      "value": 3,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 4,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 5,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 10,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 20,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 50,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 94
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     }
+    ],
+    "R4": [
+     {
+      "value": 5,
+      "score": {
+       "detections": 6,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 94,
+        "true_pos": 94,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 94,
+          "n": 94
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 10,
+      "score": {
+       "detections": 6,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 94,
+        "true_pos": 94,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 94,
+          "n": 94
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 15,
+      "score": {
+       "detections": 6,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 94,
+        "true_pos": 94,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 94,
+          "n": 94
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 20,
+      "score": {
+       "detections": 6,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 94,
+        "true_pos": 94,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 94,
+          "n": 94
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 30,
+      "score": {
+       "detections": 6,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 94,
+        "true_pos": 94,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 94,
+          "n": 94
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 50,
+      "score": {
+       "detections": 6,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 94,
+        "true_pos": 94,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 94,
+          "n": 94
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     }
+    ]
+   }
+  },
+  "45": {
+   "R1": {
+    "flagged": 6,
+    "true_pos": 6,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 0,
+      "n": 80
+     },
+     "query_flood": {
+      "hit": 3,
+      "n": 3
+     }
+    },
+    "target_types": [
+     "query_flood",
+     "click_spam"
+    ],
+    "target_recall": 1.0,
+    "target_f1": 1.0
+   },
+   "R2": {
+    "flagged": 80,
+    "true_pos": 80,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 74,
+      "n": 80
+     },
+     "query_flood": {
+      "hit": 3,
+      "n": 3
+     }
+    },
+    "target_types": [
+     "query_flood",
+     "click_spam",
+     "distributed_flood"
+    ],
+    "target_recall": 0.9302325581395349,
+    "target_f1": 0.963855421686747
+   },
+   "R3": {
+    "flagged": 3,
+    "true_pos": 3,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 0,
+      "n": 80
+     },
+     "query_flood": {
+      "hit": 0,
+      "n": 3
+     }
+    },
+    "target_types": [
+     "click_spam"
+    ],
+    "target_recall": 1.0,
+    "target_f1": 1.0
+   },
+   "R4": {
+    "detections": 3,
+    "false_detections": 0,
+    "false_examples": [],
+    "campaign_recall": {
+     "hit": 1,
+     "n": 2
+    },
+    "detection_precision": 1.0,
+    "accounts": {
+     "flagged": 49,
+     "true_pos": 49,
+     "false_pos": 0,
+     "precision": 1.0,
+     "recall_by_type": {
+      "click_spam": {
+       "hit": 0,
+       "n": 3
+      },
+      "distributed_flood": {
+       "hit": 49,
+       "n": 80
+      },
+      "query_flood": {
+       "hit": 0,
+       "n": 3
+      }
+     },
+     "target_types": [
+      "distributed_flood"
+     ],
+     "target_recall": 0.6125,
+     "target_f1": 0.7596899224806202
+    }
+   },
+   "R1|R2|R3": {
+    "flagged": 80,
+    "true_pos": 80,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 74,
+      "n": 80
+     },
+     "query_flood": {
+      "hit": 3,
+      "n": 3
+     }
+    }
+   },
+   "R1|R2|R3|R4accounts": {
+    "flagged": 80,
+    "true_pos": 80,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 74,
+      "n": 80
+     },
+     "query_flood": {
+      "hit": 3,
+      "n": 3
+     }
+    }
+   },
+   "false_positive_samples": {
+    "R1": [],
+    "R2": [],
+    "R3": []
+   },
+   "curves": {
+    "R1": [
+     {
+      "value": 20,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 30,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 40,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 50,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 60,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 70,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 80,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 0,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 0.5,
+       "target_f1": 0.6666666666666666
+      }
+     },
+     {
+      "value": 90,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 0,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 0.5,
+       "target_f1": 0.6666666666666666
+      }
+     },
+     {
+      "value": 100,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 0,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 0.5,
+       "target_f1": 0.6666666666666666
+      }
+     },
+     {
+      "value": 120,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 0,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 0.5,
+       "target_f1": 0.6666666666666666
+      }
+     }
+    ],
+    "R2": [
+     {
+      "value": 3,
+      "score": {
+       "flagged": 80,
+       "true_pos": 80,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 74,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.9302325581395349,
+       "target_f1": 0.963855421686747
+      }
+     },
+     {
+      "value": 4,
+      "score": {
+       "flagged": 59,
+       "true_pos": 59,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 53,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.686046511627907,
+       "target_f1": 0.8137931034482759
+      }
+     },
+     {
+      "value": 5,
+      "score": {
+       "flagged": 40,
+       "true_pos": 40,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 34,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.46511627906976744,
+       "target_f1": 0.6349206349206349
+      }
+     },
+     {
+      "value": 6,
+      "score": {
+       "flagged": 30,
+       "true_pos": 30,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 24,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.3488372093023256,
+       "target_f1": 0.5172413793103449
+      }
+     },
+     {
+      "value": 8,
+      "score": {
+       "flagged": 14,
+       "true_pos": 14,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 8,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.16279069767441862,
+       "target_f1": 0.28
+      }
+     },
+     {
+      "value": 10,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.06976744186046512,
+       "target_f1": 0.13043478260869565
+      }
+     },
+     {
+      "value": 15,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.06976744186046512,
+       "target_f1": 0.13043478260869565
+      }
+     },
+     {
+      "value": 20,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.06976744186046512,
+       "target_f1": 0.13043478260869565
+      }
+     },
+     {
+      "value": 30,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.06976744186046512,
+       "target_f1": 0.13043478260869565
+      }
+     }
+    ],
+    "R3": [
+     {
+      "value": 2,
+      "score": {
+       "flagged": 17,
+       "true_pos": 3,
+       "false_pos": 14,
+       "precision": 0.17647058823529413,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 0.3
+      }
+     },
+     {
+      "value": 3,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 4,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 5,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 10,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 20,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 50,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 80
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     }
+    ],
+    "R4": [
+     {
+      "value": 5,
+      "score": {
+       "detections": 8,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 80,
+        "true_pos": 80,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 80,
+          "n": 80
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 10,
+      "score": {
+       "detections": 8,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 80,
+        "true_pos": 80,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 80,
+          "n": 80
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 15,
+      "score": {
+       "detections": 8,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 80,
+        "true_pos": 80,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 80,
+          "n": 80
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 20,
+      "score": {
+       "detections": 8,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 80,
+        "true_pos": 80,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 80,
+          "n": 80
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 30,
+      "score": {
+       "detections": 8,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 80,
+        "true_pos": 80,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 80,
+          "n": 80
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 50,
+      "score": {
+       "detections": 3,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 1,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 49,
+        "true_pos": 49,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 49,
+          "n": 80
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 0.6125,
+        "target_f1": 0.7596899224806202
+       }
+      }
+     }
+    ]
+   }
+  },
+  "46": {
+   "R1": {
+    "flagged": 6,
+    "true_pos": 6,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 0,
+      "n": 92
+     },
+     "query_flood": {
+      "hit": 3,
+      "n": 3
+     }
+    },
+    "target_types": [
+     "query_flood",
+     "click_spam"
+    ],
+    "target_recall": 1.0,
+    "target_f1": 1.0
+   },
+   "R2": {
+    "flagged": 89,
+    "true_pos": 89,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 83,
+      "n": 92
+     },
+     "query_flood": {
+      "hit": 3,
+      "n": 3
+     }
+    },
+    "target_types": [
+     "query_flood",
+     "click_spam",
+     "distributed_flood"
+    ],
+    "target_recall": 0.9081632653061225,
+    "target_f1": 0.9518716577540107
+   },
+   "R3": {
+    "flagged": 3,
+    "true_pos": 3,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 0,
+      "n": 92
+     },
+     "query_flood": {
+      "hit": 0,
+      "n": 3
+     }
+    },
+    "target_types": [
+     "click_spam"
+    ],
+    "target_recall": 1.0,
+    "target_f1": 1.0
+   },
+   "R4": {
+    "detections": 3,
+    "false_detections": 0,
+    "false_examples": [],
+    "campaign_recall": {
+     "hit": 1,
+     "n": 2
+    },
+    "detection_precision": 1.0,
+    "accounts": {
+     "flagged": 59,
+     "true_pos": 59,
+     "false_pos": 0,
+     "precision": 1.0,
+     "recall_by_type": {
+      "click_spam": {
+       "hit": 0,
+       "n": 3
+      },
+      "distributed_flood": {
+       "hit": 59,
+       "n": 92
+      },
+      "query_flood": {
+       "hit": 0,
+       "n": 3
+      }
+     },
+     "target_types": [
+      "distributed_flood"
+     ],
+     "target_recall": 0.6413043478260869,
+     "target_f1": 0.7814569536423841
+    }
+   },
+   "R1|R2|R3": {
+    "flagged": 89,
+    "true_pos": 89,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 83,
+      "n": 92
+     },
+     "query_flood": {
+      "hit": 3,
+      "n": 3
+     }
+    }
+   },
+   "R1|R2|R3|R4accounts": {
+    "flagged": 89,
+    "true_pos": 89,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 83,
+      "n": 92
+     },
+     "query_flood": {
+      "hit": 3,
+      "n": 3
+     }
+    }
+   },
+   "false_positive_samples": {
+    "R1": [],
+    "R2": [],
+    "R3": []
+   },
+   "curves": {
+    "R1": [
+     {
+      "value": 20,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 30,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 40,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 50,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 60,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 70,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 80,
+      "score": {
+       "flagged": 4,
+       "true_pos": 4,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 1,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 0.6666666666666666,
+       "target_f1": 0.8
+      }
+     },
+     {
+      "value": 90,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 0,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 0.5,
+       "target_f1": 0.6666666666666666
+      }
+     },
+     {
+      "value": 100,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 0,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 0.5,
+       "target_f1": 0.6666666666666666
+      }
+     },
+     {
+      "value": 120,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 0,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 0.5,
+       "target_f1": 0.6666666666666666
+      }
+     }
+    ],
+    "R2": [
+     {
+      "value": 3,
+      "score": {
+       "flagged": 89,
+       "true_pos": 89,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 83,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.9081632653061225,
+       "target_f1": 0.9518716577540107
+      }
+     },
+     {
+      "value": 4,
+      "score": {
+       "flagged": 73,
+       "true_pos": 73,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 67,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.7448979591836735,
+       "target_f1": 0.8538011695906433
+      }
+     },
+     {
+      "value": 5,
+      "score": {
+       "flagged": 59,
+       "true_pos": 59,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 53,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.6020408163265306,
+       "target_f1": 0.7515923566878981
+      }
+     },
+     {
+      "value": 6,
+      "score": {
+       "flagged": 48,
+       "true_pos": 48,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 42,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.4897959183673469,
+       "target_f1": 0.6575342465753424
+      }
+     },
+     {
+      "value": 8,
+      "score": {
+       "flagged": 17,
+       "true_pos": 17,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 11,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.17346938775510204,
+       "target_f1": 0.29565217391304344
+      }
+     },
+     {
+      "value": 10,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.061224489795918366,
+       "target_f1": 0.11538461538461538
+      }
+     },
+     {
+      "value": 15,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.061224489795918366,
+       "target_f1": 0.11538461538461538
+      }
+     },
+     {
+      "value": 20,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.061224489795918366,
+       "target_f1": 0.11538461538461538
+      }
+     },
+     {
+      "value": 30,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.061224489795918366,
+       "target_f1": 0.11538461538461538
+      }
+     }
+    ],
+    "R3": [
+     {
+      "value": 2,
+      "score": {
+       "flagged": 11,
+       "true_pos": 3,
+       "false_pos": 8,
+       "precision": 0.2727272727272727,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 0.42857142857142855
+      }
+     },
+     {
+      "value": 3,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 4,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 5,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 10,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 20,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 50,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 92
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     }
+    ],
+    "R4": [
+     {
+      "value": 5,
+      "score": {
+       "detections": 6,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 92,
+        "true_pos": 92,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 92,
+          "n": 92
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 10,
+      "score": {
+       "detections": 6,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 92,
+        "true_pos": 92,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 92,
+          "n": 92
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 15,
+      "score": {
+       "detections": 6,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 92,
+        "true_pos": 92,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 92,
+          "n": 92
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 20,
+      "score": {
+       "detections": 6,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 92,
+        "true_pos": 92,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 92,
+          "n": 92
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 30,
+      "score": {
+       "detections": 6,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 92,
+        "true_pos": 92,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 92,
+          "n": 92
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 50,
+      "score": {
+       "detections": 3,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 1,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 59,
+        "true_pos": 59,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 59,
+          "n": 92
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 0.6413043478260869,
+        "target_f1": 0.7814569536423841
+       }
+      }
+     }
+    ]
+   }
+  },
+  "47": {
+   "R1": {
+    "flagged": 6,
+    "true_pos": 6,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 0,
+      "n": 95
+     },
+     "query_flood": {
+      "hit": 3,
+      "n": 3
+     }
+    },
+    "target_types": [
+     "query_flood",
+     "click_spam"
+    ],
+    "target_recall": 1.0,
+    "target_f1": 1.0
+   },
+   "R2": {
+    "flagged": 91,
+    "true_pos": 91,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 85,
+      "n": 95
+     },
+     "query_flood": {
+      "hit": 3,
+      "n": 3
+     }
+    },
+    "target_types": [
+     "query_flood",
+     "click_spam",
+     "distributed_flood"
+    ],
+    "target_recall": 0.900990099009901,
+    "target_f1": 0.9479166666666667
+   },
+   "R3": {
+    "flagged": 3,
+    "true_pos": 3,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 0,
+      "n": 95
+     },
+     "query_flood": {
+      "hit": 0,
+      "n": 3
+     }
+    },
+    "target_types": [
+     "click_spam"
+    ],
+    "target_recall": 1.0,
+    "target_f1": 1.0
+   },
+   "R4": {
+    "detections": 5,
+    "false_detections": 0,
+    "false_examples": [],
+    "campaign_recall": {
+     "hit": 2,
+     "n": 2
+    },
+    "detection_precision": 1.0,
+    "accounts": {
+     "flagged": 95,
+     "true_pos": 95,
+     "false_pos": 0,
+     "precision": 1.0,
+     "recall_by_type": {
+      "click_spam": {
+       "hit": 0,
+       "n": 3
+      },
+      "distributed_flood": {
+       "hit": 95,
+       "n": 95
+      },
+      "query_flood": {
+       "hit": 0,
+       "n": 3
+      }
+     },
+     "target_types": [
+      "distributed_flood"
+     ],
+     "target_recall": 1.0,
+     "target_f1": 1.0
+    }
+   },
+   "R1|R2|R3": {
+    "flagged": 91,
+    "true_pos": 91,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 85,
+      "n": 95
+     },
+     "query_flood": {
+      "hit": 3,
+      "n": 3
+     }
+    }
+   },
+   "R1|R2|R3|R4accounts": {
+    "flagged": 101,
+    "true_pos": 101,
+    "false_pos": 0,
+    "precision": 1.0,
+    "recall_by_type": {
+     "click_spam": {
+      "hit": 3,
+      "n": 3
+     },
+     "distributed_flood": {
+      "hit": 95,
+      "n": 95
+     },
+     "query_flood": {
+      "hit": 3,
+      "n": 3
+     }
+    }
+   },
+   "false_positive_samples": {
+    "R1": [],
+    "R2": [],
+    "R3": []
+   },
+   "curves": {
+    "R1": [
+     {
+      "value": 20,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 30,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 40,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 50,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 60,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 70,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 80,
+      "score": {
+       "flagged": 4,
+       "true_pos": 4,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 1,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 0.6666666666666666,
+       "target_f1": 0.8
+      }
+     },
+     {
+      "value": 90,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 0,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 0.5,
+       "target_f1": 0.6666666666666666
+      }
+     },
+     {
+      "value": 100,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 0,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 0.5,
+       "target_f1": 0.6666666666666666
+      }
+     },
+     {
+      "value": 120,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 0,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam"
+       ],
+       "target_recall": 0.5,
+       "target_f1": 0.6666666666666666
+      }
+     }
+    ],
+    "R2": [
+     {
+      "value": 3,
+      "score": {
+       "flagged": 91,
+       "true_pos": 91,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 85,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.900990099009901,
+       "target_f1": 0.9479166666666667
+      }
+     },
+     {
+      "value": 4,
+      "score": {
+       "flagged": 70,
+       "true_pos": 70,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 64,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.693069306930693,
+       "target_f1": 0.8187134502923976
+      }
+     },
+     {
+      "value": 5,
+      "score": {
+       "flagged": 49,
+       "true_pos": 49,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 43,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.48514851485148514,
+       "target_f1": 0.6533333333333333
+      }
+     },
+     {
+      "value": 6,
+      "score": {
+       "flagged": 34,
+       "true_pos": 34,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 28,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.33663366336633666,
+       "target_f1": 0.5037037037037037
+      }
+     },
+     {
+      "value": 8,
+      "score": {
+       "flagged": 13,
+       "true_pos": 13,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 7,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.12871287128712872,
+       "target_f1": 0.22807017543859648
+      }
+     },
+     {
+      "value": 10,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.0594059405940594,
+       "target_f1": 0.11214953271028036
+      }
+     },
+     {
+      "value": 15,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.0594059405940594,
+       "target_f1": 0.11214953271028036
+      }
+     },
+     {
+      "value": 20,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.0594059405940594,
+       "target_f1": 0.11214953271028036
+      }
+     },
+     {
+      "value": 30,
+      "score": {
+       "flagged": 6,
+       "true_pos": 6,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 3,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "query_flood",
+        "click_spam",
+        "distributed_flood"
+       ],
+       "target_recall": 0.0594059405940594,
+       "target_f1": 0.11214953271028036
+      }
+     }
+    ],
+    "R3": [
+     {
+      "value": 2,
+      "score": {
+       "flagged": 15,
+       "true_pos": 3,
+       "false_pos": 12,
+       "precision": 0.2,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 0.33333333333333337
+      }
+     },
+     {
+      "value": 3,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 4,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 5,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 10,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 20,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     },
+     {
+      "value": 50,
+      "score": {
+       "flagged": 3,
+       "true_pos": 3,
+       "false_pos": 0,
+       "precision": 1.0,
+       "recall_by_type": {
+        "click_spam": {
+         "hit": 3,
+         "n": 3
+        },
+        "distributed_flood": {
+         "hit": 0,
+         "n": 95
+        },
+        "query_flood": {
+         "hit": 0,
+         "n": 3
+        }
+       },
+       "target_types": [
+        "click_spam"
+       ],
+       "target_recall": 1.0,
+       "target_f1": 1.0
+      }
+     }
+    ],
+    "R4": [
+     {
+      "value": 5,
+      "score": {
+       "detections": 6,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 95,
+        "true_pos": 95,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 95,
+          "n": 95
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 10,
+      "score": {
+       "detections": 6,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 95,
+        "true_pos": 95,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 95,
+          "n": 95
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 15,
+      "score": {
+       "detections": 6,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 95,
+        "true_pos": 95,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 95,
+          "n": 95
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 20,
+      "score": {
+       "detections": 6,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 95,
+        "true_pos": 95,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 95,
+          "n": 95
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 30,
+      "score": {
+       "detections": 6,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 95,
+        "true_pos": 95,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 95,
+          "n": 95
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     },
+     {
+      "value": 50,
+      "score": {
+       "detections": 5,
+       "false_detections": 0,
+       "false_examples": [],
+       "campaign_recall": {
+        "hit": 2,
+        "n": 2
+       },
+       "detection_precision": 1.0,
+       "accounts": {
+        "flagged": 95,
+        "true_pos": 95,
+        "false_pos": 0,
+        "precision": 1.0,
+        "recall_by_type": {
+         "click_spam": {
+          "hit": 0,
+          "n": 3
+         },
+         "distributed_flood": {
+          "hit": 95,
+          "n": 95
+         },
+         "query_flood": {
+          "hit": 0,
+          "n": 3
+         }
+        },
+        "target_types": [
+         "distributed_flood"
+        ],
+        "target_recall": 1.0,
+        "target_f1": 1.0
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

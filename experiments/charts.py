@@ -165,6 +165,58 @@ def chart_c3():
     fig.tight_layout(rect=(0, 0.06, 1, 1))
     fig.savefig(os.path.join(OUT, "C3-mv-scale.png"))
 
+
+def chart_abuse():
+    """규칙별 주 임계값에 따른 정밀도·재현율. day1(임계값 결정용)과 보류 5일 합산(표시용)."""
+    th, ho = load("abuse_thresholds_day1_mac_m4"), load("abuse_holdout_mac_m4")
+    chosen = th["chosen"]
+    sweep = {"R1": ("t", "R1 · 5분 검색 수 (다양성 ≤ 0.2)"), "R2": ("min_n", "R2 · 1시간 최소 검색 수 (동일 쿼리 비율 1.0)"),
+             "R3": ("c", "R3 · 1시간 같은 문서 클릭 수"), "R4": ("n", "R4 · 10분 구간 검색 수 (고유 사용자 ≥ 20, z ≥ 30)")}
+    target = th["target_types"]
+
+    def pr(rule, score):
+        if rule == "R4":
+            return score["detection_precision"], score["campaign_recall"]["hit"] / score["campaign_recall"]["n"]
+        rec = score["recall_by_type"]
+        hit = sum(rec[t]["hit"] for t in target[rule])
+        n = sum(rec[t]["n"] for t in target[rule])
+        return score["precision"], hit / n
+
+    def pooled(rule, value):
+        pts = [next(c["score"] for c in ho["per_seed"][s]["curves"][rule] if c["value"] == value) for s in ho["per_seed"]]
+        if rule == "R4":
+            det = sum(p["detections"] for p in pts)
+            return ((det - sum(p["false_detections"] for p in pts)) / det if det else None,
+                    sum(p["campaign_recall"]["hit"] for p in pts) / sum(p["campaign_recall"]["n"] for p in pts))
+        fl = sum(p["flagged"] for p in pts)
+        hit = sum(p["recall_by_type"][t]["hit"] for p in pts for t in target[rule])
+        n = sum(p["recall_by_type"][t]["n"] for p in pts for t in target[rule])
+        return (sum(p["true_pos"] for p in pts) / fl if fl else None), hit / n
+
+    fig, axes = plt.subplots(2, 2, figsize=(9, 6.4), dpi=150)
+    for ax, rule in zip(axes.flat, ("R1", "R2", "R3", "R4")):
+        key, title = sweep[rule]
+        rows = [r for r in th["grid"][rule]
+                if all(r["params"][k] == v for k, v in chosen[rule].items() if k != key)]
+        xs = [r["params"][key] for r in rows]
+        d1 = [pr(rule, r["score"]) for r in rows]
+        hv = [pooled(rule, x) for x in xs]
+        ax.plot(xs, [p for p, _ in d1], color=S[0], lw=1.5, ls=(0, (3, 2)), marker="o", ms=3, label="정밀도 · day1")
+        ax.plot(xs, [r for _, r in d1], color=S[1], lw=1.5, ls=(0, (3, 2)), marker="o", ms=3, label="재현율 · day1")
+        ax.plot(xs, [p for p, _ in hv], color=S[0], lw=2, marker="s", ms=3, label="정밀도 · 보류 5일")
+        ax.plot(xs, [r for _, r in hv], color=S[1], lw=2, marker="s", ms=3, label="재현율 · 보류 5일")
+        ax.axvline(chosen[rule][key], color=INK2, lw=1, ls=(0, (1, 2)))
+        ax.text(chosen[rule][key], 0.04, " 선택", color=INK2, fontsize=7)
+        ax.set_ylim(-0.03, 1.08)
+        ax.set_title(title, loc="left", fontsize=9, color=INK)
+        ax.tick_params(labelsize=8)
+    h, lb = axes[0][0].get_legend_handles_labels()
+    fig.legend(h, lb, frameon=False, fontsize=8, loc="lower center", ncol=4)
+    fig.suptitle("어뷰징 규칙 · 임계값별 정밀도·재현율 (선택은 day1만 사용, 보류 곡선은 표시용)", x=0.01, ha="left",
+                 fontsize=11, color=INK)
+    fig.tight_layout(rect=(0, 0.05, 1, 1))
+    fig.savefig(os.path.join(OUT, "R-abuse-pr.png"))
+
 if __name__ == "__main__":
     # 인자로 그릴 그림을 고른다(예: charts.py c2). 인자가 없으면 A·B·C만 그린다.
     # 이미 커밋한 그림을 다른 환경·글꼴로 다시 그리지 않도록 새 그림은 이름을 지정해서만 그린다.
