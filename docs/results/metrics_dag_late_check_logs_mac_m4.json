@@ -1,0 +1,197 @@
+{
+ "note": "late_after_final_check 태스크 로그(Airflow 컨테이너 /opt/airflow/logs)에서 판정 줄만 추출. 1·2회차의 run_id가 같아 한 로그 파일에 두 회차가 이어 쓰였다. run 필드는 줄 시각이 2회차 태스크 실행 구간(metrics_dag_mac_m4.json의 tasks)에 들면 2, 아니면 1이다. run_id의 시각은 H 끝이다.",
+ "rows": [
+  {
+   "hour": 0,
+   "run_id": "scheduled__2026-01-05T01:00:00+00:00",
+   "timestamp": "2026-10-15T01:22:03.485185Z",
+   "level": "info",
+   "message": "hour=2026-01-05 00:00:00+00:00 확정 후 늦은 도착 없음",
+   "run": 1
+  },
+  {
+   "hour": 0,
+   "run_id": "scheduled__2026-01-05T01:00:00+00:00",
+   "timestamp": "2026-10-15T01:37:20.220830Z",
+   "level": "info",
+   "message": "hour=2026-01-05 00:00:00+00:00 확정 후 늦은 도착 없음",
+   "run": 2
+  },
+  {
+   "hour": 1,
+   "run_id": "scheduled__2026-01-05T02:00:00+00:00",
+   "timestamp": "2026-10-15T01:23:03.086499Z",
+   "level": "info",
+   "message": "hour=2026-01-05 01:00:00+00:00 확정 후 늦은 도착 없음",
+   "run": 1
+  },
+  {
+   "hour": 1,
+   "run_id": "scheduled__2026-01-05T02:00:00+00:00",
+   "timestamp": "2026-10-15T01:38:20.420506Z",
+   "level": "info",
+   "message": "hour=2026-01-05 01:00:00+00:00 확정 후 늦은 도착 없음",
+   "run": 2
+  },
+  {
+   "hour": 2,
+   "run_id": "scheduled__2026-01-05T03:00:00+00:00",
+   "timestamp": "2026-10-15T01:24:03.497913Z",
+   "level": "warning",
+   "message": "LATE_AFTER_FINAL hour=2026-01-05 02:00:00+00:00 late_events=5 (inserted_at 기준 5) final_v2 → refinal_v3",
+   "run": 1
+  },
+  {
+   "hour": 2,
+   "run_id": "scheduled__2026-01-05T03:00:00+00:00",
+   "timestamp": "2026-10-15T01:39:20.670776Z",
+   "level": "warning",
+   "message": "LATE_AFTER_FINAL hour=2026-01-05 02:00:00+00:00 late_events=5 (inserted_at 기준 5) final_v2 → refinal_v3",
+   "run": 2
+  },
+  {
+   "hour": 3,
+   "run_id": "scheduled__2026-01-05T04:00:00+00:00",
+   "timestamp": "2026-10-15T01:25:03.453732Z",
+   "level": "info",
+   "message": "hour=2026-01-05 03:00:00+00:00 확정 후 늦은 도착 없음",
+   "run": 1
+  },
+  {
+   "hour": 3,
+   "run_id": "scheduled__2026-01-05T04:00:00+00:00",
+   "timestamp": "2026-10-15T01:40:20.193516Z",
+   "level": "info",
+   "message": "hour=2026-01-05 03:00:00+00:00 확정 후 늦은 도착 없음",
+   "run": 2
+  },
+  {
+   "hour": 4,
+   "run_id": "scheduled__2026-01-05T05:00:00+00:00",
+   "timestamp": "2026-10-15T01:26:03.695066Z",
+   "level": "info",
+   "message": "hour=2026-01-05 04:00:00+00:00 확정 후 늦은 도착 없음",
+   "run": 1
+  },
+  {
+   "hour": 4,
+   "run_id": "scheduled__2026-01-05T05:00:00+00:00",
+   "timestamp": "2026-10-15T01:41:19.840945Z",
+   "level": "info",
+   "message": "hour=2026-01-05 04:00:00+00:00 확정 후 늦은 도착 없음",
+   "run": 2
+  },
+  {
+   "hour": 5,
+   "run_id": "scheduled__2026-01-05T06:00:00+00:00",
+   "timestamp": "2026-10-15T01:27:02.756344Z",
+   "level": "warning",
+   "message": "LATE_AFTER_FINAL hour=2026-01-05 05:00:00+00:00 late_events=5 (inserted_at 기준 5) final_v2 → refinal_v3",
+   "run": 1
+  },
+  {
+   "hour": 5,
+   "run_id": "scheduled__2026-01-05T06:00:00+00:00",
+   "timestamp": "2026-10-15T01:42:20.030764Z",
+   "level": "warning",
+   "message": "LATE_AFTER_FINAL hour=2026-01-05 05:00:00+00:00 late_events=5 (inserted_at 기준 5) final_v2 → refinal_v3",
+   "run": 2
+  },
+  {
+   "hour": 6,
+   "run_id": "scheduled__2026-01-05T07:00:00+00:00",
+   "timestamp": "2026-10-15T01:28:03.067467Z",
+   "level": "info",
+   "message": "hour=2026-01-05 06:00:00+00:00 확정 후 늦은 도착 없음",
+   "run": 1
+  },
+  {
+   "hour": 6,
+   "run_id": "scheduled__2026-01-05T07:00:00+00:00",
+   "timestamp": "2026-10-15T01:43:20.252242Z",
+   "level": "info",
+   "message": "hour=2026-01-05 06:00:00+00:00 확정 후 늦은 도착 없음",
+   "run": 2
+  },
+  {
+   "hour": 7,
+   "run_id": "scheduled__2026-01-05T08:00:00+00:00",
+   "timestamp": "2026-10-15T01:29:03.064456Z",
+   "level": "info",
+   "message": "hour=2026-01-05 07:00:00+00:00 확정 후 늦은 도착 없음",
+   "run": 1
+  },
+  {
+   "hour": 7,
+   "run_id": "scheduled__2026-01-05T08:00:00+00:00",
+   "timestamp": "2026-10-15T01:44:20.541193Z",
+   "level": "info",
+   "message": "hour=2026-01-05 07:00:00+00:00 확정 후 늦은 도착 없음",
+   "run": 2
+  },
+  {
+   "hour": 8,
+   "run_id": "scheduled__2026-01-05T09:00:00+00:00",
+   "timestamp": "2026-10-15T01:30:03.376546Z",
+   "level": "warning",
+   "message": "LATE_AFTER_FINAL hour=2026-01-05 08:00:00+00:00 late_events=5 (inserted_at 기준 5) final_v2 → refinal_v3",
+   "run": 1
+  },
+  {
+   "hour": 8,
+   "run_id": "scheduled__2026-01-05T09:00:00+00:00",
+   "timestamp": "2026-10-15T01:45:19.686554Z",
+   "level": "warning",
+   "message": "LATE_AFTER_FINAL hour=2026-01-05 08:00:00+00:00 late_events=5 (inserted_at 기준 5) final_v2 → refinal_v3",
+   "run": 2
+  },
+  {
+   "hour": 9,
+   "run_id": "scheduled__2026-01-05T10:00:00+00:00",
+   "timestamp": "2026-10-15T01:31:03.661836Z",
+   "level": "info",
+   "message": "hour=2026-01-05 09:00:00+00:00 확정 후 늦은 도착 없음",
+   "run": 1
+  },
+  {
+   "hour": 9,
+   "run_id": "scheduled__2026-01-05T10:00:00+00:00",
+   "timestamp": "2026-10-15T01:46:19.732286Z",
+   "level": "info",
+   "message": "hour=2026-01-05 09:00:00+00:00 확정 후 늦은 도착 없음",
+   "run": 2
+  },
+  {
+   "hour": 10,
+   "run_id": "scheduled__2026-01-05T11:00:00+00:00",
+   "timestamp": "2026-10-15T01:32:03.498807Z",
+   "level": "info",
+   "message": "hour=2026-01-05 10:00:00+00:00 확정 후 늦은 도착 없음",
+   "run": 1
+  },
+  {
+   "hour": 10,
+   "run_id": "scheduled__2026-01-05T11:00:00+00:00",
+   "timestamp": "2026-10-15T01:47:20.011626Z",
+   "level": "info",
+   "message": "hour=2026-01-05 10:00:00+00:00 확정 후 늦은 도착 없음",
+   "run": 2
+  },
+  {
+   "hour": 11,
+   "run_id": "scheduled__2026-01-05T12:00:00+00:00",
+   "timestamp": "2026-10-15T01:33:03.584752Z",
+   "level": "info",
+   "message": "hour=2026-01-05 11:00:00+00:00 확정 후 늦은 도착 없음",
+   "run": 1
+  },
+  {
+   "hour": 11,
+   "run_id": "scheduled__2026-01-05T12:00:00+00:00",
+   "timestamp": "2026-10-15T01:48:19.984537Z",
+   "level": "info",
+   "message": "hour=2026-01-05 11:00:00+00:00 확정 후 늦은 도착 없음",
+   "run": 2
+  }
+ ]
+}
